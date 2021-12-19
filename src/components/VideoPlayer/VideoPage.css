@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Video */
+.videoContainer {
+  height: calc((9 / 16) * 100vw);
+  max-height: calc(100vh - 169px);
+  min-height: 480px;
+  background-color: black;
+}
+.video {
+  height: calc((9 / 16) * 100vw);
+  max-height: calc(100vh - 169px);
+  min-height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bg-blackT {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+}
+.controlsContainer {
+  opacity: 0;
+}
+
+.videoControls {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: center;
+  position: absolute;
+  bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.controls-btn {
+  width: 24px;
+  height: 24px;
+}
+.control-icon {
+  width: 24px;
+  height: 24px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.timecontrols {
+  display: flex;
+  align-items: end;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.time_progressbarContainer {
+  background-color: gray;
+  border-radius: 2px;
+  width: 80%;
+  min-height: 20px;
+  max-height: 24px;
+  z-index: 30;
+  position: relative;
+  margin: 0 20px;
+}
+
+.time_progressBar {
+  border-radius: 0;
+  background-color: rgb(78 78 78);
+  min-height: 20px;
+  max-height: 24px;
+}
+
+.controlsTime {
+  color: white;
+}
