@@ -4,8 +4,11 @@ import VideoPageInfo from "./videoPageInfo/VideoPageInfo";
 const  VideoPage = () => {
     return (
         <div className="">
-            <VideoPageInfo></VideoPageInfo>
-            <VideoPlayer></VideoPlayer>
+            <div className="bg-black">
+                <VideoPageInfo></VideoPageInfo>
+                <VideoPlayer></VideoPlayer>
+            </div>
+            
         </div>
     );
 }
