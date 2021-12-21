@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import './VideoPage.css';
+import './VideoPlayer.css';
 
 import BackwardSvg from './controls/backward-5.svg';
 import ForwardSvg from './controls/forward-5.svg';
@@ -15,6 +15,7 @@ const  VideoPlayer = () => {
   const videoRef = useRef(null);
   const progressBar = useRef(null);
   const controlsContainer = useRef(null);
+  const volumeSlider = useRef(null);
 
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -22,7 +23,10 @@ const  VideoPlayer = () => {
   const [progress, setProgress] = useState(0);
 
   const [muted, setMuted] = useState(false);
-  const [lastVolume, setLastVolume] = useState(10);
+  const [volume, setVolume] = useState(10);
+  useEffect(() => {
+    changeVolume(volume);
+  }, [])
 
   const videoHandler = (control) => {
     if (control === "play") {
@@ -50,11 +54,23 @@ const  VideoPlayer = () => {
   }
   
   const changeControlsVisability = (event) => {
-    if(event === "visible") {
+    if(event === 1) {
       controlsContainer.current.style.opacity = "1";
-    } else if (event === "hidden") {
+    } else if (event === 0) {
       controlsContainer.current.style.opacity = "0";
     }
+  }
+  const changeVolumeSliderVisability = (event) => {
+    if(event === "visible") {
+      volumeSlider.current.style.visibility = "visible";
+    } else if (event === "hidden") {
+      volumeSlider.current.style.visibility = "hidden";
+    }
+  }
+  const changeVolume = (value) => {
+    setVolume(value);
+    videoRef.current.volume = value/100;
+    console.log(videoRef.current.volume)
   }
 
   window.setInterval(function () {
@@ -64,23 +80,32 @@ const  VideoPlayer = () => {
   }, 1000);
 
   return (
-        <div className="relative videoContainer" onMouseEnter={() => changeControlsVisability("visible")} onMouseLeave={() => changeControlsVisability("hidden")}>
+        <div className="relative videoContainer" onMouseEnter={() => changeControlsVisability(1)} onMouseLeave={() => changeControlsVisability(0)}>
             <video
             id="video1"
             ref={videoRef}
             className="video"
-            src="https://res.cloudinary.com/dssvrf9oz/video/upload/v1635662987/pexels-pavel-danilyuk-5359634_1_gmixla.mp4"
+            src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
             ></video>
-            <div className="controlsContainer" ref={controlsContainer} >
+            <div className="controlsContainer" ref={controlsContainer} onMouseLeave={() => changeVolumeSliderVisability("hidden")}>
               <div className="bg-blackT"></div>
               
               <div className="videoControls" >
+                <div className="w-1/3"></div>
+                <div className="center-buttons">
                   <button className="controls-buttons" onClick={playing === false ? () => videoHandler("play") : () => videoHandler("pause")}> 
                     <img src={playing === false ? PlaySvg : PauseSvg}
                     className="control-icon" alt=""></img> 
                   </button>
                   <button className="controls-buttons"> <img src={NextSvg} className="control-icon" alt=""></img> </button>
-                  <button className="controls-buttons"> <img src={muted === false ? VolumeSvg : MutedSvg} className="control-icon" alt=""></img> </button>
+                  <button className="controls-buttons flex muteButton" 
+                  onMouseEnter={() => changeVolumeSliderVisability("visible")} onClick={null}> 
+                    <img src={muted === false ? VolumeSvg : MutedSvg} className="control-icon" alt=""></img> 
+                  </button>
+                </div>
+                <div className="w-1/3 relative">
+                  <input type="range" ref={volumeSlider} onChange={(event) => changeVolume(event.target.value)} className="volumeSlider" defaultValue={volume} />
+                </div>
                   
               </div>
               <div className="timecontrols">

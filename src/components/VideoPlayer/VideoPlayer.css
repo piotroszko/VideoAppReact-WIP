@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* Video */
 .videoContainer {
   height: calc((9 / 16) * 100vw);
@@ -23,23 +20,38 @@
   height: 55px;
 }
 .controlsContainer {
-  opacity: 0;
+  opacity: 1;
+  /* Opacity should be 0 */
 }
 
 .videoControls {
-  display: flex;
-  gap: 10px;
-  align-items: end;
-  justify-content: center;
+  width: 100%;
   position: absolute;
   bottom: 24px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: center;
+}
+.center-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: center;
+  width: fit-content;
 }
 .controls-btn {
   width: 24px;
   height: 24px;
+}
+.volumeSlider {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  max-width: 70%;
+  visibility: hidden;
 }
 .control-icon {
   width: 24px;
