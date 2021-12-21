@@ -4,13 +4,16 @@
 
 @layer components {
   .btn-history {
-    @apply pt-2 h-full underline text-gray-800 font-bold focus:text-blue-700 text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
+    @apply pt-0 h-full underline text-gray-800 font-bold focus:text-blue-700 text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
   }
   .btn-toWatch {
-    @apply pt-2 h-full underline text-gray-800 focus:text-blue-700 font-bold text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
+    @apply pt-0 h-full underline text-gray-800 focus:text-blue-700 font-bold text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
   }
   .btn-playlist {
-    @apply pt-2 h-full text-gray-600 focus:text-blue-700 text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
+    @apply pt-0 h-full text-gray-600 focus:text-blue-700 text-center border-b-2 focus:outline-none focus:border-blue-700 border-transparent;
+  }
+  .text-btn-bottom {
+    @apply text-sm focus:outline-none font-medium leading-4  px-4 py-2 hover:bg-blue-50 hover:text-blue-700 rounded;
   }
 }
 .playlist-scrollbar::-webkit-scrollbar {
@@ -30,4 +33,26 @@
 .btn-special-underline {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid black;
+  border-top: 17px solid black;
+}
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 0px solid black;
+  border-top: 17px solid black;
+}
+.barAnimation {
+  transition: margin-top 150ms;
+}
+.translate-x-full1 {
+  --tw-translate-x: 101%;
 }

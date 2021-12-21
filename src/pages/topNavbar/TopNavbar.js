@@ -34,7 +34,7 @@ const TopNavbar = () => {
         <div className="bg-white">
             <div className="hidden lg:block relative border-b px-8 border-gray-100">
                 <div className="2xl:container 2xl:mx-auto flex justify-between items-center w-full">
-                    <div className=" relative w-full py-3 flex justify-start items-center space-x-4">
+                    <div className="relative w-full py-3 flex justify-start items-center space-x-4">
                         <Link to="/" component={<MainLayout />}>
                             <svg className="cursor-pointer" width={50} height={32} viewBox="0 0 50 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
