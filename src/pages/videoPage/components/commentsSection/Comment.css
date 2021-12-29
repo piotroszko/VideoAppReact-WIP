@@ -1,0 +1,25 @@
+/* CommentForm */
+
+.scaley-0 {
+  -webkit-transform: scaley(0);
+  transform: scaley(0);
+}
+.scaley-full {
+  -webkit-transform: scaley(1);
+  transform: scaley(1);
+}
+.animateScale2 {
+  transition: all 0.2s ease-in-out;
+}
+.animateScale8 {
+  transition: all 0.8s ease-in-out;
+}
+
+.scale-half {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+.scale-full {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}

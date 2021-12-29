@@ -70,7 +70,6 @@ const  VideoPlayer = () => {
   const changeVolume = (value) => {
     setVolume(value);
     videoRef.current.volume = value/100;
-    console.log(videoRef.current.volume)
   }
 
   window.setInterval(function () {
