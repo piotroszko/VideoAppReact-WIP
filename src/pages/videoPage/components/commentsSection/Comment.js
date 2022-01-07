@@ -1,5 +1,15 @@
 
+import './Comment.css';
+
+import ArrowSvg from './controls/arrow.svg';
+
 const Comment = () => {
+    const onLikeClick = () => {
+
+    }
+    const onDislikeClick = () => {
+        
+    }
     return (
     <div className="w-full sm:w-3/4 mx-auto px-0 border-b-2">
         <div className='relative m-0 flex bg-white'>
@@ -7,14 +17,17 @@ const Comment = () => {
                 <img alt='' className='w-auto h-2/5 sm:h-1/2 lg:w-32 lg:h-32 block mx-auto rounded-3xl' src='https://source.unsplash.com/WLUHO9A_xik/1600x900'/>
             </div>
             <div className='flex-no-shrink sm:w-1/5 w-1/6 p-2'>
-                <div className="p-0 sm:p-4 mb-2">
+                <div className="p-0 sm:px-4 mb-4">
                     <h4 className='font-medium  text-xs sm:text-sm text-left whitespace-normal ml-1'>Nickname add</h4>
                 </div>
-                <div className="p-1 ">
-                    <h4 className='font-medium text-md text-center'>UPVOTE</h4>
+                <div className="px-1 flex ">
+                    <img onClick={() => onLikeClick()} className="ml-0 svgGreenFilter cursor-pointer select-none" width="45" src={ArrowSvg} alt=""/> 
+                    <p className="self-center ml-2 text-lg font-semibold text-green-600 cursor-default"> 0 </p>
                 </div>
-                <div className="p-1">
-                    <h4 className='font-medium text-md text-center'>DOWNVOTE</h4>
+                <div className="px-1 flex ">
+                    <img onClick={() => onDislikeClick()} className="ml-0 svgRedFilter cursor-pointer  select-none" width="45" style={{transform: 'rotate(180deg)'}} src={ArrowSvg} alt=""/>
+                    <p className="self-center ml-2 text-lg font-semibold text-red-600 cursor-default"> 0 </p>
+
                 </div>
             </div>
             <div className='flex-1 card-block relative w-2/3'>
