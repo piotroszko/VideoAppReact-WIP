@@ -3,6 +3,7 @@ import VideoPageInfo from "./components/videoPageInfo/VideoPageInfo";
 import React, { useEffect } from 'react'
 import CommentsSection from "./components/commentsSection/CommentsSection";
 import CommentForm from "./components/commentsSection/CommentForm";
+import RecommendedVideos from "./components/recommendedVideos/RecommendedVideos";
 
 const  VideoPage = (props) => {
     useEffect(() => {
@@ -13,6 +14,7 @@ const  VideoPage = (props) => {
             <div className="bg-black">
                 <VideoPageInfo></VideoPageInfo>
                 <VideoPlayer></VideoPlayer>
+                <RecommendedVideos/>
                 <CommentForm/>
                 <CommentsSection/>
             </div>
