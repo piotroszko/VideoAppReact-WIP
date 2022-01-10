@@ -7,10 +7,18 @@ const BottomNavbar = () => {
 
     const onScroll = (e) => {
         if(e.deltaY < 0) {
-            refPlaylists.current.scrollBy(100, 0);
+            refPlaylists.current.scrollBy({
+                top: 0,
+                left: 180,
+                behavior: 'smooth'
+              });
         }else 
         {
-            refPlaylists.current.scrollBy(-100, 0);
+            refPlaylists.current.scrollBy({
+                top: 0,
+                left: -180,
+                behavior: 'smooth'
+                });
         }
     }
     const enableScroll = () => {
