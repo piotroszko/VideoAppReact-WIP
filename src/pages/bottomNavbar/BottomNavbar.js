@@ -9,14 +9,14 @@ const BottomNavbar = () => {
         if(e.deltaY < 0) {
             refPlaylists.current.scrollBy({
                 top: 0,
-                left: 180,
+                left: -180,
                 behavior: 'smooth'
               });
         }else 
         {
             refPlaylists.current.scrollBy({
                 top: 0,
-                left: -180,
+                left: 180,
                 behavior: 'smooth'
                 });
         }

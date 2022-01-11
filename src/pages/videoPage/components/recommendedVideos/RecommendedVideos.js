@@ -17,13 +17,13 @@ const  RecommendedVideos = () => {
         if (scrollLeft) {
             refBar.current.scrollBy({
                 top: 0,
-                left: -300,
+                left: 300,
                 behavior: 'smooth'
               });
         } else {
             refBar.current.scrollBy({
                 top: 0,
-                left: 300,
+                left: -300,
                 behavior: 'smooth'
               });
         }

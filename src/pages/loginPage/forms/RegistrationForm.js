@@ -6,15 +6,15 @@ const RegistrationForm = ({isVisable, visabilityCallback }) => {
             <p className="text-xl font-semibold py-2 w-2/3 sm:w-1/3 mx-auto border-b-2 border-gray-700"> REJESTRACJA </p>
             <label className="text-left ml-14"> Podaj login </label>
             <input className="focus:ring-2 focus:border-gray-500 focus:ring-gray-500 focus:outline-none placeholder-gray-300 py-1 font-semibold
-              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="text" placeholder="Login"></input>
+              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="text" placeholder="Wpisz login"></input>
 
             <label className="text-left ml-14 mt-4"> Podaj email </label>
             <input className="focus:ring-2 focus:border-gray-500 focus:ring-gray-500 focus:outline-none placeholder-gray-300 py-1 font-semibold
-              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="text" placeholder="Email"></input>
+              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="text" placeholder="Adres e-mail"></input>
 
             <label className="text-left ml-14 mt-10"> Podaj hasło </label>
             <input className="focus:ring-2 focus:border-gray-500 focus:ring-gray-500 focus:outline-none placeholder-gray-300 py-1 font-semibold
-              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="password" placeholder="Hasło"></input>
+              text-left bg-gray-200 text-black rounded-sm w-4/5 mr-auto sm:ml-12 ml-4 mt-1 pl-2 border-gray-400" type="password" placeholder="Wpisz hasło"></input>
 
             <label className="text-left ml-14 mt-4"> Podaj hasło ponownie</label>
             <input className="focus:ring-2 focus:border-gray-500 focus:ring-gray-500 focus:outline-none placeholder-gray-300 py-1 font-semibold

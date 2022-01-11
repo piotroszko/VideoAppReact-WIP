@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
-import RegistrationForm from "./RegistrationForm";
-import LoginForm from "./LoginForm";
+import RegistrationForm from "./forms/RegistrationForm";
+import LoginForm from "./forms/LoginForm";
+import ForgotForm from "./forms/ForgotForm";
 
 const LoginPage = () => {
     const [isRegVisable, setIsRegVisable] = useState(false);
+    const [isForgotVisable, setIsForgotVisable] = useState(false);
     return (
     <div className="grid grid-cols-1 grid-rows-6 h-screen">
       <div className="col-span-1 row-span-1 h-full w-full flex flex-col">
@@ -15,7 +17,8 @@ const LoginPage = () => {
       </div>
       <div className=" w-full h-full row-span-4 row-start-2 flip">
         <div className="h-full w-full">
-          <LoginForm visabilityCallback={() => setIsRegVisable(true)} isVisable={isRegVisable}></LoginForm>
+          <ForgotForm visabilityCallback={() => setIsForgotVisable(false)} isVisable={isForgotVisable}></ForgotForm>
+          <LoginForm visabilityCallback={() => setIsRegVisable(true)} forgotCallback={ () => setIsForgotVisable(true)} isVisable={isRegVisable || isForgotVisable}></LoginForm>
           <RegistrationForm visabilityCallback={() => setIsRegVisable(false)} isVisable={isRegVisable}></RegistrationForm>
         </div>
       </div>
