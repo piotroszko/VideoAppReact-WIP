@@ -7,6 +7,7 @@ import GifBunny from './placeholders/bunny.gif';
 import Bunny from './placeholders/bunnyimg.png';
 import addSvg from './placeholders/addToWatch.svg';
 import VideoPage from '../../pages/videoPage/VideoPage';
+import ChannelPage from '../../pages/channelPage/ChannelPage';
 
 
 const  VideoCard = () => {
@@ -44,7 +45,9 @@ const  VideoCard = () => {
             </Link>
             <p className="w-1/3 text-right text-sm italic"> 2 lata</p>
         </div>
-        <p className="text-center w-full text-sm whitespace-nowrap"> Nazwa kanału</p>
+        <Link to="/channel/test" component={<ChannelPage />}>
+            <p className="text-center w-full text-sm whitespace-nowrap hover:underline"> Nazwa kanału</p>
+        </Link>
         <p className="text-right w-full text-sm whitespace-nowrap"> Wyswietlenia: 20k</p>
         <div className="flex h-8 mt-1">
             

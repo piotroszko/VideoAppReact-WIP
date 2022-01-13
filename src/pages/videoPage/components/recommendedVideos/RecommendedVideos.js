@@ -48,8 +48,8 @@ const  RecommendedVideos = () => {
             <div className="border-4 border-gray-500 rounded-b-xl h-60 w-full flex flex-row overflow-hidden relative"
             onWheel={onScroll} onMouseEnter={disableScroll} onMouseLeave={enableScroll} 
             >
-                <div onClick={() => scrollLeft(true)} className="w-14 h-16 absolute top-1/4 bg-gray-300 z-50 opacity-75 rounded-r-2xl cursor-pointer"> <img style={{transform: 'rotate(-180deg)'}} className="h-12 mr-1 mt-2" src={ScrollSvg} alt="<-"></img> </div>
-                <div onClick={() => scrollLeft(false)} className="w-14 h-16 absolute top-1/4 right-0 bg-gray-300 z-50 opacity-75 rounded-l-2xl cursor-pointer"> <img className="h-12 ml-2 mt-2" src={ScrollSvg} alt="<-"></img> </div>
+                <div onClick={() => scrollLeft(false)} className="w-14 h-16 absolute top-1/4 bg-gray-300 z-50 opacity-75 rounded-r-2xl cursor-pointer"> <img style={{transform: 'rotate(-180deg)'}} className="h-12 mr-1 mt-2" src={ScrollSvg} alt="<-"></img> </div>
+                <div onClick={() => scrollLeft(true)} className="w-14 h-16 absolute top-1/4 right-0 bg-gray-300 z-50 opacity-75 rounded-l-2xl cursor-pointer"> <img className="h-12 ml-2 mt-2" src={ScrollSvg} alt="<-"></img> </div>
                 <div className="h-60 w-full flex flex-row overflow-hidden pl-8 pr-8 scroll-smooth" ref={refBar}>
                     <div className="h-60 w-50 ">
                         <VideoCard></VideoCard>

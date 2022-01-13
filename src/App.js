@@ -7,6 +7,7 @@ import MainLayout from './pages/mainLayout/MainLayout';
 import VideoList from './pages/videoList/VideoList';
 import VideoPage from './pages/videoPage/VideoPage';
 import LoginPage from './pages/loginPage/LoginPage';
+import ChannelPage from './pages/channelPage/ChannelPage';
 
 const  App = () => {
   return (
@@ -18,6 +19,7 @@ const  App = () => {
           <Route path="/" element={ <MainLayout /> }>
             <Route index element={ <VideoList /> } />
             <Route path="video/:id" element={< VideoPage/>} />
+            <Route path="channel/:id" element={< ChannelPage/>} />
           </Route>
           <Route path="/login" element={<LoginPage/>}>
 
