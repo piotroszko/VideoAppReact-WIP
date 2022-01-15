@@ -44,8 +44,8 @@ const  RecommendedVideos = () => {
         e.returnValue = false
     }
     return (
-        <div className=" mt-2 bg-white h-70 w-full">
-            <div className="border-4 border-gray-500 rounded-b-xl h-60 w-full flex flex-row overflow-hidden relative"
+        <div className=" mt-2 bg-white h-72 w-full">
+            <div className="border-4 border-gray-500 rounded-b-xl h-64 w-full flex flex-row overflow-hidden relative"
             onWheel={onScroll} onMouseEnter={disableScroll} onMouseLeave={enableScroll} 
             >
                 <div onClick={() => scrollLeft(false)} className="w-14 h-16 absolute top-1/4 bg-gray-300 z-50 opacity-75 rounded-r-2xl cursor-pointer"> <img style={{transform: 'rotate(-180deg)'}} className="h-12 mr-1 mt-2" src={ScrollSvg} alt="<-"></img> </div>

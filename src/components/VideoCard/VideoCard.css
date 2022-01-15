@@ -17,3 +17,7 @@
 .addToWatch:hover {
   border-radius: 50%;
 }
+.videoCard {
+  min-width: 15rem;
+  max-width: 25rem;
+}
