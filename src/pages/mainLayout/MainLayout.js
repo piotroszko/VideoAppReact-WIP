@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import TopNavbar from "./../topNavbar/TopNavbar";
 import BottomNavbar from "./../bottomNavbar/BottomNavbar";
 

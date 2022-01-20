@@ -1,5 +1,5 @@
 import VideoCard from './../../../../components/VideoCard/VideoCard';
-import React, { useState, useRef} from "react";
+import React, { useRef} from "react";
 import ScrollSvg from "./icons/scroll.svg";
 
 const  RecommendedVideos = () => {

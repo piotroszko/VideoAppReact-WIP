@@ -32,13 +32,13 @@
   margin-right: auto;
   display: flex;
   gap: 10px;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
 }
 .center-buttons {
   display: flex;
   gap: 10px;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   width: fit-content;
 }
@@ -62,7 +62,7 @@
 
 .timecontrols {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-evenly;
   position: absolute;
   bottom: 0;
@@ -91,4 +91,8 @@
 
 .controlsTime {
   color: white;
+}
+.btnHover:hover {
+  filter: invert(8%) sepia(5%) saturate(22%) hue-rotate(353deg) brightness(107%)
+    contrast(84%);
 }

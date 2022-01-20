@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginPage from "../../../loginPage/LoginPage";
 import { useDetectClickOutside } from 'react-detect-click-outside';
-import { useNavigate } from "react-router-dom";
 import {useAuth, useUser} from "../../../../utils";
 
 const LoginButton = () => {

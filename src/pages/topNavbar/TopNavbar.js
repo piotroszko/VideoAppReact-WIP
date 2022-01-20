@@ -60,8 +60,8 @@ const TopNavbar = () => {
                         </div>
                         {/* pop up on input */}
                         <div id="popup" className={`${result ? "" : "hidden"} ease-in-out transition duration-500 bg-white
-                        z-20 top-20 left-12 absolute  w-64 shadow border rounded border-gray-200 py-3  flex justify-center items-start flex-col`}>
-                            <button className="w-full mt-2 flex p-3 justify-start items-center space-x-2 hover:bg-blue-50 rounded">
+                        z-30 top-20 left-12 absolute  w-64 shadow border rounded border-gray-200 py-3  flex justify-center items-start flex-col`}>
+                            <button className="w-full mt-2 flex p-3 justify-start items-center space-x-2 hover:bg-gray-50 rounded">
                                 <div className="flex justify-start items-start flex-col space-y-1">
                                     <p className="text-xl font-bold text-left leading-3 text-gray-800">coinbase</p>
                                 </div>
@@ -79,7 +79,7 @@ const TopNavbar = () => {
                 <div className={`py-4 px-4 z-50 h-auto fixed top-0 md:px-6 w-full flex justify-between items-center bg-white border-b border-gray-100`}>
                     <div id="searchItems" className={`${search ? "hidden" : ""} w-full flex justify-between items-center `}>
                         <Link to="/" component={<MainLayout />}>
-                            <button className>
+                            <button >
                                 <svg width={50} height={32} viewBox="0 0 50 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M0 17.0551C0.0324314 25.2688 6.59422 32 14.6551 32C22.7359 32 29.3097 25.2959 29.3097
@@ -131,7 +131,7 @@ const TopNavbar = () => {
                             {/* pop up on input */}
                             <div id="popup2" className={`${result2 ? "" : "hidden"} ease-in-out transition duration-500
                             bg-white top-20  absolute w-full shadow border rounded border-gray-200 py-3 flex justify-center items-start flex-col`}>
-                                <button className="w-full mt-2 p-3 flex justify-start items-center space-x-2 hover:bg-blue-50 rounded">
+                                <button className="w-full mt-2 p-3 flex justify-start items-center space-x-2 hover:bg-gray-50 rounded">
                                     <div className="flex justify-start items-start flex-col space-y-1">
                                         <p className="text-xl font-bold text-left leading-3 text-gray-800">coinbase</p>
                                     </div>
@@ -140,7 +140,7 @@ const TopNavbar = () => {
                             {/* pop up on input */}
                         </div>
                         <button onClick={() => setSearch(false)} className="focus:outline-none" aria-label="toggler">
-                            <svg id="navOpen" className width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg id="navOpen" width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 6L6 18" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 <path d="M6 6L18 18" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>

@@ -15,7 +15,6 @@ import ChannelPage from '../../pages/channelPage/ChannelPage';
 
 const  VideoCard = () => {
     const [mouseOn, setMouseOn] = useState("");
-    const [openModal, setOpenModal] = useState(false);
 
     let navigate = useNavigate();
     const handleOnClick = () => {
@@ -31,7 +30,7 @@ const  VideoCard = () => {
                     </div>
                         <Popup trigger=
                         {
-                    <div onClick={() => setOpenModal(true)} className=" bg-gray-400 w-8 h-8 addToWatch flex items-center justify-center" onMouseEnter={() => setMouseOn("options")} onMouseLeave={() => setMouseOn("video")}>
+                    <div className=" bg-gray-400 w-8 h-8 addToWatch flex items-center justify-center" onMouseEnter={() => setMouseOn("options")} onMouseLeave={() => setMouseOn("video")}>
                         <img src={dotsSvg} alt="add" className="w-7 h-7"></img>
                     </div>
                         } position="left center" closeOnDocumentClick>

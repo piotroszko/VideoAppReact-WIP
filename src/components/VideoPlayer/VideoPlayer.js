@@ -84,7 +84,7 @@ const  VideoPlayer = () => {
             id="video1"
             ref={videoRef}
             className="video"
-            src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+            src="https://static.videezy.com/system/resources/previews/000/004/276/original/20_1_20Dragon_20Coaster_20Part_205.mp4"
             ></video>
             <div className="controlsContainer" ref={controlsContainer} onMouseLeave={() => changeVolumeSliderVisability("hidden")}>
               <div className="bg-blackT"></div>
@@ -92,14 +92,14 @@ const  VideoPlayer = () => {
               <div className="videoControls" >
                 <div className="w-1/3"></div>
                 <div className="center-buttons">
-                  <button className="controls-buttons" onClick={playing === false ? () => videoHandler("play") : () => videoHandler("pause")}> 
+                  <button className="controls-buttons " onClick={playing === false ? () => videoHandler("play") : () => videoHandler("pause")}> 
                     <img src={playing === false ? PlaySvg : PauseSvg}
-                    className="control-icon" alt=""></img> 
+                    className="control-icon btnHover" alt=""></img> 
                   </button>
-                  <button className="controls-buttons"> <img src={NextSvg} className="control-icon" alt=""></img> </button>
+                  <button className="controls-buttons"> <img src={NextSvg} className="control-icon btnHover" alt=""></img> </button>
                   <button className="controls-buttons flex muteButton" 
                   onMouseEnter={() => changeVolumeSliderVisability("visible")} onClick={null}> 
-                    <img src={muted === false ? VolumeSvg : MutedSvg} className="control-icon" alt=""></img> 
+                    <img src={muted === false ? VolumeSvg : MutedSvg} className="control-icon btnHover" alt=""></img> 
                   </button>
                 </div>
                 <div className="w-1/3 relative">

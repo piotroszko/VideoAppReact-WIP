@@ -1,7 +1,7 @@
 
 import './App.css';
-import React, {useState, useEffect} from 'react';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
 
 import { AuthContext } from './contexts';
 import { useProvideAuth} from './utils';
