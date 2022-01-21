@@ -11,8 +11,8 @@ const Comment = () => {
         
     }
     return (
-    <div className="w-full sm:w-3/4 mx-auto px-0 border-b-2">
-        <div className='relative m-0 flex bg-white'>
+    <div className="w-full sm:w-3/4 mx-auto px-0 border-b-2 dark:border-gray-700 ">
+        <div className='relative m-0 flex bg-white dark:bg-gray-700'>
             <div className='flex-no-shrink p-1 w-1/6'>
                 <img alt='' className='w-auto h-2/5 sm:h-1/2 lg:w-32 lg:h-32 block mx-auto rounded-3xl' src='https://source.unsplash.com/WLUHO9A_xik/1600x900'/>
             </div>

@@ -44,7 +44,7 @@ const  RecommendedVideos = () => {
         e.returnValue = false
     }
     return (
-        <div className=" mt-2 bg-white h-72 w-full">
+        <div className=" mt-2 bg-white dark:bg-gray-800 h-72 w-full">
             <div className="border-4 border-gray-500 rounded-b-xl h-64 w-full flex flex-row overflow-hidden relative"
             onWheel={onScroll} onMouseEnter={disableScroll} onMouseLeave={enableScroll} 
             >

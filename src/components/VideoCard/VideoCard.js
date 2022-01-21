@@ -21,7 +21,7 @@ const  VideoCard = () => {
         navigate("/video/2", { replace: true });
     }
     return (
-    <div className="p-3 videoCard flex-1 relative">
+    <div className="p-3 videoCard flex-1 relative dark:text-gray-200">
         
             <div className=" relative order-1 cursor-pointer" onClick={mouseOn === "video"? () => handleOnClick() : null } onMouseEnter={() => setMouseOn("video")} onMouseLeave={() => setMouseOn("")}>
                 <div className="flex flex-col absolute z-20 right-1 top-1 gap-1">

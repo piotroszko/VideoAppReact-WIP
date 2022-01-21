@@ -1,6 +1,6 @@
 import React from "react";
 
-const DesktopBtnWheel = () => {
+const DesktopCategories = () => {
     return (
     <div className="flex justify-center items-center w-full space-x-4">
         <button className="btn-navbar">
@@ -19,4 +19,4 @@ const DesktopBtnWheel = () => {
     );
 }
 
-export default DesktopBtnWheel;
+export default DesktopCategories;

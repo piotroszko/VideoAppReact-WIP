@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import DesktopBtnWheel from './components/DesktopBtnWheel/DesktopBtnWheel';
+import DesktopCategories from './components/DesktopCategories/DesktopCategories';
 import LoginButton from "./components/LoginButton/LoginButton";
 import LoginButtonMobile from "./components/LoginButtonMobile/LoginButtonMobile";
 import {Link } from "react-router-dom";
 import MainLayout from "./../mainLayout/MainLayout";
+import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 
 
 const TopNavbar = () => {
@@ -31,7 +32,7 @@ const TopNavbar = () => {
     };
 
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-gray-500">
             <div className="hidden lg:block relative border-b px-8 border-gray-100">
                 <div className="2xl:container 2xl:mx-auto flex justify-between items-center w-full">
                     <div className="relative w-full py-3 flex justify-start items-center space-x-4">
@@ -69,7 +70,8 @@ const TopNavbar = () => {
                         </div>
                         {/* pop up on input */}
                     </div>
-                    <DesktopBtnWheel/>
+                    <DesktopCategories/>
+                    <DarkmodeButton/>
                     <LoginButton/>
                 </div>
             </div>

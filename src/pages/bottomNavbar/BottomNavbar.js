@@ -39,13 +39,13 @@ const BottomNavbar = () => {
     return ( 
         <div className="fixed bottom-0 left-0 w-full text-center z-50 h-10 flex justify-between">
             <div className={`h-10 w-1/4 relative ${barVisable ? "translate-x-full" : ""} transform transition duration-500`}>
-                <div onClick={() => setBarVisable(!barVisable)} className="border-l-2 border-t-2 cursor-pointer border-black w-8 h-4/6 ml-auto self-end absolute bottom-0 right-0 rounded-tl-3xl">
+                <div onClick={() => setBarVisable(!barVisable)} className="border-l-2 border-t-2 cursor-pointer border-black dark:border-white w-8 h-4/6 ml-auto self-end absolute bottom-0 right-0 rounded-tl-3xl">
                     <div className={`${barVisable ? "rotate-90" : ""}
-                    arrow-left ml-auto mt-2 transform transition duration-500`}></div>
+                    arrow-left ml-auto mt-2 transform transition duration-500 `}></div>
                 </div>
             </div>
             <div onWheel={onScroll} onMouseEnter={disableScroll}
-            onMouseLeave={enableScroll} className={`${barVisable ? "mt-20" : ""} mt-0 w-1/2 barAnimation flex pl-4 pr-4 h-10 bg-white rounded-t-2xl border-solid border-gray-500 border-t-4 border-r-2 border-l-2`}>
+            onMouseLeave={enableScroll} className={`${barVisable ? "mt-20" : ""} mt-0 w-1/2 barAnimation flex pl-4 pr-4 h-10 bg-white dark:bg-gray-800 rounded-t-2xl border-solid border-gray-500 dark:border-gray-300 border-t-4 border-r-2 border-l-2`}>
                 <div className="flex whitespace-nowrap overflow-y-hidden overflow-x-hidden" ref={refPlaylists}>
                     <button className="btn-history btn-special-underline">
                         <p className="text-btn-bottom">HISTORIA</p>
@@ -77,7 +77,7 @@ const BottomNavbar = () => {
                 </div>
             </div>
             <div className={`h-10 w-1/4 relative ${barVisable ? "-translate-x-full" : ""} transform  transition duration-500`}>
-                <div onClick={() => setBarVisable(!barVisable)} className=" border-r-2 cursor-pointer border-t-2 border-black w-8 h-4/6 mr-auto self-end absolute bottom-0 left-0 rounded-tr-3xl">
+                <div onClick={() => setBarVisable(!barVisable)} className=" border-r-2 cursor-pointer border-t-2 border-black dark:border-white w-8 h-4/6 mr-auto self-end absolute bottom-0 left-0 rounded-tr-3xl">
                     <div className={`${barVisable ? "-rotate-90" : ""}
                     arrow-right mr-auto mt-2 transform transition duration-500`}></div>
                 </div>
