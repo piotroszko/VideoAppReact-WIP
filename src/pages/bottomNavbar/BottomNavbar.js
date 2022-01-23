@@ -1,9 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import "./BottomNavbar.css";
+import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 
 const BottomNavbar = () => {
   const [barVisable, setBarVisable] = useState(true);
   const refPlaylists = useRef(null);
+
+  const darkmode = useContext(DarkmodeContext);
 
   const onScroll = (e) => {
     if (e.deltaY < 0) {
@@ -45,8 +48,8 @@ const BottomNavbar = () => {
           onClick={() => setBarVisable(!barVisable)}
           className="border-l-2 border-t-2 cursor-pointer border-black dark:border-white w-8 h-4/6 ml-auto self-end absolute bottom-0 right-0 rounded-tl-3xl">
           <div
-            className={`${barVisable ? "rotate-90" : ""}
-                    arrow-left ml-auto mt-2 transform transition duration-500 `}></div>
+            className={`${barVisable ? "rotate-90" : ""} ${darkmode.isDarkmode ? "arrow-left-dark" : "arrow-left"}
+                    ml-auto mt-2 transform transition duration-500`}></div>
         </div>
       </div>
       <div
@@ -96,8 +99,8 @@ const BottomNavbar = () => {
           onClick={() => setBarVisable(!barVisable)}
           className=" border-r-2 cursor-pointer border-t-2 border-black dark:border-white w-8 h-4/6 mr-auto self-end absolute bottom-0 left-0 rounded-tr-3xl">
           <div
-            className={`${barVisable ? "-rotate-90" : ""}
-                    arrow-right mr-auto mt-2 transform transition duration-500`}></div>
+            className={`${barVisable ? "-rotate-90" : ""} ${darkmode.isDarkmode ? "arrow-right-dark" : "arrow-right"}
+                    mr-auto mt-2 transform transition duration-500`}></div>
         </div>
       </div>
     </div>

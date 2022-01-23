@@ -20,7 +20,7 @@ const VideoCard = () => {
     navigate("/video/2", { replace: true });
   };
   return (
-    <div className="p-3 videoCard flex-1 relative dark:text-gray-200">
+    <div className="p-3 videoCard flex-1 relative dark:text-gray-200 mx-auto">
       <div
         className=" relative order-1 cursor-pointer"
         onClick={mouseOn === "video" ? () => handleOnClick() : null}

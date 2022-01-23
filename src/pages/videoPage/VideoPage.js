@@ -10,7 +10,7 @@ const VideoPage = (props) => {
     document.title = `Tytuł filmu`;
   }, []);
   return (
-    <div className="">
+    <div className="pt-16">
       <div className="bg-black">
         <VideoPageInfo></VideoPageInfo>
         <VideoPlayer></VideoPlayer>

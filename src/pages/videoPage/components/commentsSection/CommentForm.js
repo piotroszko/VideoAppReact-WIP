@@ -55,12 +55,12 @@ const CommentForm = () => {
             <div className="flex select-none ">
               <button
                 onClick={() => setIsFormVis(false)}
-                className="mt-2 ml-0 mr-auto font-bold  p-1 shadow-md sm:text-base text-xs"
+                className="mt-2 ml-0 mr-auto font-bold  p-1 shadow-md sm:text-base text-xs dark:bg-gray-600 dark:text-gray-200"
                 type="submit">
                 Anuluj
               </button>
               <button
-                className="mt-2 mr-0 ml-auto font-bold  p-1 shadow-md sm:text-base text-xs"
+                className="mt-2 mr-0 ml-auto font-bold  p-1 shadow-md sm:text-base text-xs dark:bg-gray-600 dark:text-gray-200"
                 type="submit">
                 Dodaj komentarz
               </button>

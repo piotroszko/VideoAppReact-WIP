@@ -3,9 +3,9 @@ import VideoGrid from "../../components/VideoGrid/VideoGrid";
 
 const ChannelPage = () => {
   return (
-    <div>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <div className="w-content bg-gray-100 h-32 rounded-xl lg:mt-4 md:mt-18 mt-20 flex items-center justify-center shadow-lg gap-5">
+    <div className="pt-16">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 h-full">
+        <div className="w-content bg-gray-100 dark:bg-gray-500 dark:text-gray-200 h-32 rounded-xl lg:mt-4 md:mt-18 mt-20 flex items-center justify-center shadow-lg gap-5">
           <p className="text-xl font-bold ml-10 max-w-md">
             Nazwakanadasddd asdd
           </p>{" "}
@@ -23,19 +23,19 @@ const ChannelPage = () => {
         </div>
       </div>
       <div className="flex items-center flex-row justify-center gap-6 mt-2">
-        <div className="hidden sm:visable sm:w-1/5 bg-gray-100 h-20 rounded-xl mt-2 sm:flex items-center justify-center shadow-lg">
+        <div className="hidden sm:visable sm:w-1/5 bg-gray-100 dark:bg-gray-500 dark:text-gray-200 h-20 rounded-xl mt-2 sm:flex items-center justify-center shadow-lg">
           <div>
             <p className="sm:text-xl font-bold">Łącznie wyświetleń:</p>
             <p className="sm:text-xl font-bold"> 0 </p>
           </div>
         </div>
-        <div className="w-2/3 sm:w-1/5 bg-red-100 h-20 rounded-xl mt-2 flex items-center justify-center shadow-lg">
+        <div className="w-2/3 sm:w-1/5 bg-red-100 dark:bg-gray-500 dark:text-gray-200 h-20 rounded-xl mt-2 flex items-center justify-center shadow-lg">
           <div>
             <p className="text-xl font-bold">Subskrypcji:</p>
             <p className="text-xl font-bold"> 0 </p>
           </div>
         </div>
-        <div className="hidden sm:w-1/5 bg-gray-100 h-20 rounded-xl mt-2 sm:flex items-center justify-center shadow-lg">
+        <div className="hidden sm:w-1/5 bg-gray-100 h-20 dark:bg-gray-500 dark:text-gray-200 rounded-xl mt-2 sm:flex items-center justify-center shadow-lg">
           <div>
             <p className="sm:text-xl font-bold">Łacznie polubień:</p>
             <p className="sm:text-xl font-bold"> 0 </p>

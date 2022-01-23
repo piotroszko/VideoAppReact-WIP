@@ -18,8 +18,8 @@ const LoginPage = () => {
           </button>
         </Link>
       </div>
-      <div className=" w-full h-full row-span-4 row-start-2 flip">
-        <div className="h-full w-full">
+      <div className=" w-full h-full row-span-4 row-start-2 flip ">
+        <div className="h-full w-full ">
           <ForgotForm
             visabilityCallback={() => setIsForgotVisable(false)}
             isVisable={isForgotVisable}></ForgotForm>
