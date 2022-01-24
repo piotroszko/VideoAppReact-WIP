@@ -43,7 +43,7 @@ const ChannelPage = () => {
         </div>
       </div>
       <div className="border-t-4 mt-3">
-        <VideoGrid></VideoGrid>
+        <VideoGrid sortBar={true}></VideoGrid>
       </div>
     </div>
   );
