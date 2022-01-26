@@ -1,37 +1,37 @@
-import { useEffect, useState } from 'react';
-import useSWR from 'swr';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import useSWR from "swr";
+import axios from "axios";
 
 export default function useProvideAuth() {
   const [token, setToken] = useState(null);
-  const [isLogin, setIsLogin] = useState(!!JSON.parse(localStorage.getItem('isLogin')));
+  const [isLogin, setIsLogin] = useState(!!JSON.parse(localStorage.getItem("isLogin")));
   const [isLoading, setIsLoading] = useState(true);
 
-  const login = token => {
-    localStorage.setItem('isLogin', true);
-    localStorage.setItem('token', "Bearer " + token);
+  const login = (token) => {
+    localStorage.setItem("isLogin", true);
+    localStorage.setItem("token", "Bearer " + token);
     setToken(token);
     setIsLogin(true);
   };
 
   const logout = () => {
-    localStorage.removeItem('isLogin');
-    localStorage.removeItem('token');
+    localStorage.removeItem("isLogin");
+    localStorage.removeItem("token");
     setToken(null);
     setIsLogin(false);
   };
-  
+
   // Refresh token for persisting session
-  const { data, error, isValidating } = useSWR( isLogin ? `http://localhost:4000/api/v1/authentication/refreshtoken?application=api-jwt` : null,
-    url => 
-      axios.get(url, 
-      { headers: { 'Authorization': `${localStorage.getItem('token')}` } }
-      ).then(res => res)
-    ,
-    { 
+  const { data, error, isValidating } = useSWR(
+    isLogin ? `http://localhost:4000/api/v1/authentication/refreshtoken?application=api-jwt` : null,
+    (url) =>
+      axios
+        .get(url, { headers: { Authorization: `${localStorage.getItem("token")}` } })
+        .then((res) => res),
+    {
       // Silently refresh token every expiry time
       refreshInterval: 1000 * 60 * 15,
-      revalidateOnFocus: false
+      revalidateOnFocus: false,
     }
   );
 
@@ -47,8 +47,8 @@ export default function useProvideAuth() {
 
   useEffect(() => {
     // Sync all tabs on login or logout
-    window.addEventListener('storage', e => {
-      if (e.key === 'isLogin') {
+    window.addEventListener("storage", (e) => {
+      if (e.key === "isLogin") {
         setIsLogin(e.newValue);
       }
     });

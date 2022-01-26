@@ -49,8 +49,7 @@ const VideoPlayer = () => {
   };
   const onClickProgress = (e) => {
     var valueOfPointClicked =
-      (e.clientX - progressBar.current.offsetLeft) /
-      progressBar.current.clientWidth;
+      (e.clientX - progressBar.current.offsetLeft) / progressBar.current.clientWidth;
     videoRef.current.currentTime = videoTime * valueOfPointClicked;
     setProgress(valueOfPointClicked * 100);
   };
@@ -76,60 +75,59 @@ const VideoPlayer = () => {
 
   window.setInterval(function () {
     setCurrentTime(videoRef.current?.currentTime);
-    if (videoRef.current?.currentTime / videoTime === 1 && playing)
-      setPlaying(false);
+    if (videoRef.current?.currentTime / videoTime === 1 && playing) setPlaying(false);
     setProgress((videoRef.current?.currentTime / videoTime) * 100);
   }, 1000);
 
   return (
     <div
-      className="relative videoContainer"
+      className="videoContainer relative"
       onMouseEnter={() => changeControlsVisability(1)}
-      onMouseLeave={() => changeControlsVisability(0)}>
+      onMouseLeave={() => changeControlsVisability(0)}
+    >
       <video
         id="video1"
         ref={videoRef}
         className="video"
-        src="https://static.videezy.com/system/resources/previews/000/004/276/original/20_1_20Dragon_20Coaster_20Part_205.mp4"></video>
+        src="https://static.videezy.com/system/resources/previews/000/004/276/original/20_1_20Dragon_20Coaster_20Part_205.mp4"
+      ></video>
       <div
         className="controlsContainer"
         ref={controlsContainer}
-        onMouseLeave={() => changeVolumeSliderVisability("hidden")}>
+        onMouseLeave={() => changeVolumeSliderVisability("hidden")}
+      >
         <div className="bg-blackT"></div>
 
         <div className="videoControls">
           <div className="w-1/3"></div>
           <div className="center-buttons">
             <button
-              className="controls-buttons "
-              onClick={
-                playing === false
-                  ? () => videoHandler("play")
-                  : () => videoHandler("pause")
-              }>
+              className="controls-buttons"
+              onClick={playing === false ? () => videoHandler("play") : () => videoHandler("pause")}
+            >
               <img
                 src={playing === false ? PlaySvg : PauseSvg}
                 className="control-icon btnHover"
-                alt=""></img>
+                alt=""
+              ></img>
             </button>
             <button className="controls-buttons">
               {" "}
-              <img
-                src={NextSvg}
-                className="control-icon btnHover"
-                alt=""></img>{" "}
+              <img src={NextSvg} className="control-icon btnHover" alt=""></img>{" "}
             </button>
             <button
-              className="controls-buttons flex muteButton"
+              className="controls-buttons muteButton flex"
               onMouseEnter={() => changeVolumeSliderVisability("visible")}
-              onClick={null}>
+              onClick={null}
+            >
               <img
                 src={muted === false ? VolumeSvg : MutedSvg}
                 className="control-icon btnHover"
-                alt=""></img>
+                alt=""
+              ></img>
             </button>
           </div>
-          <div className="w-1/3 relative">
+          <div className="relative w-1/3">
             <input
               type="range"
               ref={volumeSlider}
@@ -141,22 +139,17 @@ const VideoPlayer = () => {
         </div>
         <div className="timecontrols">
           <p className="controlsTime">
-            {Math.floor(currentTime / 60) +
-              ":" +
-              ("0" + Math.floor(currentTime % 60)).slice(-2)}
+            {Math.floor(currentTime / 60) + ":" + ("0" + Math.floor(currentTime % 60)).slice(-2)}
           </p>
           <div
             className="time_progressbarContainer cursor-pointer"
             ref={progressBar}
-            onClick={onClickProgress}>
-            <div
-              style={{ width: `${progress}%` }}
-              className="time_progressBar"></div>
+            onClick={onClickProgress}
+          >
+            <div style={{ width: `${progress}%` }} className="time_progressBar"></div>
           </div>
           <p className="controlsTime">
-            {Math.floor(videoTime / 60) +
-              ":" +
-              ("0" + Math.floor(videoTime % 60)).slice(-2)}
+            {Math.floor(videoTime / 60) + ":" + ("0" + Math.floor(videoTime % 60)).slice(-2)}
           </p>
         </div>
       </div>

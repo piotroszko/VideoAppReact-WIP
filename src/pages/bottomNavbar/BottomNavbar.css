@@ -4,16 +4,16 @@
 
 @layer components {
   .btn-history {
-    @apply pt-0 h-full underline text-gray-800 dark:text-gray-200 font-bold focus:text-gray-700 text-center border-b-2 focus:outline-none focus:border-gray-700 border-transparent;
+    @apply pt-0 h-full text-center dark:text-gray-200 focus:text-gray-700 text-gray-800 underline font-bold border-b-2 focus:border-gray-700 border-transparent focus:outline-none;
   }
   .btn-toWatch {
-    @apply pt-0 h-full underline text-gray-800 dark:text-gray-200 focus:text-gray-700 font-bold text-center border-b-2 focus:outline-none focus:border-gray-700 border-transparent;
+    @apply pt-0 h-full text-center dark:text-gray-200 focus:text-gray-700 text-gray-800 underline font-bold border-b-2 focus:border-gray-700 border-transparent focus:outline-none;
   }
   .btn-playlist {
-    @apply pt-0 h-full text-gray-600 dark:text-gray-200 focus:text-gray-700 text-center border-b-2 focus:outline-none focus:border-gray-700 border-transparent;
+    @apply pt-0 h-full text-center dark:text-gray-200 text-gray-600 focus:text-gray-700 border-b-2 focus:border-gray-700 border-transparent focus:outline-none;
   }
   .text-btn-bottom {
-    @apply text-sm focus:outline-none font-medium leading-4  px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-300 hover:text-gray-700 rounded;
+    @apply dark:hover:bg-gray-300 px-4 py-2 hover:text-gray-700 text-sm font-medium leading-4 hover:bg-gray-50 rounded focus:outline-none;
   }
 }
 .playlist-scrollbar::-webkit-scrollbar {

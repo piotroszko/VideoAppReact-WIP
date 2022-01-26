@@ -10,26 +10,29 @@ const LoginPage = () => {
   const [isForgotVisable, setIsForgotVisable] = useState(false);
   return (
     <div className="grid grid-cols-1 grid-rows-6 h-screen">
-      <div className="col-span-1 row-span-1 h-full w-full flex flex-col">
-        <Link to="/" className="mr-auto mb-auto">
-          <button className="bg-gray-400 p-3 text-lg rounded-md text-white font-bold ml-2 mt-2 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+      <div className="flex flex-col col-span-1 row-span-1 w-full h-full">
+        <Link to="/" className="mb-auto mr-auto">
+          <button className="ml-2 mt-2 p-3 hover:text-black text-white text-lg font-bold hover:bg-gray-200 bg-gray-400 hover:border-gray-200 rounded-md">
             {" "}
             Wróć{" "}
           </button>
         </Link>
       </div>
-      <div className=" w-full h-full row-span-4 row-start-2 flip ">
-        <div className="h-full w-full ">
+      <div className="flip row-span-4 row-start-2 w-full h-full">
+        <div className="w-full h-full">
           <ForgotForm
             visabilityCallback={() => setIsForgotVisable(false)}
-            isVisable={isForgotVisable}></ForgotForm>
+            isVisable={isForgotVisable}
+          ></ForgotForm>
           <LoginForm
             visabilityCallback={() => setIsRegVisable(true)}
             forgotCallback={() => setIsForgotVisable(true)}
-            isVisable={isRegVisable || isForgotVisable}></LoginForm>
+            isVisable={isRegVisable || isForgotVisable}
+          ></LoginForm>
           <RegistrationForm
             visabilityCallback={() => setIsRegVisable(false)}
-            isVisable={isRegVisable}></RegistrationForm>
+            isVisable={isRegVisable}
+          ></RegistrationForm>
         </div>
       </div>
     </div>

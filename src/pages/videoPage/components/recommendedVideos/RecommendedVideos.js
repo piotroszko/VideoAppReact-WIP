@@ -43,62 +43,67 @@ const RecommendedVideos = () => {
     e.returnValue = false;
   }
   return (
-    <div className=" mt-2 bg-white dark:bg-gray-800 h-72 w-full">
+    <div className="mt-2 w-full h-72 dark:bg-gray-800 bg-white">
       <div
-        className="border-4 border-gray-500 rounded-b-xl h-64 w-full flex flex-row overflow-hidden relative"
+        className="relative flex flex-row w-full h-64 border-4 border-gray-500 rounded-b-xl overflow-hidden"
         onWheel={onScroll}
         onMouseEnter={disableScroll}
-        onMouseLeave={enableScroll}>
+        onMouseLeave={enableScroll}
+      >
         <div
           onClick={() => scrollLeft(false)}
-          className="w-14 h-16 absolute top-1/4 bg-gray-300 z-50 opacity-75 rounded-r-2xl cursor-pointer">
+          className="absolute z-50 top-1/4 w-14 h-16 bg-gray-300 rounded-r-2xl opacity-75 cursor-pointer"
+        >
           {" "}
           <img
             style={{ transform: "rotate(-180deg)" }}
-            className="h-12 mr-1 mt-2"
+            className="mr-1 mt-2 h-12"
             src={ScrollSvg}
-            alt="<-"></img>{" "}
+            alt="<-"
+          ></img>{" "}
         </div>
         <div
           onClick={() => scrollLeft(true)}
-          className="w-14 h-16 absolute top-1/4 right-0 bg-gray-300 z-50 opacity-75 rounded-l-2xl cursor-pointer">
+          className="absolute z-50 right-0 top-1/4 w-14 h-16 bg-gray-300 rounded-l-2xl opacity-75 cursor-pointer"
+        >
           {" "}
-          <img className="h-12 ml-2 mt-2" src={ScrollSvg} alt="<-"></img>{" "}
+          <img className="ml-2 mt-2 h-12" src={ScrollSvg} alt="<-"></img>{" "}
         </div>
         <div
-          className="h-60 w-full flex flex-row overflow-hidden pl-8 pr-8 scroll-smooth"
-          ref={refBar}>
-          <div className="h-60 w-50 ">
+          className="scroll-smooth flex flex-row pl-8 pr-8 w-full h-60 overflow-hidden"
+          ref={refBar}
+        >
+          <div className="w-50 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
-          <div className="h-60 w-80 ">
+          <div className="w-80 h-60">
             <VideoCard></VideoCard>
           </div>
         </div>

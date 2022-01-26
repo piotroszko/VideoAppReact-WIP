@@ -5,16 +5,16 @@
 
 @layer components {
   .btn-navbar {
-    @apply py-2 h-full text-gray-600 dark:text-gray-200 focus:text-gray-700 text-center border-b-2 focus:outline-none focus:border-gray-700 border-transparent;
+    @apply py-2 h-full text-center dark:text-gray-200 text-gray-600 focus:text-gray-700 border-b-2 focus:border-gray-700 border-transparent focus:outline-none;
   }
   .btn-navbar-full {
-    @apply py-2 text-gray-600 dark:text-gray-200 focus:text-gray-700 text-center border-b-2 w-full focus:outline-none focus:border-gray-700 border-transparent;
+    @apply py-2 w-full text-center dark:text-gray-200 text-gray-600 focus:text-gray-700 border-b-2 focus:border-gray-700 border-transparent focus:outline-none;
   }
   .text-btn-navbar {
-    @apply text-sm focus:outline-none font-medium leading-4  px-4 py-3 hover:bg-gray-100 hover:text-gray-700 rounded;
+    @apply px-4 py-3 hover:text-gray-700 text-sm font-medium leading-4 hover:bg-gray-100 rounded focus:outline-none;
   }
   .text-btn-navbar2 {
-    @apply text-sm focus:outline-none font-medium leading-4 w-full px-2 md:px-4 py-3 hover:bg-gray-100 hover:text-gray-700 rounded;
+    @apply px-2 py-3 w-full hover:text-gray-700 text-sm font-medium leading-4 hover:bg-gray-100 rounded focus:outline-none md:px-4;
   }
 }
 html.dark {

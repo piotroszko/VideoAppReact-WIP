@@ -6,7 +6,7 @@ function VideoList() {
     document.title = `VideoAPP`;
   }, []);
   return (
-    <div className="mt-12 sm:mt-14 md:mt-16 lg:mt-0 dark:bg-gray-800 w-full pt-16">
+    <div className="mt-12 pt-16 w-full dark:bg-gray-800 sm:mt-14 md:mt-16 lg:mt-0">
       <VideoGrid className="mx-auto"></VideoGrid>
     </div>
   );

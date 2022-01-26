@@ -2,7 +2,7 @@ import React from "react";
 
 const DesktopCategories = () => {
   return (
-    <div className="flex justify-center items-center w-full space-x-4">
+    <div className="flex items-center justify-center w-full space-x-4">
       <button className="btn-navbar">
         <p className="text-btn-navbar">TOP</p>
       </button>

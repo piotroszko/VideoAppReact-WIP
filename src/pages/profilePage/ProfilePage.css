@@ -4,7 +4,6 @@
 
 @layer components {
   .btn-profile-nav {
-    @apply border-b-2 border-gray-400 py-3 font-bold shadow-inner hover:bg-gray-500 hover:text-gray-200 cursor-pointer;
+    @apply py-3 hover:text-gray-200 font-bold hover:bg-gray-500 border-b-2 border-gray-400 shadow-inner cursor-pointer;
   }
-
 }

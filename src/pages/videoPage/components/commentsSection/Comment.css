@@ -25,10 +25,8 @@
 }
 
 .svgGreenFilter {
-  filter: invert(71%) sepia(68%) saturate(5576%) hue-rotate(119deg)
-    brightness(96%) contrast(97%);
+  filter: invert(71%) sepia(68%) saturate(5576%) hue-rotate(119deg) brightness(96%) contrast(97%);
 }
 .svgRedFilter {
-  filter: invert(9%) sepia(91%) saturate(4949%) hue-rotate(356deg)
-    brightness(119%) contrast(99%);
+  filter: invert(9%) sepia(91%) saturate(4949%) hue-rotate(356deg) brightness(119%) contrast(99%);
 }

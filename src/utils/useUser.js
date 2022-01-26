@@ -9,9 +9,7 @@ export default function useUser() {
 
   // Get user data
   const { data, error, mutate } = useSWR(
-    token
-      ? `http://localhost:4000/api/v1/authentication/me?application=api-jwt`
-      : null,
+    token ? `http://localhost:4000/api/v1/authentication/me?application=api-jwt` : null,
     (url) =>
       axios
         .get(url, {

@@ -93,6 +93,5 @@
   color: white;
 }
 .btnHover:hover {
-  filter: invert(8%) sepia(5%) saturate(22%) hue-rotate(353deg) brightness(107%)
-    contrast(84%);
+  filter: invert(8%) sepia(5%) saturate(22%) hue-rotate(353deg) brightness(107%) contrast(84%);
 }

@@ -9,7 +9,7 @@ const VideoGrid = (props) => {
     <div className="flex flex-col">
       {props.sortBar ? (
         <>
-          <div className="w-full flex flex-row justify-end pr-16">
+          <div className="flex flex-row justify-end pr-16 w-full">
             <div className="flex flex-row items-center justify-center h-10">
               <svg
                 className="mr-1 mt-2"
@@ -17,7 +17,8 @@ const VideoGrid = (props) => {
                 height={24}
                 viewBox="0 0 24 24"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3
                 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
@@ -37,26 +38,25 @@ const VideoGrid = (props) => {
               <div className="h-10">
                 <input
                   type="text"
-                  className="bg-gray-300 mt-2 mr-2 p-1 rounded-md my-auto"
-                  placeholder="Wyszukaj na kanale"></input>
+                  className="mr-2 mt-2 my-auto p-1 bg-gray-300 rounded-md"
+                  placeholder="Wyszukaj na kanale"
+                ></input>
               </div>
             </div>
-            <div className="h-full flex flex-col justify-center items-center ml-6">
+            <div className="flex flex-col items-center justify-center ml-6 h-full">
               <div className="relative mt-3">
-                <input
-                  type="checkbox"
-                  id="sortbox"
-                  className="hidden absolute"
-                />
+                <input type="checkbox" id="sortbox" className="absolute hidden" />
                 <label
                   for="sortbox"
-                  className="flex items-center space-x-1 cursor-pointer focus:bg-gray-500 select-none">
+                  className="flex items-center focus:bg-gray-500 cursor-pointer select-none space-x-1"
+                >
                   <svg
                     width="24px"
                     height="24px"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path
                       d="M4 7C4 6.44772 4.44772 6 5 6H19C19.5523 6 20 6.44772 20 7C20 7.55228 19.5523 8 19 8H5C4.44772 8 4 7.55228 4 7Z"
                       fill={darkmode.isDarkmode ? "#d9dbde" : "#4B5563"}
@@ -70,26 +70,25 @@ const VideoGrid = (props) => {
                       fill={darkmode.isDarkmode ? "#d9dbde" : "#4B5563"}
                     />
                   </svg>
-                  <span className="text-medium dark:text-gray-200">
-                    SORTUJ WEDŁUG
-                  </span>
+                  <span className="text-medium dark:text-gray-200">SORTUJ WEDŁUG</span>
                 </label>
                 <div
                   id="sortboxmenu"
-                  className="absolute mt-1 right-1 top-full min-w-max shadow rounded opacity-0 bg-gray-300 border border-gray-400 transition delay-75 ease-in-out z-50">
-                  <ul className="block text-right text-gray-900 z-50">
+                  className="absolute z-50 right-1 top-full mt-1 min-w-max bg-gray-300 border border-gray-400 rounded shadow opacity-0 transition delay-75 ease-in-out"
+                >
+                  <ul className="z-50 block text-right text-gray-900">
                     <li>
-                      <button className="block w-full px-3 py-2 hover:bg-gray-200 z-50">
+                      <button className="z-50 block px-3 py-2 w-full hover:bg-gray-200">
                         Najpopularniejsze
                       </button>
                     </li>
                     <li>
-                      <button className="block w-full px-3 py-2 hover:bg-gray-200 z-50">
+                      <button className="z-50 block px-3 py-2 w-full hover:bg-gray-200">
                         Od najnowszych
                       </button>
                     </li>
                     <li>
-                      <button className="block w-full px-3 py-2 hover:bg-gray-200 z-50">
+                      <button className="z-50 block px-3 py-2 w-full hover:bg-gray-200">
                         Od najstarszych
                       </button>
                     </li>
@@ -100,7 +99,7 @@ const VideoGrid = (props) => {
           </div>
         </>
       ) : null}
-      <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 pt-5 sm:pt-4">
+      <div className="grid 2xl:grid-cols-5 pt-5 sm:grid-cols-2 sm:pt-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <VideoCard />
         <VideoCard />
         <VideoCard />
