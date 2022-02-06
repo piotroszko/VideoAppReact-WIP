@@ -17,6 +17,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
   const [error, setError] = useState(null);
 
   const handleLogin = () => {
+    setError(null);
     setIsLoading(true);
     axios
       .post("http://localhost:4000/api/v1/authentication/login", {
@@ -70,12 +71,28 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
         {" "}
         Przypomnij hasło{" "}
       </p>
+      <p
+        className={`${
+          error == null ? "hidden" : ""
+        } h-18 mt-2 mx-auto p-2 w-1/2 text-center text-sm font-bold bg-red-300 rounded-lg`}
+      >
+        Podano złe dane do logowania.
+      </p>
       <button
         onClick={() => handleLogin()}
-        className="hover:border-6 mt-10 mx-auto w-1/2 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
+        className="hover:border-6 mt-3 mx-auto w-1/2 h-9 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
       >
-        {" "}
-        Zaloguj{" "}
+        <div className="flex flex-row w-full h-full">
+          <div class={`flex items-center justify-center w-1/6`}>
+            <div
+              class={`${
+                isLoading ? "" : "hidden"
+              }  w-4 h-4 border-b-2 border-gray-900 rounded-full animate-spin`}
+            ></div>
+          </div>
+          <p className="w-2/3">Zaloguj</p>
+          <div className="w-1/6"></div>
+        </div>
       </button>
 
       <button

@@ -3,7 +3,7 @@ import React from "react";
 const MainProfile = () => {
   return (
     <div className="flex flex-col pt-16 w-full md:flex-row">
-      <div className="flex flex-col order-2 w-full h-full md:order-1 md:w-1/2">
+      <div className="flex flex-col order-2 w-full h-full dark:text-gray-200 md:order-1 md:w-1/2">
         <div className="flex flex-col w-full text-center">
           <p className="mt-4 text-xl font-bold"> Twoje konto </p>
           <div className="flex flex-row justify-center mt-20 mx-auto w-full">
@@ -56,7 +56,7 @@ const MainProfile = () => {
           <div className="justify-end mt-auto h-full"></div>
         </div>
       </div>
-      <div className="flex flex-col pt-4 w-full md:order-2 md:w-1/2">
+      <div className="flex flex-col pt-4 w-full dark:text-gray-200 md:order-2 md:w-1/2">
         <p className="mb-8 text-lg font-bold"> Zmiana zdjecia profilowego </p>
 
         <p className="font-bold"> Aktualne zdjecie </p>

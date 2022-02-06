@@ -1,6 +1,7 @@
+import React, { useEffect } from "react";
+
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoPageInfo from "./components/videoPageInfo/VideoPageInfo";
-import React, { useEffect } from "react";
 import CommentsSection from "./components/commentsSection/CommentsSection";
 import CommentForm from "./components/commentsSection/CommentForm";
 import RecommendedVideos from "./components/recommendedVideos/RecommendedVideos";

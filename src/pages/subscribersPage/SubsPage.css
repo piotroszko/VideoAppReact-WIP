@@ -1,0 +1,13 @@
+.scrollbarSubs::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbarSubs::-webkit-scrollbar-track {
+  background: rgb(230, 230, 230);
+}
+.scrollbarSubs::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 3px solid black;
+}
+.scrollbarSubs {
+  direction: rtl;
+}

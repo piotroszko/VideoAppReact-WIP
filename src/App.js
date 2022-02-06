@@ -16,6 +16,7 @@ import MainProfile from "./pages/profilePage/subPages/MainProfile";
 import Videos from "./pages/profilePage/subPages/Videos";
 import Comments from "./pages/profilePage/subPages/Comments";
 import Statistics from "./pages/profilePage/subPages/Statistics";
+import SubsPage from "./pages/subscribersPage/SubsPage";
 
 const App = () => {
   const auth = useProvideAuth();
@@ -24,14 +25,12 @@ const App = () => {
     <AuthContext.Provider value={auth}>
       <DarkmodeProvider>
         <div className="App h-full">
-          {/* <TopNavbar></TopNavbar>
-          <VideoGrid></VideoGrid>
-          <BottomNavbar></BottomNavbar> */}
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<VideoList />} />
               <Route path="video/:id" element={<VideoPage />} />
               <Route path="channel/:id" element={<ChannelPage />} />
+              <Route path="subs" element={<SubsPage />} />
               <Route path="profile/" element={<ProfilePage />}>
                 <Route index element={<MainProfile />} />
                 <Route path="videos" element={<Videos />} />

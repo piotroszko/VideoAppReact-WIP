@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+
 import DesktopCategories from "./components/DesktopCategories/DesktopCategories";
 import LoginButton from "./components/LoginButton/LoginButton";
 import LoginButtonMobile from "./components/LoginButtonMobile/LoginButtonMobile";
-import { Link } from "react-router-dom";
 import MainLayout from "./../mainLayout/MainLayout";
 import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
@@ -40,7 +41,7 @@ const TopNavbar = () => {
           <div className="relative flex items-center justify-start pt-1 w-full space-x-4">
             <Link to="/" component={<MainLayout />}>
               <svg
-                className="cursor-pointer"
+                className="animate-logo cursor-pointer"
                 width={50}
                 height={32}
                 viewBox="0 0 50 32"

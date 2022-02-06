@@ -1,7 +1,7 @@
-import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import React, { useState, useContext } from "react";
-import VideoLabel from "./components/VideoLabel";
 
+import VideoLabel from "./components/VideoLabel";
+import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 const Videos = () => {
   const darkmode = useContext(DarkmodeContext);
   return (

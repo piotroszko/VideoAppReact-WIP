@@ -1,6 +1,7 @@
+import React, { useContext } from "react";
+
 import VideoCard from "../VideoCard/VideoCard";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
-import React, { useState, useContext } from "react";
 import "./VideoGrid.css";
 
 const VideoGrid = (props) => {

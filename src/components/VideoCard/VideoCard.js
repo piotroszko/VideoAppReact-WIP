@@ -1,10 +1,10 @@
-import "./VideoCard.css";
 import ReactFreezeframe from "react-freezeframe";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 
+import "./VideoCard.css";
 import GifBunny from "./placeholders/bunny.gif";
 import Bunny from "./placeholders/bunnyimg.png";
 import addSvg from "./placeholders/addToWatch.svg";
@@ -20,7 +20,7 @@ const VideoCard = () => {
     navigate("/video/2", { replace: true });
   };
   return (
-    <div className="videoCard relative flex-1 mx-auto p-3 dark:text-gray-200">
+    <div className="videoCard animation-button relative flex-1 mx-auto p-3 dark:text-gray-200">
       <div
         className="relative order-1 cursor-pointer"
         onClick={mouseOn === "video" ? () => handleOnClick() : null}

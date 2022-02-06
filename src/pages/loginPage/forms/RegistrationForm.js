@@ -1,6 +1,56 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../../utils";
+
+import ep from "../../../api/auth-ep";
 
 const RegistrationForm = ({ isVisable, visabilityCallback }) => {
+  let navigate = useNavigate();
+
+  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+
+  const [difPass, setDifPass] = useState(false);
+
+  const auth = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleRegister = () => {
+    if (password === rePassword) {
+      setDifPass(false);
+      setError(null);
+      setIsLoading(true);
+      axios
+        .post("http://localhost:4000/api/v1/authentication/register", {
+          name: login,
+          email: email,
+          password: password,
+          application: "api-jwt",
+        })
+        .then((data) => {
+          auth.login(data.data.token);
+          setTimeout(() => navigate("/", { replace: true }), 500);
+        })
+        .catch((error) => {
+          setError(error.message);
+          setIsLoading(false);
+        });
+    } else {
+      setDifPass(true);
+    }
+  };
+  const checkPasswords = () => {
+    if (password !== rePassword) {
+      setDifPass(true);
+    } else {
+      setDifPass(false);
+    }
+  };
   return (
     <div
       className={`${
@@ -13,6 +63,8 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
       </p>
       <label className="ml-14 text-left"> Podaj login </label>
       <input
+        value={login}
+        onInput={(e) => setLogin(e.target.value)}
         className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
         type="text"
         placeholder="Wpisz login"
@@ -20,6 +72,8 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
 
       <label className="ml-14 mt-4 text-left"> Podaj email </label>
       <input
+        value={email}
+        onInput={(e) => setEmail(e.target.value)}
         className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
         type="text"
         placeholder="Adres e-mail"
@@ -27,21 +81,61 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
 
       <label className="ml-14 mt-10 text-left"> Podaj hasło </label>
       <input
-        className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
+        value={password}
+        onInput={(e) => {
+          setPassword(e.target.value);
+          setDifPass(false);
+        }}
+        className={`${
+          difPass
+            ? "dark:text-gray-200  bg-red-200 dark:bg-red-400 border-red-400 focus:border-red-500 focus:ring-red-500 placeholder-gray-600"
+            : "dark:text-gray-200 bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 focus:ring-gray-500 placeholder-gray-300"
+        }  ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black font-semibold rounded-sm focus:outline-none focus:ring-2  sm:ml-12`}
         type="password"
         placeholder="Wpisz hasło"
       ></input>
 
       <label className="ml-14 mt-4 text-left"> Podaj hasło ponownie</label>
-      <input
-        className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
-        type="password"
-        placeholder="Powtórz hasło"
-      ></input>
+      <div className="flex flex-col ml-4 mt-1 mx-auto w-4/5 h-20 sm:ml-12">
+        <input
+          value={rePassword}
+          onBlur={() => checkPasswords()}
+          onInput={(e) => {
+            setRePassword(e.target.value);
+            setDifPass(false);
+          }}
+          className={`${
+            difPass
+              ? "dark:text-gray-200 bg-red-200 dark:bg-red-400 border-red-400 focus:border-red-500 focus:ring-red-500"
+              : "dark:text-gray-200 bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 focus:ring-gray-500"
+          } placeholder-gray-300 w-full pl-2 py-1 text-left text-black font-semibold rounded-sm focus:outline-none focus:ring-2`}
+          type="password"
+          placeholder="Powtórz hasło"
+        ></input>
+        <p
+          className={`${
+            difPass ? "" : "hidden"
+          } h-auto text-red-200 bg-red-800 w-3/5 mx-auto py-1 px-3 mt-0 text-center rounded-b-lg font-bold text-sm`}
+        >
+          Podano inne hasła!
+        </p>
+      </div>
 
-      <button className="hover:border-6 mt-10 mx-auto w-2/3 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/3">
-        {" "}
-        Zarejestruj sie{" "}
+      <button
+        onClick={() => handleRegister()}
+        className="hover:border-6 mt-2 mx-auto w-4/5 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/2"
+      >
+        <div className="flex flex-row w-full h-full">
+          <div class={`flex items-center justify-center w-1/6`}>
+            <div
+              class={`${
+                isLoading ? "" : "hidden"
+              }  w-4 h-4 border-b-2 border-gray-900 rounded-full animate-spin ml-auto`}
+            ></div>
+          </div>
+          <p className="w-2/3">Zarejestruj się</p>
+          <div className="w-1/6"></div>
+        </div>
       </button>
 
       <button

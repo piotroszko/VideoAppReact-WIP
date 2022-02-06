@@ -1,5 +1,6 @@
-import VideoGrid from "../../components/VideoGrid/VideoGrid";
 import React, { useEffect } from "react";
+
+import VideoGrid from "../../components/VideoGrid/VideoGrid";
 
 function VideoList() {
   useEffect(() => {

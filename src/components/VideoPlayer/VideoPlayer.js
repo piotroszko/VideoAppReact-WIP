@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import "./VideoPlayer.css";
 
+import "./VideoPlayer.css";
 import BackwardSvg from "./controls/backward-5.svg";
 import ForwardSvg from "./controls/forward-5.svg";
 import PauseSvg from "./controls/pause.svg";

@@ -1,7 +1,7 @@
-import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import React, { useState, useContext } from "react";
-import CommentLabel from "./components/CommentLabel";
 
+import CommentLabel from "./components/CommentLabel";
+import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 const Comments = () => {
   const darkmode = useContext(DarkmodeContext);
   return (

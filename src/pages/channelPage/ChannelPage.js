@@ -1,4 +1,5 @@
 import React from "react";
+
 import VideoGrid from "../../components/VideoGrid/VideoGrid";
 
 const ChannelPage = () => {
