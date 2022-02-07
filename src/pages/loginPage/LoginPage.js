@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import RegistrationForm from "./forms/RegistrationForm";
 import LoginForm from "./forms/LoginForm";
 import ForgotForm from "./forms/ForgotForm";
+import { t } from "i18next";
 
 const LoginPage = () => {
   const [isRegVisable, setIsRegVisable] = useState(false);
@@ -14,7 +15,7 @@ const LoginPage = () => {
         <Link to="/" className="mb-auto mr-auto">
           <button className="ml-2 mt-2 p-3 hover:text-black text-white text-lg font-bold hover:bg-gray-200 bg-gray-400 hover:border-gray-200 rounded-md">
             {" "}
-            Wróć{" "}
+            {t("back")}{" "}
           </button>
         </Link>
       </div>

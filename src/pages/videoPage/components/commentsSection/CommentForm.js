@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React, { useState } from "react";
 import "./Comment.css";
 const CommentForm = () => {
@@ -30,7 +31,7 @@ const CommentForm = () => {
             } select-none whitespace-nowrap shadow-md p-2 h-1/2 self-center dark:bg-gray-700`}
           >
             {" "}
-            <p className="mx-4 dark:text-gray-200"> Napisz komentarz </p>{" "}
+            <p className="mx-4 dark:text-gray-200"> {t("writeComment")} </p>{" "}
           </button>
           <form
             className={` ${
@@ -41,7 +42,7 @@ const CommentForm = () => {
               className="mx-auto p-2 w-full text-lg shadow-md"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Tytuł"
+              placeholder={t("comTitle")}
               type="text"
               name="title"
             />
@@ -49,7 +50,7 @@ const CommentForm = () => {
               className="mt-1 mx-auto p-2 w-full shadow-md"
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
-              placeholder="Treść"
+              placeholder={t("comContent")}
               type="text"
               name="commentText"
               required
@@ -60,13 +61,13 @@ const CommentForm = () => {
                 className="ml-0 mr-auto mt-2 p-1 dark:text-gray-200 text-xs font-bold dark:bg-gray-600 shadow-md sm:text-base"
                 type="submit"
               >
-                Anuluj
+                {t("cancel")}
               </button>
               <button
                 className="ml-auto mr-0 mt-2 p-1 dark:text-gray-200 text-xs font-bold dark:bg-gray-600 shadow-md sm:text-base"
                 type="submit"
               >
-                Dodaj komentarz
+                {t("comAdd")}
               </button>
             </div>
           </form>

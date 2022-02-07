@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { t } from "i18next";
 const VideoPageInfo = () => {
   const [isInfo, setIsInfo] = useState(false);
   return (
@@ -22,7 +23,7 @@ const VideoPageInfo = () => {
             <p className="text-medium h-1/2 font-bold">Nazwa kanału</p>
             <div className="h-1/4 text-xs">
               <p className="cursor-pointer" onClick={() => setIsInfo(!isInfo)}>
-                {isInfo ? "Mniej info" : "Wiecej info"}
+                {isInfo ? t("hideDesc") : t("showDesc")}
               </p>
             </div>
           </div>

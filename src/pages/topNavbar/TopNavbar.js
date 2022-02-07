@@ -7,6 +7,7 @@ import LoginButtonMobile from "./components/LoginButtonMobile/LoginButtonMobile"
 import MainLayout from "./../mainLayout/MainLayout";
 import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
+import { t } from "i18next";
 
 const TopNavbar = () => {
   const [result, setResult] = useState(false);
@@ -41,7 +42,7 @@ const TopNavbar = () => {
           <div className="relative flex items-center justify-start pt-1 w-full space-x-4">
             <Link to="/" component={<MainLayout />}>
               <svg
-                className="animate-logo cursor-pointer"
+                className="cursor-pointer animate-logo"
                 width={50}
                 height={32}
                 viewBox="0 0 50 32"
@@ -64,7 +65,7 @@ const TopNavbar = () => {
                 onInput={(e) => handleInput(e)}
                 className="placeholder-gray-600 dark:placeholder-gray-100 pl-10 py-3 w-full dark:text-gray-200 text-gray-600 text-sm leading-none bg-gray-100 dark:bg-gray-400 rounded focus:outline-none"
                 type="text"
-                placeholder="Search"
+                placeholder={t("search")}
               />
               <svg
                 className="absolute left-3"
@@ -249,7 +250,7 @@ const TopNavbar = () => {
                 onInput={(e) => handleInput2(e)}
                 className="dark:placeholder-gray-200 placeholder-gray-600 pl-10 py-3 w-full dark:text-gray-200 text-gray-600 text-sm leading-none bg-gray-100 dark:bg-gray-600 rounded focus:outline-none"
                 type="text"
-                placeholder="Search"
+                placeholder={t("search")}
               />
               <svg
                 className="absolute left-2"

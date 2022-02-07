@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import "./Comment.css";
 
 import ArrowSvg from "./controls/arrow.svg";
@@ -57,7 +58,7 @@ const Comment = () => {
             </p>
             <div className="text-grey flex mt-6 text-right text-xs sm:text-sm">
               <p className="text-left">16:00 20.05.2021</p>
-              <p className="ml-auto text-right">REPORTUJ</p>
+              <p className="ml-auto text-right">{t("comReport")}</p>
             </div>
           </div>
         </div>

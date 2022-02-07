@@ -11,6 +11,7 @@ import addSvg from "./placeholders/addToWatch.svg";
 import dotsSvg from "./placeholders/dots.svg";
 import VideoPage from "../../pages/videoPage/VideoPage";
 import ChannelPage from "../../pages/channelPage/ChannelPage";
+import { t } from "i18next";
 
 const VideoCard = () => {
   const [mouseOn, setMouseOn] = useState("");
@@ -49,7 +50,7 @@ const VideoCard = () => {
             closeOnDocumentClick
           >
             <div className="flex flex-col pb-3 pt-1 w-40 bg-gray-400 rounded-lg">
-              <p className="mx-auto text-center text-white font-bold"> Dodaj do playlisty: </p>
+              <p className="mx-auto text-center text-white font-bold"> {t("toPlaylist")}: </p>
               <p className="mt-1 mx-2 px-1 text-center text-white hover:bg-gray-500 border-2 border-gray-200 rounded-md cursor-pointer overflow-hidden">
                 {" "}
                 Playlista 1{" "}
@@ -63,14 +64,14 @@ const VideoCard = () => {
               mouseOn === "watch" ? "" : "hidden"
             }  bg-gray-600 text-gray-200 rounded-lg p-1`}
           >
-            <p> Do obejrzenia </p>
+            <p> {t("toWatchlist")} </p>
           </div>
           <div
             className={`${
               mouseOn === "options" ? "" : "hidden"
             }  bg-gray-600 text-gray-200 rounded-lg p-1`}
           >
-            <p> Dodaj do playlisty </p>
+            <p> {t("toPlaylist")} </p>
           </div>
         </div>
 
@@ -99,7 +100,7 @@ const VideoCard = () => {
           Nazwa kanału
         </p>
       </Link>
-      <p className="w-full text-right whitespace-nowrap text-sm"> Wyswietlenia: 20k</p>
+      <p className="w-full text-right whitespace-nowrap text-sm"> {t("views")}: 20k</p>
       <div className="flex mt-1 h-8"></div>
     </div>
   );

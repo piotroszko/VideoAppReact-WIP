@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import "./RecommendedVideos.css";
 import ScrollSvg from "./icons/scroll.svg";
 import VideoCard from "./../../../../components/VideoCard/VideoCard";
+import { t } from "i18next";
 
 const RecommendedVideos = () => {
   const refBar = useRef(null);
@@ -58,7 +59,7 @@ const RecommendedVideos = () => {
         className={`${slideAnim === "show" ? "animate-slideBottom" : ""}
         ${slideAnim === "hide" ? "animate-slideTop" : ""}
         ${slideAnim === "" ? "animStartTop" : ""}
-        mt-2 w-full h-auto dark:bg-gray-800 bg-white z-0`}
+        mt-2 w-full h-0 dark:bg-gray-800 bg-white z-0`}
       >
         <div
           className="relative flex flex-row w-full h-64 border-4 border-gray-500 rounded-b-xl overflow-hidden"
@@ -134,16 +135,16 @@ const RecommendedVideos = () => {
             <p
               className={`${slideAnim === "show" ? "animate-scaleIn" : ""}
                 ${slideAnim === "hide" ? "animate-scaleOut" : ""}
-                ${slideAnim === "" ? "scale-0" : ""} h-0`}
+                ${slideAnim === "" ? "scale-0 hidden" : ""} h-0`}
             >
-              Schowaj
+              {t("hide")}
             </p>
             <p
               className={`${slideAnim === "show" ? "animate-scaleOut" : ""}
                 ${slideAnim === "hide" ? "animate-scaleIn" : ""}
                 ${slideAnim === "" ? "scale-100" : ""} h-0`}
             >
-              Pokaż rekomendacje
+              {t("showRecomendation")}
             </p>
           </button>
         </div>

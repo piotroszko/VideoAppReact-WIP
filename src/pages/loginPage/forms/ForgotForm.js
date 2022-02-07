@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React from "react";
 
 const ForgotForm = ({ isVisable, visabilityCallback }) => {
@@ -11,18 +12,17 @@ const ForgotForm = ({ isVisable, visabilityCallback }) => {
         {" "}
         VideoAPP{" "}
       </p>
-      <p className="mx-auto py-2 w-2/3 text-xl font-semibold sm:w-1/3"> Przypomnij hasło </p>
+      <p className="mx-auto py-2 w-2/3 text-xl font-semibold sm:w-1/3"> {t("resetPassword")} </p>
 
-      <label className="ml-14 text-left"> Podaj email na który zostanie wysłany email</label>
+      <label className="ml-4 text-center">{t("forgotPasswordDesc")}</label>
       <input
         className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
         type="text"
-        placeholder="Adres e-mail"
+        placeholder={t("email")}
       ></input>
 
       <button className="hover:border-6 mt-10 mx-auto w-1/2 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4">
-        {" "}
-        Wyślij{" "}
+        {t("send")}
       </button>
 
       <button
@@ -31,8 +31,7 @@ const ForgotForm = ({ isVisable, visabilityCallback }) => {
         }}
         className="hover:border-6 mb-4 ml-auto mr-4 mt-auto w-2/3 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
       >
-        {" "}
-        Wróć{" "}
+        {t("back")}
       </button>
     </div>
   );

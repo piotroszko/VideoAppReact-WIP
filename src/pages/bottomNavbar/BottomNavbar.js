@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 
 import "./BottomNavbar.css";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
+import { t } from "i18next";
 
 const BottomNavbar = () => {
   const [barVisable, setBarVisable] = useState(true);
@@ -71,10 +72,10 @@ const BottomNavbar = () => {
           ref={refPlaylists}
         >
           <button className="btn-history btn-special-underline">
-            <p className="text-btn-bottom">HISTORIA</p>
+            <p className="text-btn-bottom">{t("videosHistory")}</p>
           </button>
           <button className="btn-toWatch btn-special-underline">
-            <p className="text-btn-bottom">DO OBEJRZENIA</p>
+            <p className="text-btn-bottom">{t("watchlist")}</p>
           </button>
           <button className="btn-playlist">
             <p className="text-btn-bottom">PLAYLISTA 1</p>

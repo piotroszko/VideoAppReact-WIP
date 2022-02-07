@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../utils";
 
 import ep from "../../../api/auth-ep";
+import { t } from "i18next";
 
 const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
   let navigate = useNavigate();
@@ -44,39 +45,38 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
         {" "}
         VideoAPP{" "}
       </p>
-      <p className="mx-auto py-2 w-2/3 text-xl font-semibold sm:w-1/3"> LOGOWANIE </p>
+      <p className="mx-auto py-2 w-2/3 text-xl font-semibold uppercase sm:w-1/3"> {t("logIn")} </p>
 
-      <label className="ml-14 text-left"> Podaj email </label>
+      <label className="ml-14 text-left"> {t("giveEmail")} </label>
       <input
         value={email}
         onInput={(e) => setEmail(e.target.value)}
         className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
         type="text"
-        placeholder="Adres e-mail"
+        placeholder={t("emailAddress")}
       ></input>
 
-      <label className="ml-14 mt-10 text-left"> Podaj hasło </label>
+      <label className="ml-14 mt-10 text-left"> {t("givePassword")} </label>
       <input
         value={password}
         onInput={(e) => setPassword(e.target.value)}
         className="placeholder-gray-300 ml-4 mr-auto mt-1 pl-2 py-1 w-4/5 text-left text-black dark:text-gray-200 font-semibold bg-gray-200 dark:bg-gray-700 border-gray-400 focus:border-gray-500 rounded-sm focus:outline-none focus:ring-2 focus:ring-gray-500 sm:ml-12"
         type="password"
-        placeholder="Wpisz hasło"
+        placeholder={t("password")}
       ></input>
 
       <p
         onClick={() => forgotCallback()}
         className="font-italic mt-2 mx-auto hover:underline text-sm cursor-pointer"
       >
-        {" "}
-        Przypomnij hasło{" "}
+        {t("passwordForgot")}
       </p>
       <p
         className={`${
           error == null ? "hidden" : ""
         } h-18 mt-2 mx-auto p-2 w-1/2 text-center text-sm font-bold bg-red-300 rounded-lg`}
       >
-        Podano złe dane do logowania.
+        {t("wrongCredentials")}
       </p>
       <button
         onClick={() => handleLogin()}
@@ -90,7 +90,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
               }  w-4 h-4 border-b-2 border-gray-900 rounded-full animate-spin`}
             ></div>
           </div>
-          <p className="w-2/3">Zaloguj</p>
+          <p className="w-2/3">{t("logIn")}</p>
           <div className="w-1/6"></div>
         </div>
       </button>
@@ -99,8 +99,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
         onClick={() => visabilityCallback()}
         className="hover:border-6 mb-4 ml-auto mr-4 mt-auto w-2/3 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
       >
-        {" "}
-        Rejestracja{" "}
+        {t("register")}
       </button>
     </div>
   );
