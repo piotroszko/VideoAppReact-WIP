@@ -81,7 +81,7 @@ const VideoPlayer = () => {
 
   return (
     <div
-      className="videoContainer relative"
+      className="videoContainer relative z-10"
       onMouseEnter={() => changeControlsVisability(1)}
       onMouseLeave={() => changeControlsVisability(0)}
     >

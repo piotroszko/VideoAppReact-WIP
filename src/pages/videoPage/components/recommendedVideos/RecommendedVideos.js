@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
+import "./RecommendedVideos.css";
 import ScrollSvg from "./icons/scroll.svg";
 import VideoCard from "./../../../../components/VideoCard/VideoCard";
 
 const RecommendedVideos = () => {
   const refBar = useRef(null);
+  const [slideAnim, SetSlideAnim] = useState("");
 
   const onScroll = (e) => {
     if (e.deltaY < 0) {
@@ -43,73 +45,110 @@ const RecommendedVideos = () => {
     }
     e.returnValue = false;
   }
+  const handleSlideAnim = () => {
+    if (slideAnim === "" || slideAnim === "hide") {
+      SetSlideAnim("show");
+    } else {
+      SetSlideAnim("hide");
+    }
+  };
   return (
-    <div className="mt-2 w-full h-72 dark:bg-gray-800 bg-white">
+    <>
       <div
-        className="relative flex flex-row w-full h-64 border-4 border-gray-500 rounded-b-xl overflow-hidden"
-        onWheel={onScroll}
-        onMouseEnter={disableScroll}
-        onMouseLeave={enableScroll}
+        className={`${slideAnim === "show" ? "animate-slideBottom" : ""}
+        ${slideAnim === "hide" ? "animate-slideTop" : ""}
+        ${slideAnim === "" ? "animStartTop" : ""}
+        mt-2 w-full h-auto dark:bg-gray-800 bg-white z-0`}
       >
         <div
-          onClick={() => scrollLeft(false)}
-          className="absolute z-50 top-1/4 w-14 h-16 bg-gray-300 rounded-r-2xl opacity-75 cursor-pointer"
+          className="relative flex flex-row w-full h-64 border-4 border-gray-500 rounded-b-xl overflow-hidden"
+          onWheel={onScroll}
+          onMouseEnter={disableScroll}
+          onMouseLeave={enableScroll}
         >
-          {" "}
-          <img
-            style={{ transform: "rotate(-180deg)" }}
-            className="mr-1 mt-2 h-12"
-            src={ScrollSvg}
-            alt="<-"
-          ></img>{" "}
-        </div>
-        <div
-          onClick={() => scrollLeft(true)}
-          className="absolute z-50 right-0 top-1/4 w-14 h-16 bg-gray-300 rounded-l-2xl opacity-75 cursor-pointer"
-        >
-          {" "}
-          <img className="ml-2 mt-2 h-12" src={ScrollSvg} alt="<-"></img>{" "}
-        </div>
-        <div
-          className="scroll-smooth flex flex-row pl-8 pr-8 w-full h-60 overflow-hidden"
-          ref={refBar}
-        >
-          <div className="w-50 h-60">
-            <VideoCard></VideoCard>
+          <div
+            onClick={() => scrollLeft(false)}
+            className="absolute z-50 top-1/4 w-14 h-16 bg-gray-300 rounded-r-2xl opacity-75 cursor-pointer"
+          >
+            {" "}
+            <img
+              style={{ transform: "rotate(-180deg)" }}
+              className="mr-1 mt-2 h-12"
+              src={ScrollSvg}
+              alt="<-"
+            ></img>{" "}
           </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
+          <div
+            onClick={() => scrollLeft(true)}
+            className="absolute z-50 right-0 top-1/4 w-14 h-16 bg-gray-300 rounded-l-2xl opacity-75 cursor-pointer"
+          >
+            {" "}
+            <img className="ml-2 mt-2 h-12" src={ScrollSvg} alt="<-"></img>{" "}
           </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
-          </div>
-          <div className="w-80 h-60">
-            <VideoCard></VideoCard>
+          <div
+            className="scroll-smooth flex flex-row pl-8 pr-8 w-full h-60 overflow-hidden"
+            ref={refBar}
+          >
+            <div className="w-50 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
+            <div className="w-80 h-60">
+              <VideoCard></VideoCard>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="w-full dark:bg-gray-800 bg-white">
+        <div className="h-min mx-auto p-2 w-min dark:bg-gray-200 bg-gray-800 rounded-b-xl select-none">
+          <button
+            className="w-full h-2 text-gray-200 dark:text-gray-800 whitespace-nowrap font-bold"
+            onClick={() => handleSlideAnim()}
+          >
+            <p
+              className={`${slideAnim === "show" ? "animate-scaleIn" : ""}
+                ${slideAnim === "hide" ? "animate-scaleOut" : ""}
+                ${slideAnim === "" ? "scale-0" : ""} h-0`}
+            >
+              Schowaj
+            </p>
+            <p
+              className={`${slideAnim === "show" ? "animate-scaleOut" : ""}
+                ${slideAnim === "hide" ? "animate-scaleIn" : ""}
+                ${slideAnim === "" ? "scale-100" : ""} h-0`}
+            >
+              Pokaż rekomendacje
+            </p>
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 

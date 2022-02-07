@@ -1,0 +1,5 @@
+.animStartTop {
+  transform: translateY(-300px);
+  opacity: 0;
+  height: 0;
+}
