@@ -11,7 +11,7 @@ import MutedSvg from "./controls/muted.svg";
 
 import NextSvg from "./controls/next.svg";
 
-const VideoPlayer = () => {
+const VideoPlayer = (props) => {
   const videoRef = useRef(null);
   const progressBar = useRef(null);
   const controlsContainer = useRef(null);
@@ -89,7 +89,7 @@ const VideoPlayer = () => {
         id="video1"
         ref={videoRef}
         className="video"
-        src="https://static.videezy.com/system/resources/previews/000/004/276/original/20_1_20Dragon_20Coaster_20Part_205.mp4"
+        src={props?.id ? "http://localhost:4000/videos/" + props?.id + ".mp4" : ""}
       ></video>
       <div
         className="controlsContainer"

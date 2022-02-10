@@ -1,5 +1,5 @@
 import ReactFreezeframe from "react-freezeframe";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
@@ -13,13 +13,14 @@ import VideoPage from "../../pages/videoPage/VideoPage";
 import ChannelPage from "../../pages/channelPage/ChannelPage";
 import { t } from "i18next";
 
-const VideoCard = () => {
+const VideoCard = (props) => {
   const [mouseOn, setMouseOn] = useState("");
 
   let navigate = useNavigate();
   const handleOnClick = () => {
-    navigate("/video/2", { replace: true });
+    navigate("/video/" + props?.data?.id, { replace: true });
   };
+
   return (
     <div className="videoCard animation-button relative flex-1 mx-auto p-3 dark:text-gray-200">
       <div
@@ -77,30 +78,36 @@ const VideoCard = () => {
 
         <img
           className={`${mouseOn === "video" ? "z-0" : "z-10"} absolute object-cover w-full`}
-          src={Bunny}
+          src={
+            props?.data?.id ? "http://localhost:4000/info/thumbnails/" + props.data.id + ".png" : ""
+          }
           alt=""
         />
         <ReactFreezeframe
-          className={`${mouseOn === "" ? "z-10" : "z-0"} absolute`}
-          src={GifBunny}
+          className={`${mouseOn === "" ? "z-10" : "z-0"} absolute `}
+          src={
+            props?.data?.id ? "http://localhost:4000/info/preview/" + props.data.id + ".gif" : ""
+          }
         />
       </div>
       <div className="flex">
-        <Link to="/video/2" component={<VideoPage />}>
+        <Link to={"/video/" + props?.data?.id} component={<VideoPage />}>
           <p className="sm:text-md w-2/3 text-left text-sm font-semibold cursor-pointer">
             {" "}
-            Video na temat królików
+            {props?.data?.name ? props.data.name : ""}
           </p>
         </Link>
         <p className="ml-auto mr-3 w-1/3 text-right text-sm italic"> 2 lata</p>
       </div>
-      <Link to="/channel/test" component={<ChannelPage />}>
+      <Link to={"/channel/" + props?.data?.userId} component={<ChannelPage />}>
         <p className="w-full text-center hover:underline whitespace-nowrap text-sm">
-          {" "}
-          Nazwa kanału
+          {props?.data?.channelName ? props.data.channelName : "Channel"}
         </p>
       </Link>
-      <p className="w-full text-right whitespace-nowrap text-sm"> {t("views")}: 20k</p>
+      <p className="w-full text-right whitespace-nowrap text-sm">
+        {" "}
+        {t("views")}: {props?.data?.views ? props.data.views : "0"}
+      </p>
       <div className="flex mt-1 h-8"></div>
     </div>
   );

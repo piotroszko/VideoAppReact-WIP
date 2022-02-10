@@ -101,13 +101,7 @@ const VideoGrid = (props) => {
         </>
       ) : null}
       <div className="grid 2xl:grid-cols-5 pt-5 sm:grid-cols-2 sm:pt-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+        {props.videos && props.videos.map((video) => <VideoCard data={video} key={video.id} />)}
       </div>
     </div>
   );

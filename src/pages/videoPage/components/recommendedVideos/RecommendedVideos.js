@@ -127,11 +127,11 @@ const RecommendedVideos = () => {
         </div>
       </div>
       <div className="w-full dark:bg-gray-800 bg-white">
-        <div className="h-min mx-auto p-2 w-min dark:bg-gray-200 bg-gray-800 rounded-b-xl select-none">
-          <button
-            className="w-full h-2 text-gray-200 dark:text-gray-800 whitespace-nowrap font-bold"
-            onClick={() => handleSlideAnim()}
-          >
+        <div
+          onClick={() => handleSlideAnim()}
+          className="h-min mx-auto p-2 w-min dark:bg-gray-200 bg-gray-800 rounded-b-xl cursor-pointer select-none"
+        >
+          <button className="w-full h-2 text-gray-200 dark:text-gray-800 whitespace-nowrap font-bold">
             <p
               className={`${slideAnim === "show" ? "animate-scaleIn" : ""}
                 ${slideAnim === "hide" ? "animate-scaleOut" : ""}
