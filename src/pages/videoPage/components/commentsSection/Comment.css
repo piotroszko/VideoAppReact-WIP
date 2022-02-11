@@ -1,5 +1,11 @@
 /* CommentForm */
 
+:root {
+  --foldInitSize: 40px;
+  --foldHoverSize: 60px;
+  --fontSizeLike: 16px;
+  --fontSizeLikeHover: 23px;
+}
 .scaley-0 {
   -webkit-transform: scaley(0);
   transform: scaley(0);
@@ -29,4 +35,143 @@
 }
 .svgRedFilter {
   filter: invert(9%) sepia(91%) saturate(4949%) hue-rotate(356deg) brightness(119%) contrast(99%);
+}
+
+/*  FOLD CORNERS */
+
+.foldLT {
+  position: relative;
+  transition: all ease 0.5s;
+}
+.foldLT:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
+  border-width: 0 0 var(--foldInitSize) var(--foldInitSize);
+  border-color: lightgray white;
+  transition: all ease 0.5s;
+}
+.foldLT:hover:before {
+  border-width: 0 0 var(--foldHoverSize) var(--foldHoverSize);
+  border-color: rgb(66, 94, 58) white;
+}
+.foldLB {
+  position: relative;
+  transition: all ease 0.5s;
+}
+.foldLB:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-style: solid;
+  border-width: var(--foldInitSize) 0 0 var(--foldInitSize);
+  border-color: lightgray white;
+  transition: all ease 0.5s;
+}
+.foldLB:hover:before {
+  border-width: var(--foldHoverSize) 0 0 var(--foldHoverSize);
+  border-color: rgb(119, 84, 84) white;
+}
+
+/*  LIKE TEXTS */
+
+.textLT {
+  font-size: var(--fontSizeLike);
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: green;
+  transition: all ease 0.5s;
+}
+.foldLT:hover > .textLT {
+  font-size: var(--fontSizeLikeHover);
+}
+.foldLT:hover > .textLT:after {
+  content: "1";
+}
+.textLB {
+  font-size: var(--fontSizeLike);
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: red;
+  transition: all ease 0.5s;
+}
+.foldLB:hover > .textLB {
+  font-size: var(--fontSizeLikeHover);
+}
+.foldLB:hover > .textLB:after {
+  content: "1";
+  color: red;
+}
+
+/*  LIKE COUNT */
+
+.likeCount {
+  opacity: 1;
+  transition: all ease 0.5s;
+}
+.likeCount {
+  opacity: 0.08;
+}
+
+/*  -------DARK MODE VERSIONS------- */
+
+.DarkfoldLT:hover > .textLT {
+  font-size: var(--fontSizeLikeHover);
+}
+.DarkfoldLT:hover > .textLT:after {
+  content: "1";
+}
+.DarkfoldLB:hover > .textLB {
+  font-size: var(--fontSizeLikeHover);
+}
+.DarkfoldLB:hover > .textLB:after {
+  content: "1";
+}
+
+/*  FOLD CORNERS - DARK MODE */
+.DarkfoldLB {
+  position: relative;
+  transition: all ease 0.5s;
+}
+.DarkfoldLB:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-style: solid;
+  border-width: var(--foldInitSize) 0 0 var(--foldInitSize);
+  border-color: lightgray rgba(31, 41, 55, var(--tw-bg-opacity));
+  transition: all ease 0.5s;
+}
+.DarkfoldLB:hover:before {
+  border-width: var(--foldHoverSize) 0 0 var(--foldHoverSize);
+  border-color: rgb(119, 84, 84) rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.DarkfoldLT {
+  position: relative;
+  transition: all ease 0.5s;
+}
+.DarkfoldLT:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
+  border-width: 0 0 var(--foldInitSize) var(--foldInitSize);
+  border-color: lightgray rgba(31, 41, 55, var(--tw-bg-opacity));
+  transition: all ease 0.5s;
+}
+.DarkfoldLT:hover:before {
+  border-width: 0 0 var(--foldHoverSize) var(--foldHoverSize);
+  border-color: rgb(66, 94, 58) rgba(31, 41, 55, var(--tw-bg-opacity));
 }
