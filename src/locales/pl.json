@@ -21,9 +21,10 @@
   "comContent": "Treść opini",
   "cancel": "Anuluj",
   "comAdd": "Dodaj komentarz",
+  "comReport": "ZGŁOŚ",
+  "comDelete": "USUŃ",
   "videosHistory": "HISTORIA",
   "watchlist": "DO OBEJRZENIA",
-  "comReport": "ZGŁOŚ",
   "back": "Wróć",
   "giveEmail": "Podaj email",
   "giveLogin": "Podaj login",
@@ -38,5 +39,6 @@
   "wrongCredentials": "Złe dane do logowania",
   "resetPassword": "Zapomniałeś hasła?",
   "forgotPasswordDesc": "Podaj email do konta a my wyślemy Ci link do zresetowania hasła.",
-  "send": "Wyślij"
+  "send": "Wyślij",
+  "comLogin": "By napisać komentarz musisz być {{tag1}}zalogowany{{tag2}}."
 }

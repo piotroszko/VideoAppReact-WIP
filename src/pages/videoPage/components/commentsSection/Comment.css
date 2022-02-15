@@ -6,6 +6,9 @@
   --fontSizeLike: 16px;
   --fontSizeLikeHover: 23px;
 }
+.minWidth {
+  min-width: 10rem;
+}
 .scaley-0 {
   -webkit-transform: scaley(0);
   transform: scaley(0);
@@ -43,7 +46,7 @@
   position: relative;
   transition: all ease 0.5s;
 }
-.foldLT:before {
+.foldLTUnactive:before {
   content: "";
   position: absolute;
   top: 0;
@@ -53,15 +56,22 @@
   border-color: lightgray white;
   transition: all ease 0.5s;
 }
-.foldLT:hover:before {
+.foldLTActive:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
   border-width: 0 0 var(--foldHoverSize) var(--foldHoverSize);
   border-color: rgb(66, 94, 58) white;
+  transition: all ease 0.5s;
 }
+
 .foldLB {
   position: relative;
   transition: all ease 0.5s;
 }
-.foldLB:before {
+.foldLBUnactive:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -71,9 +81,15 @@
   border-color: lightgray white;
   transition: all ease 0.5s;
 }
-.foldLB:hover:before {
+.foldLBActive:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-style: solid;
   border-width: var(--foldHoverSize) 0 0 var(--foldHoverSize);
   border-color: rgb(119, 84, 84) white;
+  transition: all ease 0.5s;
 }
 
 /*  LIKE TEXTS */
@@ -88,10 +104,10 @@
   color: green;
   transition: all ease 0.5s;
 }
-.foldLT:hover > .textLT {
+.textLTActive {
   font-size: var(--fontSizeLikeHover);
 }
-.foldLT:hover > .textLT:after {
+.textLTActive:after {
   content: "1";
 }
 .textLB {
@@ -104,10 +120,10 @@
   color: red;
   transition: all ease 0.5s;
 }
-.foldLB:hover > .textLB {
+.textLBActive {
   font-size: var(--fontSizeLikeHover);
 }
-.foldLB:hover > .textLB:after {
+.textLBActive:after {
   content: "1";
   color: red;
 }

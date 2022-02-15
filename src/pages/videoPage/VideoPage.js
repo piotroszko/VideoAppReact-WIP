@@ -18,8 +18,7 @@ const VideoPage = (props) => {
         <VideoPageInfo></VideoPageInfo>
         <VideoPlayer id={id}></VideoPlayer>
         <RecommendedVideos />
-        <CommentForm />
-        <CommentsSection />
+        <CommentsSection videoID={id} />
       </div>
     </div>
   );
