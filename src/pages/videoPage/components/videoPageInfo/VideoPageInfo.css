@@ -1,0 +1,16 @@
+.dislikeUnactive {
+  background-position: 0% 0%;
+}
+.dislikeActive {
+  background-position: 100% 100%;
+}
+
+.likeUnactive {
+  background-position: 0% 0%;
+}
+.likeActive {
+  background-position: 100% 100%;
+}
+.backGroundSize2X {
+  background-size: 200%;
+}
