@@ -5,6 +5,7 @@ import { useDetectClickOutside } from "react-detect-click-outside";
 import LoginPage from "../../../loginPage/LoginPage";
 import { useAuth, useUser } from "../../../../utils";
 import { t } from "i18next";
+import ProfilePage from "../../../profilePage/ProfilePage";
 
 const LoginButton = () => {
   const ref = useDetectClickOutside({
@@ -45,9 +46,15 @@ const LoginButton = () => {
             isDropdownOpen ? "" : "hidden"
           } absolute top-full mt-2 left-0 z-20 bg-gray-100 rounded-md w-full pt-2 pb-4 flex flex-col gap-1 select-none`}
         >
-          <p className="mx-2 dark:text-gray-800 hover:text-white bg-gray-200 hover:bg-gray-400 border-2 border-gray-100 rounded-md cursor-pointer">
-            {t("account")}
-          </p>
+          <Link
+            to={"/profile"}
+            component={<ProfilePage />}
+            onClick={() => setIsDropdownOpen(false)}
+          >
+            <p className="mx-2 dark:text-gray-800 hover:text-white bg-gray-200 hover:bg-gray-400 border-2 border-gray-100 rounded-md cursor-pointer">
+              {t("account")}
+            </p>
+          </Link>
           <p
             onClick={auth.logout}
             className="mx-2 dark:text-gray-800 hover:text-white bg-red-200 hover:bg-red-400 border-2 border-gray-100 rounded-md cursor-pointer"
