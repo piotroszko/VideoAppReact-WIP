@@ -5,7 +5,7 @@ import VideoPage from "../../../videoPage/VideoPage";
 
 const CommentLabel = ({ data }) => {
   return (
-    <div className="z-50 flex flex-col mx-auto p-2 w-11/12 h-auto bg-gray-300 rounded-md">
+    <div className="flex flex-col mx-auto p-2 w-11/12 h-auto bg-gray-300 rounded-md">
       <div className="flex flex-row gap-8 p-2 w-full bg-gray-400 rounded-md">
         <img
           className={`block ml-4 mt-2 my-auto w-12 h-12 rounded-2xl`}
@@ -28,8 +28,8 @@ const CommentLabel = ({ data }) => {
         </Link>
       </div>
       {data
-        ? data.comments.map((c) => (
-            <div className="flex flex-col gap-3 ml-auto mt-2 w-2/3">
+        ? data.comments.map((c, index) => (
+            <div className="flex flex-col gap-3 ml-auto mt-2 w-2/3" key={index}>
               <div className="flex flex-row justify-evenly p-2 bg-gray-400 rounded-md">
                 <div className="flex flex-col w-1/5">
                   <p className="text-sm"> Napisany: </p>

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
+import axios from "axios";
+import useSWR from "swr";
 
 import LoginPage from "../../../loginPage/LoginPage";
 import { useAuth, useUser } from "../../../../utils";
@@ -15,6 +17,11 @@ const LoginButton = () => {
 
   const auth = useAuth();
   const { user } = useUser();
+  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+    axios.get(url).then((res) => {
+      return "http://localhost:4000/" + res.data;
+    })
+  );
   return (
     <div className="relative flex items-center justify-end py-3 w-auto space-x-6">
       <div className={`${auth.isLogin ? "hidden" : ""} `}>
@@ -36,9 +43,9 @@ const LoginButton = () => {
         >
           <p className="text-md my-auto italic"> {user?.name}</p>
           <img
-            alt=""
+            alt="http://localhost:4000/defaultAvatar.png"
             className="block mx-auto w-auto h-2/5 rounded-xl sm:h-1/2 lg:w-8 lg:h-8"
-            src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
+            src={data}
           />
         </div>
         <div

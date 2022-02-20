@@ -1,6 +1,16 @@
 import React from "react";
+import useSWR from "swr";
+import axios from "axios";
+
+import { useUser } from "../../../utils";
 
 const MainProfile = () => {
+  const { user } = useUser();
+  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+    axios.get(url).then((res) => {
+      return "http://localhost:4000/" + res.data;
+    })
+  );
   return (
     <div className="flex flex-col pt-16 w-full md:flex-row">
       <div className="flex flex-col order-2 w-full h-full dark:text-gray-200 md:order-1 md:w-1/2">
@@ -60,11 +70,7 @@ const MainProfile = () => {
         <p className="mb-8 text-lg font-bold"> Zmiana zdjecia profilowego </p>
 
         <p className="font-bold"> Aktualne zdjecie </p>
-        <img
-          alt=""
-          className="block mt-2 mx-auto w-1/3 rounded-2xl"
-          src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
-        />
+        <img alt="" className="block mt-2 mx-auto w-1/3 rounded-2xl" src={data} />
 
         <p className="mt-14 font-bold"> Wybierz nowe zdjecie </p>
         <input type="file" className="mb-4 mt-4 mx-auto"></input>

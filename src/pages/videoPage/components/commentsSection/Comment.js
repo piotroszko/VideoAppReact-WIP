@@ -3,6 +3,7 @@ import axios from "axios";
 import useSWR, { useSWRConfig } from "swr";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 import "./Comment.css";
 import { DarkmodeContext } from "../../../../utils/DarkmodeProvider";
@@ -130,6 +131,13 @@ const Comment = (props) => {
     }
   }, [disliked, dislikeHover]);
 
+  const { data, error } = useSWR(
+    "http://localhost:4000/api/v1/users/avatar/" + props?.data?.userID,
+    (url) =>
+      axios.get(url).then((res) => {
+        return "http://localhost:4000/" + res.data;
+      })
+  );
   return (
     <div className="cutCorners mx-auto px-0 w-full dark:border-gray-800 sm:w-3/4">
       <div className="relative flex items-stretch m-0 bg-gray-300 dark:bg-gray-700 rounded-xl">
@@ -179,8 +187,10 @@ const Comment = (props) => {
               {props?.data?.content}
             </p>
             <div className="flex h-1/5 text-right text-xs sm:text-sm">
-              <p className="text-left">16:00 20.05.2021</p>
-              {user?.id == props?.data?.userID ? (
+              <p className="text-left">
+                <Moment format="HH:mm DD-MM-YYYY">{props?.data?.createdAt}</Moment>
+              </p>
+              {user?.id === props?.data?.userID ? (
                 <p
                   className="ml-auto text-right text-red-800 font-bold cursor-pointer"
                   onClick={() => handleDelete()}
@@ -199,11 +209,11 @@ const Comment = (props) => {
             <img
               alt=""
               className="block mx-auto w-auto h-2/5 rounded-3xl sm:h-1/2 lg:w-32 lg:h-32"
-              src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
+              src={data}
             />
           </Link>
           <div className="my-1 p-0 sm:px-4">
-            <Link to={"/channel/" + props?.data?.userId} component={<ChannelPage />}>
+            <Link to={"/channel/" + props?.data?.userID} component={<ChannelPage />}>
               <h4 className="dark:hover:bg-gray-600 mx-auto px-2 py-1 w-min text-center whitespace-normal text-xs font-medium hover:bg-gray-300 rounded-xl sm:text-sm">
                 {props?.data?.userName}
               </h4>

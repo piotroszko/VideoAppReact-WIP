@@ -6,10 +6,9 @@ import useSWR from "swr";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoPageInfo from "./components/videoPageInfo/VideoPageInfo";
 import CommentsSection from "./components/commentsSection/CommentsSection";
-import CommentForm from "./components/commentsSection/CommentForm";
 import RecommendedVideos from "./components/recommendedVideos/RecommendedVideos";
 
-const VideoPage = (props) => {
+const VideoPage = () => {
   let { id } = useParams();
   const { data, error } = useSWR("http://localhost:4000/api/v1/video/v/" + id, (url) =>
     axios.get(url).then((res) => {
@@ -17,6 +16,9 @@ const VideoPage = (props) => {
       return res.data;
     })
   );
+  useEffect(() => {
+    axios.post("http://localhost:4000/api/v1/video/viewed/" + id);
+  }, []);
   return (
     <div className="pt-16">
       <div className="bg-black">

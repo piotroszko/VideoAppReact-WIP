@@ -1,20 +1,25 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import axios from "axios";
+import useSWR from "swr";
 
 import ChannelPage from "../channelPage/ChannelPage";
 import Comments from "./subPages/Comments";
 import Videos from "./subPages/Videos";
 import "./ProfilePage.css";
+import { useUser } from "../../utils";
 
 const ProfilePage = () => {
+  const { user } = useUser();
+  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+    axios.get(url).then((res) => {
+      return "http://localhost:4000/" + res.data;
+    })
+  );
   return (
     <div className="flex flex-row mt-16 pt-2 w-full h-full sm:mt-16 md:mt-16 lg:mt-0 lg:pt-0">
       <div className="fixed top-16 flex flex-auto flex-col w-1/6 min-w-min h-full dark:text-gray-200 bg-gray-300 dark:bg-gray-800 border-r-2 border-gray-700">
-        <img
-          alt=""
-          className="block mt-8 mx-auto w-2/3 rounded-2xl"
-          src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
-        />
+        <img alt="" className="block mt-8 mx-auto w-2/3 rounded-2xl" src={data} />
         <p className="mt-2 font-bold">Twoje konto</p>
         <p className="mt-2">Nazwa kanału</p>
         <Link to="/profile/" component={<ProfilePage />}>

@@ -1,13 +1,15 @@
 import { t } from "i18next";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import useSWR, { useSWRConfig } from "swr";
 
 import "./Comment.css";
 import { useAuth } from "../../../../utils";
+import { useUser } from "../../../../utils";
 import LoginPage from "../../../loginPage/LoginPage";
 const CommentForm = (props) => {
+  const { user } = useUser();
   const { mutate } = useSWRConfig();
   const axiosInstance = axios.create();
 
@@ -32,6 +34,11 @@ const CommentForm = (props) => {
       })
       .catch((error) => {});
   };
+  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+    axios.get(url).then((res) => {
+      return "http://localhost:4000/" + res.data;
+    })
+  );
   return (
     <>
       {!auth.isLogin ? (
@@ -60,7 +67,7 @@ const CommentForm = (props) => {
               className={` ${
                 isFormVis ? "scale-full" : "scale-half"
               } animateScale2 w-24 h-24 block rounded-3xl self-start`}
-              src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
+              src={data}
             />
             <div className="flex w-1/2 sm:w-1/3">
               <button

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
+import Moment from "react-moment";
 
 import "./VideoCard.css";
 import GifBunny from "./placeholders/bunny.gif";
@@ -90,14 +91,18 @@ const VideoCard = (props) => {
           }
         />
       </div>
-      <div className="flex">
-        <Link to={"/video/" + props?.data?.id} component={<VideoPage />}>
-          <p className="sm:text-md w-2/3 text-left text-sm font-semibold cursor-pointer">
+      <div className="flex flex-row">
+        <Link to={"/video/" + props?.data?.id} component={<VideoPage />} className="w-2/3">
+          <p className="sm:text-md text-left text-sm font-semibold cursor-pointer">
             {" "}
             {props?.data?.name ? props.data.name : ""}
           </p>
         </Link>
-        <p className="ml-auto mr-3 w-1/3 text-right text-sm italic"> 2 lata</p>
+        <p className="ml-auto mr-3 w-1/3 text-right text-sm italic">
+          <Moment toNow ago>
+            {props?.data?.createdAt ? props?.data?.createdAt : ""}
+          </Moment>
+        </p>
       </div>
       <Link to={"/channel/" + props?.data?.userId} component={<ChannelPage />}>
         <p className="w-full text-center hover:underline whitespace-nowrap text-sm">
