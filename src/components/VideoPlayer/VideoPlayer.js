@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 
 import "./VideoPlayer.css";
+import urls from "./../../api/auth-ep";
 import BackwardSvg from "./controls/backward-5.svg";
 import ForwardSvg from "./controls/forward-5.svg";
 import PauseSvg from "./controls/pause.svg";
@@ -89,7 +90,7 @@ const VideoPlayer = (props) => {
         id="video1"
         ref={videoRef}
         className="video"
-        src={props?.id ? "http://localhost:4000/videos/" + props?.id + ".mp4" : ""}
+        src={props?.id ? urls.video + props?.id + ".mp4" : ""}
       ></video>
       <div
         className="controlsContainer"

@@ -3,12 +3,13 @@ import useSWR from "swr";
 import axios from "axios";
 
 import { useUser } from "../../../utils";
+import urls from "./../../../api/auth-ep";
 
 const MainProfile = () => {
   const { user } = useUser();
-  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
     axios.get(url).then((res) => {
-      return "http://localhost:4000/" + res.data;
+      return urls.basicUrl + res.data;
     })
   );
   return (

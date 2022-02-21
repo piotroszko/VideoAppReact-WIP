@@ -6,19 +6,17 @@ import VideoLabel from "./components/VideoLabel";
 import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import LoadingDots from "../../../components/LoadingDots/LoadingDots";
 import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
+import urls from "./../../../api/auth-ep";
 const Videos = () => {
   const axiosInstance = axios.create();
-  const { data, error } = useSWR(
-    "http://localhost:4000/api/v1/video/my/?application=api-jwt",
-    (url) => {
-      if (localStorage.getItem("token") !== null) {
-        axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
-        return axiosInstance.get(url).then((res) => {
-          return res.data;
-        });
-      }
+  const { data, error } = useSWR(urls.myVideos, (url) => {
+    if (localStorage.getItem("token") !== null) {
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      return axiosInstance.get(url).then((res) => {
+        return res.data;
+      });
     }
-  );
+  });
   return (
     <div className="pt-16 w-full">
       <div className="flex flex-col w-3/4">

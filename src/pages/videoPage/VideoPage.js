@@ -7,17 +7,18 @@ import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoPageInfo from "./components/videoPageInfo/VideoPageInfo";
 import CommentsSection from "./components/commentsSection/CommentsSection";
 import RecommendedVideos from "./components/recommendedVideos/RecommendedVideos";
+import urls from "./../../api/auth-ep";
 
 const VideoPage = () => {
   let { id } = useParams();
-  const { data, error } = useSWR("http://localhost:4000/api/v1/video/v/" + id, (url) =>
+  const { data, error } = useSWR(urls.videoInfo + id, (url) =>
     axios.get(url).then((res) => {
       document.title = res.data.name;
       return res.data;
     })
   );
   useEffect(() => {
-    axios.post("http://localhost:4000/api/v1/video/viewed/" + id);
+    axios.post(urls.viewedVideo + id);
   }, []);
   return (
     <div className="pt-16">

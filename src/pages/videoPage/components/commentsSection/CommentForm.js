@@ -8,6 +8,7 @@ import "./Comment.css";
 import { useAuth } from "../../../../utils";
 import { useUser } from "../../../../utils";
 import LoginPage from "../../../loginPage/LoginPage";
+import urls from "./../../../../api/auth-ep";
 const CommentForm = (props) => {
   const { user } = useUser();
   const { mutate } = useSWRConfig();
@@ -24,19 +25,19 @@ const CommentForm = (props) => {
     e.preventDefault();
     axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
     axiosInstance
-      .post("http://localhost:4000/api/v1/c/add/" + props.videoID + "?application=api-jwt", {
+      .post(urls.addCom + props.videoID + urls.aplicationTag, {
         title,
         content: commentText,
       })
       .then((data) => {
-        mutate("http://localhost:4000/api/v1/c/all/" + props.videoID + "?application=api-jwt");
+        mutate(urls.allComVideo + props.videoID + urls.aplicationTag);
         setIsFormVis(false);
       })
       .catch((error) => {});
   };
-  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
     axios.get(url).then((res) => {
-      return "http://localhost:4000/" + res.data;
+      return urls.basicUrl + res.data;
     })
   );
   return (

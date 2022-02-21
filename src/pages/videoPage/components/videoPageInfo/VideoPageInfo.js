@@ -7,15 +7,15 @@ import useSWR, { useSWRConfig } from "swr";
 import ChannelPage from "../../../channelPage/ChannelPage";
 import "./VideoPageInfo.css";
 import { useUser } from "../../../../utils";
+import urls from "./../../../../api/auth-ep";
+
 const VideoPageInfo = (props) => {
   const { user } = useUser();
   const { mutate } = useSWRConfig();
   const axiosInstance = axios.create();
 
   const { data, error } = useSWR(
-    props.data
-      ? "http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt"
-      : "",
+    props.data ? urls.likeVideo + props.data.id + urls.aplicationTag : "",
     (url) => {
       if (localStorage.getItem("token") !== null) {
         axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
@@ -70,25 +70,15 @@ const VideoPageInfo = (props) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       if (liked) {
-        axiosInstance
-          .post(
-            "http://localhost:4000/api/v1/video/unlike/" + props.data.id + "?application=api-jwt"
-          )
-          .then((data) => {
-            mutate(
-              "http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt"
-            );
-            mutate("http://localhost:4000/api/v1/video/v/" + props.data.id);
-          });
+        axiosInstance.post(urls.unlikeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
+          mutate(urls.videoInfo + props.data.id);
+        });
       } else {
-        axiosInstance
-          .post("http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt")
-          .then((data) => {
-            mutate(
-              "http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt"
-            );
-            mutate("http://localhost:4000/api/v1/video/v/" + props.data.id);
-          });
+        axiosInstance.post(urls.likeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
+          mutate(urls.videoInfo + props.data.id);
+        });
       }
     }
   };
@@ -96,27 +86,15 @@ const VideoPageInfo = (props) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       if (disliked) {
-        axiosInstance
-          .post(
-            "http://localhost:4000/api/v1/video/unlike/" + props.data.id + "?application=api-jwt"
-          )
-          .then((data) => {
-            mutate(
-              "http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt"
-            );
-            mutate("http://localhost:4000/api/v1/video/v/" + props.data.id);
-          });
+        axiosInstance.post(urls.unlikeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
+          mutate(urls.videoInfo + props.data.id);
+        });
       } else {
-        axiosInstance
-          .post(
-            "http://localhost:4000/api/v1/video/dislike/" + props.data.id + "?application=api-jwt"
-          )
-          .then((data) => {
-            mutate(
-              "http://localhost:4000/api/v1/video/like/" + props.data.id + "?application=api-jwt"
-            );
-            mutate("http://localhost:4000/api/v1/video/v/" + props.data.id);
-          });
+        axiosInstance.post(urls.dislikeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
+          mutate(urls.videoInfo + props.data.id);
+        });
       }
     }
   };

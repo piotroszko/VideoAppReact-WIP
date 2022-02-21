@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import axios from "axios";
+import urls from "./../api/auth-ep";
 
 export default function useProvideAuth() {
   const [token, setToken] = useState(null);
@@ -23,7 +24,7 @@ export default function useProvideAuth() {
 
   // Refresh token for persisting session
   const { data, error, isValidating } = useSWR(
-    isLogin ? `http://localhost:4000/api/v1/authentication/refreshtoken?application=api-jwt` : null,
+    isLogin ? urls.refreshToken : null,
     (url) =>
       axios
         .get(url, { headers: { Authorization: `${localStorage.getItem("token")}` } })

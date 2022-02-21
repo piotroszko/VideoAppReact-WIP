@@ -8,12 +8,13 @@ import Comments from "./subPages/Comments";
 import Videos from "./subPages/Videos";
 import "./ProfilePage.css";
 import { useUser } from "../../utils";
+import urls from "./../../api/auth-ep";
 
 const ProfilePage = () => {
   const { user } = useUser();
-  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
     axios.get(url).then((res) => {
-      return "http://localhost:4000/" + res.data;
+      return urls.basicUrl + res.data;
     })
   );
   return (

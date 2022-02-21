@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VideoPage from "../../../videoPage/VideoPage";
 import Moment from "react-moment";
+import VideoPage from "../../../videoPage/VideoPage";
+import urls from "./../../../../api/auth-ep";
 
 const VideoLabel = ({ data }) => {
   return (
     <div className="flex flex-row gap-6 justify-between mx-auto w-11/12 h-24 bg-gray-300 rounded-md">
       <img
         className={`block ml-4 mt-2 my-auto h-20 w-20 rounded-2xl`}
-        src={data?.id ? "http://localhost:4000/info/thumbnails/" + data.id + ".png" : ""}
+        src={data?.id ? urls.thumbnails + data.id + ".png" : ""}
         alt=""
       />
       <div className="flex flex-col gap-1 pt-3">

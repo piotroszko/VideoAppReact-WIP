@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom";
 
 import { useUser } from "../../utils";
 import VideoGrid from "../../components/VideoGrid/VideoGrid";
+import urls from "./../../api/auth-ep";
 
 const ChannelPage = () => {
   let { id } = useParams();
-  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + id, (url) =>
+  const { data, error } = useSWR(urls.avatar + id, (url) =>
     axios.get(url).then((res) => {
-      return "http://localhost:4000/" + res.data;
+      return urls.basicUrl + res.data;
     })
   );
   return (

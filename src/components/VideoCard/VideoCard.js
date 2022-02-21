@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Moment from "react-moment";
+import { t } from "i18next";
 
 import "./VideoCard.css";
 import GifBunny from "./placeholders/bunny.gif";
@@ -12,7 +13,7 @@ import addSvg from "./placeholders/addToWatch.svg";
 import dotsSvg from "./placeholders/dots.svg";
 import VideoPage from "../../pages/videoPage/VideoPage";
 import ChannelPage from "../../pages/channelPage/ChannelPage";
-import { t } from "i18next";
+import endpointsUrls from "./../../api/auth-ep";
 
 const VideoCard = (props) => {
   const [mouseOn, setMouseOn] = useState("");

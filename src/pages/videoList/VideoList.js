@@ -4,9 +4,10 @@ import useSWR from "swr";
 
 import VideoGrid from "../../components/VideoGrid/VideoGrid";
 import LoadingDots from "../../components/LoadingDots/LoadingDots";
+import urls from "../../api/auth-ep";
 
 const VideoList = () => {
-  const { data, error } = useSWR("http://localhost:4000/api/v1/video/vs", (url) =>
+  const { data, error } = useSWR(urls.videos, (url) =>
     axios.get(url).then((res) => {
       return res.data.videos;
     })

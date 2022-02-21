@@ -27,7 +27,7 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
       setError(null);
       setIsLoading(true);
       axios
-        .post("http://localhost:4000/api/v1/authentication/register", {
+        .post(ep.register, {
           name: login,
           email: email,
           password: password,

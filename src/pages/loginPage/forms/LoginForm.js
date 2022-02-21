@@ -21,7 +21,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
     setError(null);
     setIsLoading(true);
     axios
-      .post("http://localhost:4000/api/v1/authentication/login", {
+      .post(ep.login, {
         email: email,
         password: password,
         application: "api-jwt",

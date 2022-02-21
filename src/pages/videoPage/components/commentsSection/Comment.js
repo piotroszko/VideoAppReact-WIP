@@ -9,6 +9,7 @@ import "./Comment.css";
 import { DarkmodeContext } from "../../../../utils/DarkmodeProvider";
 import ChannelPage from "../../../channelPage/ChannelPage";
 import { useUser } from "../../../../utils";
+import urls from "../../../../api/auth-ep";
 
 const Comment = (props) => {
   const { user } = useUser();
@@ -27,23 +28,15 @@ const Comment = (props) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       if (liked) {
-        axiosInstance
-          .post("http://localhost:4000/api/v1/c/unlike/" + props.data.id + "?application=api-jwt")
-          .then((data) => {
-            changeLikeStatus(data);
-            mutate(
-              "http://localhost:4000/api/v1/c/all/" + props.data.videoID + "?application=api-jwt"
-            );
-          });
+        axiosInstance.post(urls.unlikeCom + props.data.id + urls.aplicationTag).then((data) => {
+          changeLikeStatus(data);
+          mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
+        });
       } else {
-        axiosInstance
-          .post("http://localhost:4000/api/v1/c/like/" + props.data.id + "?application=api-jwt")
-          .then((data) => {
-            changeLikeStatus(data);
-            mutate(
-              "http://localhost:4000/api/v1/c/all/" + props.data.videoID + "?application=api-jwt"
-            );
-          });
+        axiosInstance.post(urls.likeCom + props.data.id + urls.aplicationTag).then((data) => {
+          changeLikeStatus(data);
+          mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
+        });
       }
     }
   };
@@ -51,23 +44,15 @@ const Comment = (props) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       if (disliked) {
-        axiosInstance
-          .post("http://localhost:4000/api/v1/c/unlike/" + props.data.id + "?application=api-jwt")
-          .then((data) => {
-            changeLikeStatus(data);
-            mutate(
-              "http://localhost:4000/api/v1/c/all/" + props.data.videoID + "?application=api-jwt"
-            );
-          });
+        axiosInstance.post(urls.unlikeCom + props.data.id + urls.aplicationTag).then((data) => {
+          changeLikeStatus(data);
+          mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
+        });
       } else {
-        axiosInstance
-          .post("http://localhost:4000/api/v1/c/dislike/" + props.data.id + "?application=api-jwt")
-          .then((data) => {
-            changeLikeStatus(data);
-            mutate(
-              "http://localhost:4000/api/v1/c/all/" + props.data.videoID + "?application=api-jwt"
-            );
-          });
+        axiosInstance.post(urls.dislikeCom + props.data.id + urls.aplicationTag).then((data) => {
+          changeLikeStatus(data);
+          mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
+        });
       }
     }
   };
@@ -89,14 +74,10 @@ const Comment = (props) => {
       console.log("test2");
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       console.log("test3");
-      axiosInstance
-        .delete("http://localhost:4000/api/v1/c/del/" + props.data.id + "?application=api-jwt")
-        .then((data) => {
-          console.log("test4");
-          mutate(
-            "http://localhost:4000/api/v1/c/all/" + props.data.videoID + "?application=api-jwt"
-          );
-        });
+      axiosInstance.delete(urls.deleteCom + props.data.id + urls.aplicationTag).then((data) => {
+        console.log("test4");
+        mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
+      });
     }
   };
   useEffect(() => {
@@ -131,12 +112,10 @@ const Comment = (props) => {
     }
   }, [disliked, dislikeHover]);
 
-  const { data, error } = useSWR(
-    "http://localhost:4000/api/v1/users/avatar/" + props?.data?.userID,
-    (url) =>
-      axios.get(url).then((res) => {
-        return "http://localhost:4000/" + res.data;
-      })
+  const { data, error } = useSWR(urls.avatar + props?.data?.userID, (url) =>
+    axios.get(url).then((res) => {
+      return urls.basicUrl + res.data;
+    })
   );
   return (
     <div className="cutCorners mx-auto px-0 w-full dark:border-gray-800 sm:w-3/4">

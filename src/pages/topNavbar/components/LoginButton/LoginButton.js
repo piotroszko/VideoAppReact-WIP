@@ -8,6 +8,7 @@ import LoginPage from "../../../loginPage/LoginPage";
 import { useAuth, useUser } from "../../../../utils";
 import { t } from "i18next";
 import ProfilePage from "../../../profilePage/ProfilePage";
+import urls from "./../../../../api/auth-ep";
 
 const LoginButton = () => {
   const ref = useDetectClickOutside({
@@ -17,9 +18,9 @@ const LoginButton = () => {
 
   const auth = useAuth();
   const { user } = useUser();
-  const { data, error } = useSWR("http://localhost:4000/api/v1/users/avatar/" + user?.id, (url) =>
+  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
     axios.get(url).then((res) => {
-      return "http://localhost:4000/" + res.data;
+      return urls.basicUrl + res.data;
     })
   );
   return (
@@ -43,7 +44,7 @@ const LoginButton = () => {
         >
           <p className="text-md my-auto italic"> {user?.name}</p>
           <img
-            alt="http://localhost:4000/defaultAvatar.png"
+            alt={urls.defaultAvatarLink}
             className="block mx-auto w-auto h-2/5 rounded-xl sm:h-1/2 lg:w-8 lg:h-8"
             src={data}
           />

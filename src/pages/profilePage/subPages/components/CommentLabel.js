@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import ChannelPage from "../../../channelPage/ChannelPage";
 import VideoPage from "../../../videoPage/VideoPage";
+import urls from "./../../../../api/auth-ep";
 
 const CommentLabel = ({ data }) => {
   return (
@@ -9,7 +11,7 @@ const CommentLabel = ({ data }) => {
       <div className="flex flex-row gap-8 p-2 w-full bg-gray-400 rounded-md">
         <img
           className={`block ml-4 mt-2 my-auto w-12 h-12 rounded-2xl`}
-          src={data?.id ? "http://localhost:4000/info/thumbnails/" + data.id + ".png" : ""}
+          src={data?.id ? urls.thumbnails + data.id + ".png" : ""}
           alt=""
         />
         <p className="my-auto text-lg font-bold"> {data?.name} </p>

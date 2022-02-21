@@ -5,12 +5,11 @@ import useSWR from "swr";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import LoadingDots from "./../../../../components/LoadingDots/LoadingDots";
+import urls from "./../../../../api/auth-ep";
 
 const CommentsSection = (props) => {
   const { data, error } = useSWR(
-    props.videoID
-      ? "http://localhost:4000/api/v1/c/all/" + props.videoID + "?application=api-jwt"
-      : "",
+    props.videoID ? urls.allComVideo + props.videoID + urls.aplicationTag : "",
     (url) => {
       if (localStorage.getItem("token") === null)
         return axios.get(url).then((res) => {

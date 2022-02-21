@@ -6,19 +6,17 @@ import CommentLabel from "./components/CommentLabel";
 import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import LoadingDots from "../../../components/LoadingDots/LoadingDots";
 import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
+import urls from "./../../../api/auth-ep";
 const Comments = () => {
   const axiosInstance = axios.create();
-  const { data, error } = useSWR(
-    "http://localhost:4000/api/v1/c/my/?application=api-jwt",
-    (url) => {
-      if (localStorage.getItem("token") !== null) {
-        axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
-        return axiosInstance.get(url).then((res) => {
-          return res.data;
-        });
-      }
+  const { data, error } = useSWR(urls.myComments, (url) => {
+    if (localStorage.getItem("token") !== null) {
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      return axiosInstance.get(url).then((res) => {
+        return res.data;
+      });
     }
-  );
+  });
   const darkmode = useContext(DarkmodeContext);
   return (
     <div className="pt-16 w-full">

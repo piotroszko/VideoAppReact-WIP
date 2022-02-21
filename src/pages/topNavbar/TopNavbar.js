@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 import DesktopCategories from "./components/DesktopCategories/DesktopCategories";
 import LoginButton from "./components/LoginButton/LoginButton";
@@ -7,24 +8,15 @@ import LoginButtonMobile from "./components/LoginButtonMobile/LoginButtonMobile"
 import MainLayout from "./../mainLayout/MainLayout";
 import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
-import { t } from "i18next";
+
+import SearchBar from "./components/DesktopSearchBar/SearchBar";
 
 const TopNavbar = () => {
-  const [result, setResult] = useState(false);
   const [result2, setResult2] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const [search, setSearch] = useState(false);
 
   const darkmode = useContext(DarkmodeContext);
-
-  const handleInput = (e) => {
-    const value = e.target.value;
-    if (value.length >= 1) {
-      setResult(true);
-    } else if (value.length === 0) {
-      setResult(false);
-    }
-  };
 
   const handleInput2 = (e) => {
     const value = e.target.value;
@@ -33,6 +25,9 @@ const TopNavbar = () => {
     } else if (value.length === 0) {
       setResult2(false);
     }
+  };
+  const handleSearch = (text) => {
+    const value = text;
   };
 
   return (
@@ -60,50 +55,7 @@ const TopNavbar = () => {
                 />
               </svg>
             </Link>
-            <div className="relative flex items-center justify-start w-64">
-              <input
-                onInput={(e) => handleInput(e)}
-                className="placeholder-gray-600 dark:placeholder-gray-100 pl-10 py-3 w-full dark:text-gray-200 text-gray-600 text-sm leading-none bg-gray-100 dark:bg-gray-400 rounded focus:outline-none"
-                type="text"
-                placeholder={t("search")}
-              />
-              <svg
-                className="absolute left-3"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3
-                    10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
-                  stroke={darkmode.isDarkmode ? "#d9dbde" : "#4B5563"}
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M21 21L15 15"
-                  stroke={darkmode.isDarkmode ? "#d9dbde" : "#4B5563"}
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            {/* pop up on input */}
-            <div
-              id="popup"
-              className={`${result ? "" : "hidden"} ease-in-out transition duration-500 bg-white
-                z-30 top-12 left-12 absolute  w-64 shadow border rounded border-gray-200 py-3  flex justify-center items-start flex-col`}
-            >
-              <button className="flex items-center justify-start mt-2 p-3 w-full hover:bg-gray-50 rounded space-x-2">
-                <div className="flex flex-col items-start justify-start space-y-1">
-                  <p className="text-left text-gray-800 text-xl font-bold leading-3">coinbase</p>
-                </div>
-              </button>
-            </div>
+            <SearchBar darkmode={darkmode} onSearch={(text) => handleSearch(text)}></SearchBar>
             {/* pop up on input */}
           </div>
           <DesktopCategories />
