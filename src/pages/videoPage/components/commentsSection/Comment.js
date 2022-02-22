@@ -4,6 +4,7 @@ import useSWR, { useSWRConfig } from "swr";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import { toast } from "react-toastify";
 
 import "./Comment.css";
 import { DarkmodeContext } from "../../../../utils/DarkmodeProvider";
@@ -34,6 +35,7 @@ const Comment = (props) => {
         });
       } else {
         axiosInstance.post(urls.likeCom + props.data.id + urls.aplicationTag).then((data) => {
+          toast.info(t("notificationLikedCom"));
           changeLikeStatus(data);
           mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
         });
@@ -50,6 +52,7 @@ const Comment = (props) => {
         });
       } else {
         axiosInstance.post(urls.dislikeCom + props.data.id + urls.aplicationTag).then((data) => {
+          toast.info(t("notificationDislikedCom"));
           changeLikeStatus(data);
           mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
         });
@@ -69,13 +72,10 @@ const Comment = (props) => {
     }
   };
   const handleDelete = () => {
-    console.log("test1");
     if (localStorage.getItem("token") !== null) {
-      console.log("test2");
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
-      console.log("test3");
       axiosInstance.delete(urls.deleteCom + props.data.id + urls.aplicationTag).then((data) => {
-        console.log("test4");
+        toast.info(t("notificationDeletedCom"));
         mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
       });
     }

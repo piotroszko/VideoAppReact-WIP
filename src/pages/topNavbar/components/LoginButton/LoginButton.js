@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import axios from "axios";
 import useSWR from "swr";
+import { toast } from "react-toastify";
 
 import LoginPage from "../../../loginPage/LoginPage";
 import { useAuth, useUser } from "../../../../utils";
@@ -64,7 +65,10 @@ const LoginButton = () => {
             </p>
           </Link>
           <p
-            onClick={auth.logout}
+            onClick={() => {
+              auth.logout();
+              toast.info(t("notificationLoggedout"));
+            }}
             className="mx-2 dark:text-gray-800 hover:text-white bg-red-200 hover:bg-red-400 border-2 border-gray-100 rounded-md cursor-pointer"
           >
             {t("logOut")}

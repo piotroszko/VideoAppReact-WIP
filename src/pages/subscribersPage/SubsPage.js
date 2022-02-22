@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import VideoGrid from "../../components/VideoGrid/VideoGrid";
 import ChannelLabel from "./components/ChannelLabel";

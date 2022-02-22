@@ -11,7 +11,7 @@ import urls from "./../../api/auth-ep";
 
 const VideoPage = () => {
   let { id } = useParams();
-  const { data, error } = useSWR(urls.videoInfo + id, (url) =>
+  const { data } = useSWR(urls.videoInfo + id, (url) =>
     axios.get(url).then((res) => {
       document.title = res.data.name;
       return res.data;

@@ -40,5 +40,14 @@
   "resetPassword": "Forgot password?",
   "forgotPasswordDesc": "Please enter your email adress below and we will send you a link to reset your password.",
   "send": "Send",
-  "comLogin": "You must be logged in to post a comment."
+  "comLogin": "You must be logged in to post a comment.",
+
+  "notificationLoggedin": "Successfully logged in!",
+  "notificationLoggedout": "Logged out!",
+  "notificationLikedCom": "You liked the comment",
+  "notificationDislikedCom": "You disliked the comment",
+  "notificationDeletedCom": "You successfully deleted the comment",
+  "notificationAddedCom": "You successfully added the comment",
+  "notificationLikedVideo": "You liked the video",
+  "notificationDislikedVideo": "You disliked the video"
 }

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import VideoCard from "../VideoCard/VideoCard";
-import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 import "./VideoGrid.css";
 import SmallSearchBar from "../SmallSearchBar/SmallSearchBar";
 
 const VideoGrid = (props) => {
-  const darkmode = useContext(DarkmodeContext);
   return (
     <div className="flex flex-col">
       {props.sortBar ? (

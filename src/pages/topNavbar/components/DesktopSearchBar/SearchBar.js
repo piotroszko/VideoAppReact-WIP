@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import React, { useState, useRef } from "react";
 import { t } from "i18next";
 import axios from "axios";
 import { useDetectClickOutside } from "react-detect-click-outside";

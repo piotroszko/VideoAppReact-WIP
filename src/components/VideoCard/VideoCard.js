@@ -1,5 +1,5 @@
 import ReactFreezeframe from "react-freezeframe";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
@@ -7,8 +7,6 @@ import Moment from "react-moment";
 import { t } from "i18next";
 
 import "./VideoCard.css";
-import GifBunny from "./placeholders/bunny.gif";
-import Bunny from "./placeholders/bunnyimg.png";
 import addSvg from "./placeholders/addToWatch.svg";
 import dotsSvg from "./placeholders/dots.svg";
 import VideoPage from "../../pages/videoPage/VideoPage";

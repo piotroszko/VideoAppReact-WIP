@@ -3,7 +3,6 @@ import useSWR from "swr";
 import axios from "axios";
 
 import VideoLabel from "./components/VideoLabel";
-import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import LoadingDots from "../../../components/LoadingDots/LoadingDots";
 import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
 import urls from "./../../../api/auth-ep";

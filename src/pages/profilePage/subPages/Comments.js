@@ -1,9 +1,8 @@
 import axios from "axios";
-import React, { useContext } from "react";
+import React from "react";
 import useSWR from "swr";
 
 import CommentLabel from "./components/CommentLabel";
-import { DarkmodeContext } from "../../../utils/DarkmodeProvider";
 import LoadingDots from "../../../components/LoadingDots/LoadingDots";
 import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
 import urls from "./../../../api/auth-ep";
@@ -17,7 +16,6 @@ const Comments = () => {
       });
     }
   });
-  const darkmode = useContext(DarkmodeContext);
   return (
     <div className="pt-16 w-full">
       <div className="flex flex-col ml-8 w-3/4">

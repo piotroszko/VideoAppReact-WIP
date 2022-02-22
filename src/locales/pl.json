@@ -40,5 +40,14 @@
   "resetPassword": "Zapomniałeś hasła?",
   "forgotPasswordDesc": "Podaj email do konta a my wyślemy Ci link do zresetowania hasła.",
   "send": "Wyślij",
-  "comLogin": "By napisać komentarz musisz być {{tag1}}zalogowany{{tag2}}."
+  "comLogin": "By napisać komentarz musisz być {{tag1}}zalogowany{{tag2}}.",
+
+  "notificationLoggedin": "Zalogowałeś sie pomyślnie!",
+  "notificationLoggedout": "Wylogowałeś się!",
+  "notificationLikedCom": "Komentarz został polubiony",
+  "notificationDislikedCom": "Komentarz został niepolubiony",
+  "notificationDeletedCom": "Komentarz został usuniety",
+  "notificationAddedCom": "Komentarz został dodany",
+  "notificationLikedVideo": "Wideo zostało polubione",
+  "notificationDislikedVideo": "Wideo zostało nie polubione"
 }

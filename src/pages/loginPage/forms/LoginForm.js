@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../../utils";
 
@@ -28,6 +29,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
       })
       .then((data) => {
         auth.login(data.data.token);
+        toast.success(t("notificationLoggedin"));
         setTimeout(() => navigate("/", { replace: true }), 500);
       })
       .catch((error) => {

@@ -3,38 +3,34 @@ import { Link } from "react-router-dom";
 import { t } from "i18next";
 import axios from "axios";
 import useSWR, { useSWRConfig } from "swr";
+import { toast } from "react-toastify";
 
 import ChannelPage from "../../../channelPage/ChannelPage";
 import "./VideoPageInfo.css";
-import { useUser } from "../../../../utils";
 import urls from "./../../../../api/auth-ep";
 
 const VideoPageInfo = (props) => {
-  const { user } = useUser();
   const { mutate } = useSWRConfig();
   const axiosInstance = axios.create();
 
-  const { data, error } = useSWR(
-    props.data ? urls.likeVideo + props.data.id + urls.aplicationTag : "",
-    (url) => {
-      if (localStorage.getItem("token") !== null) {
-        axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
-        return axiosInstance.get(url).then((res) => {
-          if (res.data.likeStatus === "like") {
-            setLiked(true);
-            setDisliked(false);
-          } else if (res.data.likeStatus === "dislike") {
-            setLiked(false);
-            setDisliked(true);
-          } else {
-            setLiked(false);
-            setDisliked(false);
-          }
-          return res.data;
-        });
-      }
+  useSWR(props.data ? urls.likeVideo + props.data.id + urls.aplicationTag : "", (url) => {
+    if (localStorage.getItem("token") !== null) {
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      return axiosInstance.get(url).then((res) => {
+        if (res.data.likeStatus === "like") {
+          setLiked(true);
+          setDisliked(false);
+        } else if (res.data.likeStatus === "dislike") {
+          setLiked(false);
+          setDisliked(true);
+        } else {
+          setLiked(false);
+          setDisliked(false);
+        }
+        return res.data;
+      });
     }
-  );
+  });
 
   const [isInfo, setIsInfo] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -76,6 +72,7 @@ const VideoPageInfo = (props) => {
         });
       } else {
         axiosInstance.post(urls.likeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          toast.info(t("notificationLikedVideo"));
           mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
           mutate(urls.videoInfo + props.data.id);
         });
@@ -92,6 +89,7 @@ const VideoPageInfo = (props) => {
         });
       } else {
         axiosInstance.post(urls.dislikeVideo + props.data.id + urls.aplicationTag).then((data) => {
+          toast.info(t("notificationDislikedVideo"));
           mutate(urls.likeVideo + props.data.id + urls.aplicationTag);
           mutate(urls.videoInfo + props.data.id);
         });

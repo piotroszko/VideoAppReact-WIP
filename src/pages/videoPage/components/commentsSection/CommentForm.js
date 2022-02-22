@@ -1,8 +1,9 @@
 import { t } from "i18next";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import useSWR, { useSWRConfig } from "swr";
+import { toast } from "react-toastify";
 
 import "./Comment.css";
 import { useAuth } from "../../../../utils";
@@ -31,6 +32,7 @@ const CommentForm = (props) => {
       })
       .then((data) => {
         mutate(urls.allComVideo + props.videoID + urls.aplicationTag);
+        toast.info(t("notificationAddedCom"));
         setIsFormVis(false);
       })
       .catch((error) => {});

@@ -1,6 +1,8 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { AuthContext } from "./contexts";
 import { useProvideAuth } from "./utils";
@@ -42,6 +44,17 @@ const App = () => {
             <Route path="/login" element={<LoginPage />}></Route>
           </Routes>
         </div>
+        <ToastContainer
+          position="bottom-left"
+          autoClose={4000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </DarkmodeProvider>
     </AuthContext.Provider>
   );
