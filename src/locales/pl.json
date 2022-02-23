@@ -49,5 +49,9 @@
   "notificationDeletedCom": "Komentarz został usuniety",
   "notificationAddedCom": "Komentarz został dodany",
   "notificationLikedVideo": "Wideo zostało polubione",
-  "notificationDislikedVideo": "Wideo zostało nie polubione"
+  "notificationDislikedVideo": "Wideo zostało nie polubione",
+
+  "mostPopular": "Najpopularniejsze",
+  "newest": "Najnowsze",
+  "oldest": "Najstarsze"
 }

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import "./Comment.css";
 import { DarkmodeContext } from "../../../../utils/DarkmodeProvider";
 import ChannelPage from "../../../channelPage/ChannelPage";
-import { useUser } from "../../../../utils";
+import { useUser, useAvatar } from "../../../../utils";
 import urls from "../../../../api/auth-ep";
 
 const Comment = (props) => {
@@ -112,11 +112,7 @@ const Comment = (props) => {
     }
   }, [disliked, dislikeHover]);
 
-  const { data, error } = useSWR(urls.avatar + props?.data?.userID, (url) =>
-    axios.get(url).then((res) => {
-      return urls.basicUrl + res.data;
-    })
-  );
+  const { data } = useAvatar(props.data.userID);
   return (
     <div className="cutCorners mx-auto px-0 w-full dark:border-gray-800 sm:w-3/4">
       <div className="relative flex items-stretch m-0 bg-gray-300 dark:bg-gray-700 rounded-xl">

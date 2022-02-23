@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
+import { t } from "i18next";
 
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 
@@ -104,25 +105,25 @@ const SmallSearchBar = ({ inputPlaceholder, onFilterChange, onInputChange }) => 
               <li>
                 <button
                   className="z-50 block px-3 py-2 w-full hover:bg-gray-200"
-                  onClick={() => handleSelectFilter("Najpopularniejsze")}
+                  onClick={() => handleSelectFilter(t("mostPopular"))}
                 >
-                  Najpopularniejsze
+                  {t("mostPopular")}
                 </button>
               </li>
               <li>
                 <button
                   className="z-50 block px-3 py-2 w-full hover:bg-gray-200"
-                  onClick={() => handleSelectFilter("Od najnowszych")}
+                  onClick={() => handleSelectFilter(t("newest"))}
                 >
-                  Od najnowszych
+                  {t("newest")}
                 </button>
               </li>
               <li>
                 <button
                   className="z-50 block px-3 py-2 w-full hover:bg-gray-200"
-                  onClick={() => handleSelectFilter("Od najstarszych")}
+                  onClick={() => handleSelectFilter(t("oldest"))}
                 >
-                  Od najstarszych
+                  {t("oldest")}
                 </button>
               </li>
             </ul>

@@ -3,12 +3,14 @@ import React, { useState, useRef, useContext } from "react";
 import "./BottomNavbar.css";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 import { t } from "i18next";
+import PlaylistButton from "./PlaylistButton";
+import { usePlaylists } from "../../utils/";
 
 const BottomNavbar = () => {
   const [barVisable, setBarVisable] = useState(true);
   const refPlaylists = useRef(null);
-
   const darkmode = useContext(DarkmodeContext);
+  const { data } = usePlaylists();
 
   const onScroll = (e) => {
     if (e.deltaY < 0) {
@@ -77,27 +79,9 @@ const BottomNavbar = () => {
           <button className="btn-toWatch btn-special-underline">
             <p className="text-btn-bottom">{t("watchlist")}</p>
           </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 1</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 2</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 3</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 4</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 5</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 6</p>
-          </button>
-          <button className="btn-playlist">
-            <p className="text-btn-bottom">PLAYLISTA 7</p>
-          </button>
+          {data?.playlists
+            ? data?.playlists.map((p) => <PlaylistButton data={p} key={p._id}></PlaylistButton>)
+            : ""}
         </div>
       </div>
       <div

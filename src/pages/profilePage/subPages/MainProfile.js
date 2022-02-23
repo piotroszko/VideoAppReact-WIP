@@ -2,16 +2,12 @@ import React from "react";
 import useSWR from "swr";
 import axios from "axios";
 
-import { useUser } from "../../../utils";
+import { useUser, useAvatar } from "../../../utils";
 import urls from "./../../../api/auth-ep";
 
 const MainProfile = () => {
   const { user } = useUser();
-  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
-    axios.get(url).then((res) => {
-      return urls.basicUrl + res.data;
-    })
-  );
+  const { data } = useAvatar(user?.id);
   return (
     <div className="flex flex-col pt-16 w-full md:flex-row">
       <div className="flex flex-col order-2 w-full h-full dark:text-gray-200 md:order-1 md:w-1/2">

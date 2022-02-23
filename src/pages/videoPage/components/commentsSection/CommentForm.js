@@ -6,8 +6,7 @@ import useSWR, { useSWRConfig } from "swr";
 import { toast } from "react-toastify";
 
 import "./Comment.css";
-import { useAuth } from "../../../../utils";
-import { useUser } from "../../../../utils";
+import { useAuth, useUser, useAvatar } from "../../../../utils";
 import LoginPage from "../../../loginPage/LoginPage";
 import urls from "./../../../../api/auth-ep";
 const CommentForm = (props) => {
@@ -37,11 +36,7 @@ const CommentForm = (props) => {
       })
       .catch((error) => {});
   };
-  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
-    axios.get(url).then((res) => {
-      return urls.basicUrl + res.data;
-    })
-  );
+  const { data } = useAvatar(user?.id);
   return (
     <>
       {!auth.isLogin ? (

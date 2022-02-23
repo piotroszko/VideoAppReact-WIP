@@ -6,7 +6,7 @@ import useSWR from "swr";
 import { toast } from "react-toastify";
 
 import LoginPage from "../../../loginPage/LoginPage";
-import { useAuth, useUser } from "../../../../utils";
+import { useAuth, useUser, useAvatar } from "../../../../utils";
 import { t } from "i18next";
 import ProfilePage from "../../../profilePage/ProfilePage";
 import urls from "./../../../../api/auth-ep";
@@ -19,11 +19,7 @@ const LoginButton = () => {
 
   const auth = useAuth();
   const { user } = useUser();
-  const { data, error } = useSWR(urls.avatar + user?.id, (url) =>
-    axios.get(url).then((res) => {
-      return urls.basicUrl + res.data;
-    })
-  );
+  const { data } = useAvatar(user?.id);
   return (
     <div className="relative flex items-center justify-end py-3 w-auto space-x-6">
       <div className={`${auth.isLogin ? "hidden" : ""} `}>
@@ -45,7 +41,7 @@ const LoginButton = () => {
         >
           <p className="text-md my-auto italic"> {user?.name}</p>
           <img
-            alt={urls.defaultAvatarLink}
+            alt={""}
             className="block mx-auto w-auto h-2/5 rounded-xl sm:h-1/2 lg:w-8 lg:h-8"
             src={data}
           />

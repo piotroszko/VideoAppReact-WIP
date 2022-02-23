@@ -49,5 +49,9 @@
   "notificationDeletedCom": "You successfully deleted the comment",
   "notificationAddedCom": "You successfully added the comment",
   "notificationLikedVideo": "You liked the video",
-  "notificationDislikedVideo": "You disliked the video"
+  "notificationDislikedVideo": "You disliked the video",
+
+  "mostPopular": "Most popular",
+  "newest": "Newest",
+  "oldest": "Oldest"
 }
