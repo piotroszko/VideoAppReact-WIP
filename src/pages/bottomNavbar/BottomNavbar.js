@@ -43,7 +43,11 @@ const BottomNavbar = () => {
     e.returnValue = false;
   }
   return (
-    <div className="fixed z-50 bottom-0 left-0 flex justify-between w-full h-10 text-center">
+    <div
+      className={`${
+        data ? "" : "hidden"
+      } fixed z-50 bottom-0 left-0 flex justify-between w-full h-10 text-center`}
+    >
       <div
         className={`h-10 w-1/4 relative ${
           barVisable ? "translate-x-full" : ""

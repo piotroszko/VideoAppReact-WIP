@@ -14,3 +14,9 @@
 .backGroundSize2X {
   background-size: 200%;
 }
+.autoColumnsGrid {
+  grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+}
+.maxWidth1-2 {
+  max-width: 50%;
+}

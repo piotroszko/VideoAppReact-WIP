@@ -19,6 +19,7 @@ import Videos from "./pages/profilePage/subPages/Videos";
 import Comments from "./pages/profilePage/subPages/Comments";
 import Statistics from "./pages/profilePage/subPages/Statistics";
 import SubsPage from "./pages/subscribersPage/SubsPage";
+import ListsPage from "./pages/listsPage/ListsPage";
 
 const App = () => {
   const auth = useProvideAuth();
@@ -33,6 +34,13 @@ const App = () => {
               <Route path="video/:id" element={<VideoPage />} />
               <Route path="channel/:id" element={<ChannelPage />} />
               <Route path="subs" element={<SubsPage />} />
+
+              {/* lists with optional parameters */}
+              <Route path="lists/:section/:playlist" element={<ListsPage />} />
+              <Route path="lists/:section" element={<ListsPage />} />
+              <Route path="lists/" element={<ListsPage />} />
+
+              {/* profile page routes*/}
               <Route path="profile/" element={<ProfilePage />}>
                 <Route index element={<MainProfile />} />
                 <Route path="videos" element={<Videos />} />

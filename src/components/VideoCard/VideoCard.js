@@ -5,16 +5,20 @@ import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Moment from "react-moment";
 import { t } from "i18next";
+import { toast } from "react-toastify";
 
 import "./VideoCard.css";
 import addSvg from "./placeholders/addToWatch.svg";
 import dotsSvg from "./placeholders/dots.svg";
 import VideoPage from "../../pages/videoPage/VideoPage";
 import ChannelPage from "../../pages/channelPage/ChannelPage";
-import endpointsUrls from "./../../api/auth-ep";
+import { usePlaylists } from "../../utils";
+import PlaylistRow from "./PlaylistRow";
 
 const VideoCard = (props) => {
+  const { data } = usePlaylists();
   const [mouseOn, setMouseOn] = useState("");
+  const playlists = usePlaylists();
 
   let navigate = useNavigate();
   const handleOnClick = () => {
@@ -52,10 +56,23 @@ const VideoCard = (props) => {
           >
             <div className="flex flex-col pb-3 pt-1 w-40 bg-gray-400 rounded-lg">
               <p className="mx-auto text-center text-white font-bold"> {t("toPlaylist")}: </p>
-              <p className="mt-1 mx-2 px-1 text-center text-white hover:bg-gray-500 border-2 border-gray-200 rounded-md cursor-pointer overflow-hidden">
-                {" "}
-                Playlista 1{" "}
-              </p>
+              {data?.playlists
+                ? data?.playlists.map((p) => (
+                    <PlaylistRow
+                      data={p}
+                      videoID={props.data.id}
+                      key={p._id}
+                      videoAdd={(playlistID, videoID) => {
+                        toast.info(t("addedToPlaylist"));
+                        playlists.addToPlaylist(playlistID, videoID);
+                      }}
+                      videoRemove={(playlistID, videoID) => {
+                        toast.info(t("removedFromPlaylist"));
+                        playlists.removeFromPlaylist(playlistID, videoID);
+                      }}
+                    ></PlaylistRow>
+                  ))
+                : ""}
             </div>
           </Popup>
         </div>

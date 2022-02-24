@@ -30,4 +30,12 @@ module.exports = Object.freeze({
   likeVideo: url + "video/like/",
   unlikeVideo: url + "video/unlike/",
   dislikeVideo: url + "video/dislike/",
+
+  allPlaylists: url + "lists/all/",
+  createPlaylist: url + "lists/addPlaylist/?application=api-jwt",
+  removePlaylist: url + "lists/removePlaylist/",
+  addToPlaylist: url + "lists/addToPlaylist/?application=api-jwt",
+  removeFromPlaylist: url + "lists/removeFromPlaylist/?application=api-jwt",
+  addToHistory: url + "lists/addToHistory/",
+  recommendedVideos: url + "video/recommended/",
 });

@@ -25,7 +25,7 @@ const VideoPage = () => {
       <div className="bg-black">
         <VideoPageInfo data={data}></VideoPageInfo>
         <VideoPlayer id={id}></VideoPlayer>
-        <RecommendedVideos />
+        <RecommendedVideos videoID={id} />
         <CommentsSection videoID={id} />
       </div>
     </div>

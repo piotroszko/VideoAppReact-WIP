@@ -152,8 +152,15 @@ const VideoPageInfo = (props) => {
       </div>
       <div className={`${isInfo ? "" : "hidden"} h-20 flex flex-row text-gray-200`}>
         <div className="pl-4 w-1/2 text-xs">{props?.data?.description}</div>
-        <div className="flex flex-row w-1/2">
-          Statystyki
+        <div className="w-1/2 text-left">
+          {props?.data?.tags.map((tag, i) => (
+            <div
+              className="inline-block mx-1 my-1 px-2 py-1 w-min max-h-8 text-gray-800 text-sm font-bold bg-gray-300 rounded-xl"
+              key={i}
+            >
+              {tag}
+            </div>
+          ))}
           <div></div>
         </div>
       </div>

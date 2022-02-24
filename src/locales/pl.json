@@ -53,5 +53,8 @@
 
   "mostPopular": "Najpopularniejsze",
   "newest": "Najnowsze",
-  "oldest": "Najstarsze"
+  "oldest": "Najstarsze",
+
+  "addedToPlaylist": "Wideo dodane do playlisty",
+  "removedFromPlaylist": "Wideo usunieto z playlisty"
 }

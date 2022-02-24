@@ -1,14 +1,22 @@
 import React, { useRef, useState } from "react";
+import useSWR from "swr";
+import axios from "axios";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
 import "./RecommendedVideos.css";
 import ScrollSvg from "./icons/scroll.svg";
 import VideoCard from "./../../../../components/VideoCard/VideoCard";
 import { t } from "i18next";
+import urls from "./../../../../api/auth-ep";
 
-const RecommendedVideos = () => {
+const RecommendedVideos = ({ videoID }) => {
   const refBar = useRef(null);
   const [slideAnim, SetSlideAnim] = useState("");
-
+  const { data, error } = useSWR(videoID ? urls.recommendedVideos : "", (url) =>
+    axios.get(url + videoID + "/").then((res) => {
+      return res.data;
+    })
+  );
   const onScroll = (e) => {
     if (e.deltaY < 0) {
       scrollLeft(false);
@@ -53,6 +61,9 @@ const RecommendedVideos = () => {
       SetSlideAnim("hide");
     }
   };
+  const ref = useDetectClickOutside({
+    onTriggered: () => enableScroll(),
+  });
   return (
     <>
       <div
@@ -66,6 +77,7 @@ const RecommendedVideos = () => {
           onWheel={onScroll}
           onMouseEnter={disableScroll}
           onMouseLeave={enableScroll}
+          ref={ref}
         >
           <div
             onClick={() => scrollLeft(false)}
@@ -90,39 +102,13 @@ const RecommendedVideos = () => {
             className="scroll-smooth flex flex-row pl-8 pr-8 w-full h-60 overflow-hidden"
             ref={refBar}
           >
-            <div className="w-50 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
-            <div className="w-80 h-60">
-              <VideoCard></VideoCard>
-            </div>
+            {data
+              ? data.map((v) => (
+                  <div className="w-72 h-60">
+                    <VideoCard data={v} key={v.id}></VideoCard>{" "}
+                  </div>
+                ))
+              : ""}
           </div>
         </div>
       </div>

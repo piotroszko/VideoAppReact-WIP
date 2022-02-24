@@ -1,0 +1,16 @@
+.current:before {
+  content: ">";
+}
+.current:after {
+  content: "<";
+}
+.scrollBar::-webkit-scrollbar {
+  height: 8px;
+}
+.scrollBar::-webkit-scrollbar-track {
+  background: rgb(230, 230, 230);
+}
+.scrollBar::-webkit-scrollbar-thumb {
+  background-color: rgb(165, 165, 165);
+  border: 2px solid rgb(165, 165, 165);
+}
