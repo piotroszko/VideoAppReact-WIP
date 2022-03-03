@@ -35,7 +35,14 @@ module.exports = Object.freeze({
   createPlaylist: url + "lists/addPlaylist/?application=api-jwt",
   removePlaylist: url + "lists/removePlaylist/",
   addToPlaylist: url + "lists/addToPlaylist/?application=api-jwt",
-  removeFromPlaylist: url + "lists/removeFromPlaylist/?application=api-jwt",
+  removeFromPlaylist: url + "lists/removeFromPlaylist/",
   addToHistory: url + "lists/addToHistory/",
+  removeFromHistory: url + "lists/removeFromHistory/",
+
+  removeFromToWatch: url + "lists/removeFromToWatch/",
   recommendedVideos: url + "video/recommended/",
+
+  getHistory: url + "lists/history/?application=api-jwt",
+  getToWatch: url + "lists/toWatch/?application=api-jwt",
+  getPlaylist: url + "lists/playlist/",
 });

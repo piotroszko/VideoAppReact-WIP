@@ -56,5 +56,9 @@
   "oldest": "Oldest",
 
   "addedToPlaylist": "Video added to playlist",
-  "removedFromPlaylist": "Video removed from playlist"
+  "removedFromPlaylist": "Video removed from playlist",
+  "delete": "Delete",
+  "watchedTimeAgo": "ago watched",
+  "added": "Added",
+  "ago": "ago"
 }

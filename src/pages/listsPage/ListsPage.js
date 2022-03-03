@@ -1,32 +1,75 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createContext } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { t } from "i18next";
 
 import "./ListsPage.css";
 import { usePlaylists } from "./../../utils";
-import VideoGrid from "./../../components/VideoGrid/VideoGrid";
+import VideoList from "./../../components/VideoList/VideoList";
+import urls from "./../../api/auth-ep";
+
+export let refreshDataContext = createContext();
 
 const ListsPage = () => {
+  const axiosInstance = axios.create();
   const flexBox = useRef(null);
   let { section, playlist } = useParams();
   const { data } = usePlaylists();
 
   const [currentSection, setCurrentSection] = useState(section ? section : "history");
   const [currentPlaylist, setCurrentPlaylist] = useState(playlist ? playlist : "");
+  const [refresh, setRefresh] = useState(false);
   const [scrollbarVisible, setScrollbarVisible] = useState(false);
+
+  const [videos, setVideos] = useState([]);
   useEffect(() => {
+    axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
     if (currentSection === "history") {
-    } else if (currentPlaylist === "toWatch") {
-    } else if (currentPlaylist === "playlist") {
+      if (localStorage.getItem("token") !== null) {
+        axiosInstance
+          .get(urls.getHistory)
+          .then((res) => {
+            if (res) {
+              setVideos(res.data);
+            }
+          })
+          .catch((err) => {});
+      }
+    } else if (currentSection === "toWatch") {
+      if (localStorage.getItem("token") !== null) {
+        axiosInstance
+          .get(urls.getToWatch)
+          .then((res) => {
+            if (res) {
+              setVideos(res.data);
+            }
+          })
+          .catch((err) => {});
+      }
+    } else if (currentSection === "playlist") {
       if (currentPlaylist === "") {
         setCurrentSection("toWatch");
+      } else {
+        if (localStorage.getItem("token") !== null) {
+          axiosInstance
+            .get(urls.getPlaylist + currentPlaylist + "/" + urls.aplicationTag)
+            .then((res) => {
+              if (res) {
+                setVideos(res.data);
+              }
+            })
+            .catch((err) => {});
+        }
       }
     }
-  }, [currentSection, currentPlaylist]);
+  }, [currentSection, currentPlaylist, refresh]);
   useEffect(() => {
+    document.title = t("listsPageTitle");
     window.addEventListener("resize", updateSize);
   }, []);
+
   const updateSize = () => {
-    if (flexBox.current.scrollWidth > flexBox.current.clientWidth) {
+    if (flexBox?.current?.scrollWidth > flexBox?.current?.clientWidth) {
       setScrollbarVisible(true);
     } else {
       setScrollbarVisible(false);
@@ -45,7 +88,13 @@ const ListsPage = () => {
         >
           <div className="py-1 border-b-2 hover:border-gray-600 border-transparent">
             <button
-              onClick={() => setCurrentSection("history")}
+              onClick={() => {
+                if (currentSection !== "history") {
+                  setVideos([]);
+                  setCurrentSection("history");
+                  setCurrentPlaylist("");
+                }
+              }}
               className={`${
                 currentSection === "history" ? "border-l-4 border-r-4 border-gray-600" : ""
               } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
@@ -56,7 +105,13 @@ const ListsPage = () => {
           </div>
           <div className="py-1 border-b-2 hover:border-gray-600 border-transparent">
             <button
-              onClick={() => setCurrentSection("toWatch")}
+              onClick={() => {
+                if (currentSection !== "toWatch") {
+                  setVideos([]);
+                  setCurrentSection("toWatch");
+                  setCurrentPlaylist("");
+                }
+              }}
               className={`${
                 currentSection === "toWatch" ? "border-l-4 border-r-4 border-gray-600" : ""
               } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
@@ -71,11 +126,14 @@ const ListsPage = () => {
                 <div className="py-1 border-b-2 hover:border-gray-600 border-transparent">
                   <button
                     onClick={() => {
-                      setCurrentSection("playlists");
-                      setCurrentPlaylist(p._id);
+                      if (currentSection !== "playlist" || currentPlaylist !== p._id.toString()) {
+                        setVideos([]);
+                        setCurrentSection("playlist");
+                        setCurrentPlaylist(p._id);
+                      }
                     }}
                     className={`${
-                      currentSection === "playlists" && currentPlaylist === p._id
+                      currentSection === "playlists" || currentPlaylist === p._id.toString()
                         ? "border-l-4 border-r-4 border-gray-600"
                         : ""
                     } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
@@ -87,8 +145,24 @@ const ListsPage = () => {
             : ""}
         </div>
       </div>
-      <div className="mt-1 mx-auto w-full max-w-full h-32 min-h-full bg-gray-100 dark:bg-gray-600 rounded-md md:w-11/12">
-        <VideoGrid sortBar={true}></VideoGrid>
+      <div className="mt-1 mx-auto w-full max-w-full min-h-full bg-gray-100 dark:bg-gray-600 rounded-md md:w-2/3">
+        <refreshDataContext.Provider value={{ refresh, setRefresh }}>
+          {currentSection === "history" && videos ? (
+            <VideoList sortBar videos={videos} history></VideoList>
+          ) : (
+            ""
+          )}
+          {currentSection === "toWatch" && videos ? (
+            <VideoList sortBar videos={videos} toWatch></VideoList>
+          ) : (
+            ""
+          )}
+          {currentSection === "playlist" && videos ? (
+            <VideoList sortBar videos={videos} playlist={currentPlaylist}></VideoList>
+          ) : (
+            ""
+          )}
+        </refreshDataContext.Provider>
       </div>
     </div>
   );

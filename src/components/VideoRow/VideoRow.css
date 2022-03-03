@@ -1,0 +1,19 @@
+/* ./src/components/VideoCard/VideoCard.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+}
+.addToWatch {
+  border-radius: 20%;
+  -webkit-transition: border-radius 0.3s 0s ease;
+  -moz-transition: border-radius 0.3s 0s ease;
+  -o-transition: border-radius 0.3s 0s ease;
+  transition: border-radius 0.3s 0s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.addToWatch:hover {
+  border-radius: 50%;
+}

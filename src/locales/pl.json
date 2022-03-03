@@ -56,5 +56,9 @@
   "oldest": "Najstarsze",
 
   "addedToPlaylist": "Wideo dodane do playlisty",
-  "removedFromPlaylist": "Wideo usunieto z playlisty"
+  "removedFromPlaylist": "Wideo usunieto z playlisty",
+  "delete": "Usuń",
+  "watchedTimeAgo": "obejrzano",
+  "added": "Dodano",
+  "ago": "temu"
 }
