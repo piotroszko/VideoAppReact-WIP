@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, createContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { t } from "i18next";
+import { useLocation } from "react-router-dom";
 
 import "./ListsPage.css";
 import { usePlaylists } from "./../../utils";
@@ -11,6 +12,7 @@ import urls from "./../../api/auth-ep";
 export let refreshDataContext = createContext();
 
 const ListsPage = () => {
+  const location = useLocation();
   const axiosInstance = axios.create();
   const flexBox = useRef(null);
   let { section, playlist } = useParams();
@@ -22,6 +24,20 @@ const ListsPage = () => {
   const [scrollbarVisible, setScrollbarVisible] = useState(false);
 
   const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    if (section === "history") {
+      setCurrentSection("history");
+      setCurrentPlaylist("");
+    } else if (section === "toWatch") {
+      setCurrentSection("toWatch");
+      setCurrentPlaylist("");
+    } else if (section === "playlist") {
+      if (playlist) {
+        setCurrentSection("playlist");
+        setCurrentPlaylist(playlist);
+      }
+    }
+  }, [location.pathname]);
   useEffect(() => {
     axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
     if (currentSection === "history") {
@@ -75,7 +91,6 @@ const ListsPage = () => {
       setScrollbarVisible(false);
     }
   };
-  const handleClickTab = (section, playlistID) => {};
 
   return (
     <div className="flex flex-col mt-12 pt-8 w-full dark:bg-gray-800 sm:mt-10 md:mt-16 md:pt-2 lg:mt-0 lg:pt-20">
@@ -93,14 +108,14 @@ const ListsPage = () => {
                   setVideos([]);
                   setCurrentSection("history");
                   setCurrentPlaylist("");
+                  location.pathname = "/history";
                 }
               }}
               className={`${
                 currentSection === "history" ? "border-l-4 border-r-4 border-gray-600" : ""
               } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
             >
-              {" "}
-              HISTORIA{" "}
+              {t("videosHistory")}
             </button>
           </div>
           <div className="py-1 border-b-2 hover:border-gray-600 border-transparent">
@@ -116,8 +131,7 @@ const ListsPage = () => {
                 currentSection === "toWatch" ? "border-l-4 border-r-4 border-gray-600" : ""
               } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
             >
-              {" "}
-              DO OBEJRZENIA{" "}
+              {t("watchlist")}
             </button>
           </div>
           <div className="border-r-2 border-gray-500"></div>

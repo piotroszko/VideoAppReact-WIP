@@ -60,5 +60,36 @@
   "delete": "Usuń",
   "watchedTimeAgo": "obejrzano",
   "added": "Dodano",
-  "ago": "temu"
+  "ago": "temu",
+
+  "profileYourAcc": "Twoje konto",
+  "profileAccount": "Konto",
+  "profileVideos": "Wideo",
+  "profileMyComments": "Moje komentarze",
+  "profileStatistics": "Statystyki",
+
+  "profilePassChange": "Zmiana hasła",
+  "profileOldPassword": "Podaj stare hasło",
+  "profileNewPassword": "Podaj nowe hasło",
+  "profileReNewPass": "Powtórz nowe hasło",
+  "profileConfirm": "Potwierdź zmiane",
+
+  "profileAvatarChange": "Zmiana zdjecia profilowego",
+  "profileCurrentAvatar": "Aktualny awatar",
+  "profileAvatarSelect": "Wybierz nowy",
+  "profileAvatarPreview": "Podgląd",
+  "profileAvatarSave": "Zapisz",
+
+  "profileNewVideosNotification": "Chcesz dostawać powiadomienia email o nowych filmach z subskrybowanych kanałów?",
+  "profileLikeNotification": "Chcesz dostawać powiadomienia email, gdy ktoś polubi twój komentarz?",
+  "likes": "likeów",
+  "dislikes": "dislikeów",
+  "edit": "Edycja",
+  "goToVideo": "Przejdź do filmu",
+  "written": "Napisany",
+
+  "passEmpty": "You cant leave inputs empty!",
+  "passMatch": "New passwords dont match!",
+  "passWrong": "Wrong old password!",
+  "passSuccess": "You successfully changed your password!"
 }

@@ -1,10 +1,12 @@
 import React, { useState, useRef, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import "./BottomNavbar.css";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 import { t } from "i18next";
 import PlaylistButton from "./PlaylistButton";
 import { usePlaylists } from "../../utils/";
+import ListsPage from "../../pages/listsPage/ListsPage";
 
 const BottomNavbar = () => {
   const [barVisable, setBarVisable] = useState(true);
@@ -77,14 +79,22 @@ const BottomNavbar = () => {
           className="flex whitespace-nowrap overflow-x-hidden overflow-y-hidden"
           ref={refPlaylists}
         >
-          <button className="btn-history btn-special-underline">
-            <p className="text-btn-bottom">{t("videosHistory")}</p>
-          </button>
-          <button className="btn-toWatch btn-special-underline">
-            <p className="text-btn-bottom">{t("watchlist")}</p>
-          </button>
+          <Link to="lists/history/" component={<ListsPage />}>
+            <button className="btn-history btn-special-underline">
+              <p className="text-btn-bottom">{t("videosHistory")}</p>
+            </button>
+          </Link>
+          <Link to="lists/toWatch/" component={<ListsPage />}>
+            <button className="btn-toWatch btn-special-underline">
+              <p className="text-btn-bottom">{t("watchlist")}</p>
+            </button>
+          </Link>
           {data?.playlists
-            ? data?.playlists.map((p) => <PlaylistButton data={p} key={p._id}></PlaylistButton>)
+            ? data?.playlists.map((p) => (
+                <Link to={"lists/playlist/" + p._id.toString()} component={<ListsPage />}>
+                  <PlaylistButton data={p} key={p._id}></PlaylistButton>
+                </Link>
+              ))
             : ""}
         </div>
       </div>

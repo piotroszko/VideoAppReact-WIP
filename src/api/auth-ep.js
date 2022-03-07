@@ -8,6 +8,7 @@ module.exports = Object.freeze({
   avatar: url + "users/avatar/",
   login: url + "authentication/login",
   register: url + "authentication/register",
+  passwordChange: url + "authentication/changePassword?application=api-jwt",
   me: url + "authentication/me?application=api-jwt",
   videos: url + "video/vs",
   thumbnails: "http://localhost:4000/info/thumbnails/",
@@ -39,10 +40,15 @@ module.exports = Object.freeze({
   addToHistory: url + "lists/addToHistory/",
   removeFromHistory: url + "lists/removeFromHistory/",
 
+  addToWatch: url + "lists/addToWatch/",
   removeFromToWatch: url + "lists/removeFromToWatch/",
+
   recommendedVideos: url + "video/recommended/",
 
   getHistory: url + "lists/history/?application=api-jwt",
   getToWatch: url + "lists/toWatch/?application=api-jwt",
   getPlaylist: url + "lists/playlist/",
+
+  getUserDetails: url + "users/details/user?application=api-jwt",
+  changeNotif: url + "users/notification/",
 });

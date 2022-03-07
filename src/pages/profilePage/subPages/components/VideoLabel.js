@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import { t } from "i18next";
+
 import VideoPage from "../../../videoPage/VideoPage";
 import urls from "./../../../../api/auth-ep";
 
@@ -18,22 +20,28 @@ const VideoLabel = ({ data }) => {
             {data.name}
           </Link>
         </p>
-        <p className="text-left text-sm"> Wyświetleń: {data.views}</p>
+        <p className="text-left text-sm">
+          {t("views")}: {data.views}
+        </p>
         <p className="text-left text-sm">
           {" "}
           <Moment format="HH:mm DD-MM-YYYY">{data.createdAt}</Moment>
         </p>
       </div>
       <div className="flex flex-col gap-3 ml-4 pt-3 text-left">
-        <p className="text-green-700 text-lg font-bold">{data.likes} likeów</p>
-        <p className="text-red-700 text-lg font-bold">{data.dislikes} dislików</p>
+        <p className="text-green-700 text-lg font-bold">
+          {data.likes} {t("likes")}
+        </p>
+        <p className="text-red-700 text-lg font-bold">
+          {data.dislikes} {t("dislikes")}
+        </p>
       </div>
       <div className="flex flex-row gap-3 items-center justify-end ml-6 mr-4 w-1/3 h-full">
         <button className="text-bold w-30 my-auto p-3 h-1/2 hover:text-gray-200 text-lg bg-gray-200 hover:bg-gray-600 rounded-lg">
-          Edycja
+          {t("edit")}
         </button>
         <button className="text-bold w-30 my-auto p-3 h-1/2 hover:text-gray-200 text-lg bg-gray-200 hover:bg-red-700 rounded-lg">
-          Usuń
+          {t("delete")}
         </button>
       </div>
     </div>

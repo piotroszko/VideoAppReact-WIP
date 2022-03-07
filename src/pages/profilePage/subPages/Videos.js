@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import useSWR from "swr";
 import axios from "axios";
+import { t } from "i18next";
 
 import VideoLabel from "./components/VideoLabel";
 import LoadingDots from "../../../components/LoadingDots/LoadingDots";
@@ -21,7 +22,7 @@ const Videos = () => {
       <div className="flex flex-col w-3/4">
         <div className="pt-6">
           <SmallSearchBar
-            inputPlaceholder={"Wyszukaj"}
+            inputPlaceholder={t("search")}
             onFilterChange={(f) => null}
             onInputChange={() => null}
           ></SmallSearchBar>

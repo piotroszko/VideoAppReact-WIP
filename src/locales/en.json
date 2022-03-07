@@ -60,5 +60,36 @@
   "delete": "Delete",
   "watchedTimeAgo": "ago watched",
   "added": "Added",
-  "ago": "ago"
+  "ago": "ago",
+
+  "profileYourAcc": "Your account",
+  "profileAccount": "Account",
+  "profileVideos": "Videos",
+  "profileMyComments": "My comments",
+  "profileStatistics": "Statistics",
+
+  "profilePassChange": "Password change",
+  "profileOldPassword": "Old password",
+  "profileNewPassword": "New password",
+  "profileReNewPass": "Re-enter new password",
+  "profileConfirm": "Confirm change",
+
+  "profileAvatarChange": "Profile avatar change",
+  "profileCurrentAvatar": "Current profile avatar",
+  "profileAvatarSelect": "Select new avatar",
+  "profileAvatarPreview": "Preview",
+  "profileAvatarSave": "Save",
+
+  "profileNewVideosNotification": "Do you want to get email notifications of new videos from the channels you are subscribed to?",
+  "profileLikeNotification": "Do you want to get email notifications when someone likes your comment?",
+  "likes": "likes",
+  "dislikes": "dislikes",
+  "edit": "Edit",
+  "goToVideo": "Open video",
+  "written": "Written",
+
+  "passEmpty": "Nie możesz zostawić pustych pól!",
+  "passMatch": "Nowe hasła nie pasują do siebię!",
+  "passWrong": "Złe stare hasło!",
+  "passSuccess": "Pomyślnie zmieniłeś hasło!"
 }

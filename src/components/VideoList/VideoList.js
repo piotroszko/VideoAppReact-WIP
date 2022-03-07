@@ -12,20 +12,27 @@ const VideoGrid = (props) => {
   return (
     <div className="flex flex-col">
       {props.sortBar ? (
-        <>
-          <SmallSearchBar
-            inputPlaceholder={"Wyszukaj"}
-            onFilterChange={(f) => setFilterString(f)}
-            onInputChange={(text) => setTextSearch(text)}
-          ></SmallSearchBar>
-        </>
+        <SmallSearchBar
+          key={
+            props.history
+              ? "history"
+              : props.toWatch
+              ? "toWatch"
+              : props.playlist
+              ? props.playlist._id
+              : Math.random()
+          }
+          inputPlaceholder={"Wyszukaj"}
+          onFilterChange={(f) => setFilterString(f)}
+          onInputChange={(text) => setTextSearch(text)}
+        ></SmallSearchBar>
       ) : null}
       <div className="flex flex-col gap-4 pt-5 sm:pt-4">
         {videos &&
           videos
             .filter((f) => {
-              if (isHistoryOrToWatch) return f.video.name.includes(textSearch);
-              else return f.name.includes(textSearch);
+              if (isHistoryOrToWatch) return f.video?.name?.includes(textSearch);
+              else return f?.name?.includes(textSearch);
             })
             .sort((a, b) => {
               if (!isHistoryOrToWatch) {

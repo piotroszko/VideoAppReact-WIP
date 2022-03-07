@@ -1,5 +1,6 @@
 import ReactFreezeframe from "react-freezeframe";
 import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
@@ -9,22 +10,36 @@ import { toast } from "react-toastify";
 
 import "./VideoCard.css";
 import addSvg from "./placeholders/addToWatch.svg";
+import checkMark from "./placeholders/check-mark.png";
 import dotsSvg from "./placeholders/dots.svg";
 import VideoPage from "../../pages/videoPage/VideoPage";
 import ChannelPage from "../../pages/channelPage/ChannelPage";
 import { usePlaylists } from "../../utils";
 import PlaylistRow from "./PlaylistRow";
+import urls from "../../api/auth-ep";
 
 const VideoCard = (props) => {
   const { data } = usePlaylists();
   const [mouseOn, setMouseOn] = useState("");
   const playlists = usePlaylists();
+  const [addedToWatch, setAddedToWatch] = useState(false);
 
   let navigate = useNavigate();
   const handleOnClick = () => {
     navigate("/video/" + props?.data?.id, { replace: true });
   };
-
+  const handleAddToWatch = () => {
+    if (localStorage.getItem("token") !== null) {
+      const axiosInstance = axios.create();
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      axiosInstance.post(urls.addToWatch + props?.data?.id + urls.aplicationTag).then((res) => {
+        setAddedToWatch(true);
+        toast.info(t("addedToToWatch"));
+      });
+    } else {
+      console.log("you are not logged in");
+    }
+  };
   return (
     <div className="videoCard animation-button relative flex-1 mx-auto p-3 dark:text-gray-200">
       <div
@@ -35,11 +50,16 @@ const VideoCard = (props) => {
       >
         <div className="absolute z-20 right-1 top-1 flex flex-col gap-1">
           <div
-            className="addToWatch w-8 h-8 bg-gray-400"
+            className={`${addedToWatch ? "bg-green-400" : "bg-gray-400"} addToWatch w-8 h-8 `}
             onMouseEnter={() => setMouseOn("watch")}
             onMouseLeave={() => setMouseOn("video")}
+            onClick={() => (!addedToWatch ? handleAddToWatch() : null)}
           >
-            <img src={addSvg} alt="add" className="m-auto mt-1 w-6 h-6"></img>
+            <img
+              src={addedToWatch ? checkMark : addSvg}
+              alt="add"
+              className="m-auto mt-1 w-6 h-6"
+            ></img>
           </div>
           <Popup
             trigger={
