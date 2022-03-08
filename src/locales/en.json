@@ -91,5 +91,9 @@
   "passEmpty": "Nie możesz zostawić pustych pól!",
   "passMatch": "Nowe hasła nie pasują do siebię!",
   "passWrong": "Złe stare hasło!",
-  "passSuccess": "Pomyślnie zmieniłeś hasło!"
+  "passSuccess": "Pomyślnie zmieniłeś hasło!",
+
+  "subsSubscribed": "Subscribes",
+  "subsAmount": "Amount:",
+  "subsTitle": "Videos from subscribed"
 }

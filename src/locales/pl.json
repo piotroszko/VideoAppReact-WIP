@@ -91,5 +91,9 @@
   "passEmpty": "You cant leave inputs empty!",
   "passMatch": "New passwords dont match!",
   "passWrong": "Wrong old password!",
-  "passSuccess": "You successfully changed your password!"
+  "passSuccess": "You successfully changed your password!",
+
+  "subsSubscribed": "Subskrypcje",
+  "subsAmount": "Ilość:",
+  "subsTitle": "Zasubskrybowane kanały"
 }

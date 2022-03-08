@@ -51,4 +51,5 @@ module.exports = Object.freeze({
 
   getUserDetails: url + "users/details/user?application=api-jwt",
   changeNotif: url + "users/notification/",
+  getSubs: url + "users/subscribes/",
 });
