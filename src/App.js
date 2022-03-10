@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,6 +20,8 @@ import Comments from "./pages/profilePage/subPages/Comments";
 import Statistics from "./pages/profilePage/subPages/Statistics";
 import SubsPage from "./pages/subscribersPage/SubsPage";
 import ListsPage from "./pages/listsPage/ListsPage";
+import ProtectedPage from "./pages/protectedPage/ProtectedPage";
+import NonePage from "./pages/nonePage/NonePage";
 
 const App = () => {
   const auth = useProvideAuth();
@@ -39,15 +41,53 @@ const App = () => {
 
               <Route path="video/:id" element={<VideoPage />} />
               <Route path="channel/:id" element={<ChannelPage />} />
-              <Route path="subs" element={<SubsPage />} />
+              <Route
+                path="subs"
+                element={
+                  <RequireAuth redirectTo="/protected">
+                    <SubsPage />
+                  </RequireAuth>
+                }
+              />
+
+              <Route path="protected" element={<ProtectedPage />} />
+              <Route path="*" element={<NonePage />} />
 
               {/* lists with optional parameters */}
-              <Route path="lists/:section/:playlist" element={<ListsPage />} />
-              <Route path="lists/:section" element={<ListsPage />} />
-              <Route path="lists/" element={<ListsPage />} />
+              <Route
+                path="lists/:section/:playlist"
+                element={
+                  <RequireAuth redirectTo="/protected">
+                    <ListsPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="lists/:section"
+                element={
+                  <RequireAuth redirectTo="/protected">
+                    <ListsPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="lists/"
+                element={
+                  <RequireAuth redirectTo="/protected">
+                    <ListsPage />
+                  </RequireAuth>
+                }
+              />
 
               {/* profile page routes*/}
-              <Route path="profile/" element={<ProfilePage />}>
+              <Route
+                path="profile/"
+                element={
+                  <RequireAuth redirectTo="/protected">
+                    <ProfilePage />
+                  </RequireAuth>
+                }
+              >
                 <Route index element={<MainProfile />} />
                 <Route path="videos" element={<Videos />} />
                 <Route path="channel" element={<ChannelPage />} />
@@ -73,5 +113,9 @@ const App = () => {
     </AuthContext.Provider>
   );
 };
+function RequireAuth({ children, redirectTo }) {
+  let isAuthenticated = localStorage.getItem("token") !== null;
+  return isAuthenticated ? children : <Navigate to={redirectTo} />;
+}
 
 export default App;

@@ -99,5 +99,8 @@
 
   "avatarChanged": "Avatar was successfully changed. Sometimes changes will be visible after some time.",
   "avatarError": "Error while uploading new avatar. Check selected file.",
-  "avatarNoFile": "You need to select a file to upload"
+  "avatarNoFile": "You need to select a file to upload",
+
+  "pageNotFound": "Page not found",
+  "pageAccesError": "You need to login to access this page"
 }

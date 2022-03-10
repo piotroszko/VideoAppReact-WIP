@@ -99,5 +99,8 @@
 
   "avatarChanged": "Pomyślnie zmieiono avatar. Czasami zmiany widać po paru minutach",
   "avatarError": "Wystąpił problem podczas zmiany avataru. Sprawdz poprawnosc wybranego pliku.",
-  "avatarNoFile": "Musisz wybrać plik"
+  "avatarNoFile": "Musisz wybrać plik",
+
+  "pageNotFound": "Nie odnaleziono tej strony",
+  "pageAccesError": "Musisz sie zalogować, aby wejść na tą stronę"
 }
