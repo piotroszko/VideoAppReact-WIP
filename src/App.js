@@ -35,6 +35,8 @@ const App = () => {
               <Route path="new" element={<VideoList />} />
               <Route path="discover" element={<VideoList />} />
 
+              <Route path="search/:param" element={<VideoList />} />
+
               <Route path="video/:id" element={<VideoPage />} />
               <Route path="channel/:id" element={<ChannelPage />} />
               <Route path="subs" element={<SubsPage />} />

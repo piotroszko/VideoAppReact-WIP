@@ -95,5 +95,9 @@
 
   "subsSubscribed": "Subscribes",
   "subsAmount": "Amount:",
-  "subsTitle": "Videos from subscribed"
+  "subsTitle": "Videos from subscribed",
+
+  "avatarChanged": "Avatar was successfully changed. Sometimes changes will be visible after some time.",
+  "avatarError": "Error while uploading new avatar. Check selected file.",
+  "avatarNoFile": "You need to select a file to upload"
 }

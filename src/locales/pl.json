@@ -95,5 +95,9 @@
 
   "subsSubscribed": "Subskrypcje",
   "subsAmount": "Ilość:",
-  "subsTitle": "Zasubskrybowane kanały"
+  "subsTitle": "Zasubskrybowane kanały",
+
+  "avatarChanged": "Pomyślnie zmieiono avatar. Czasami zmiany widać po paru minutach",
+  "avatarError": "Wystąpił problem podczas zmiany avataru. Sprawdz poprawnosc wybranego pliku.",
+  "avatarNoFile": "Musisz wybrać plik"
 }

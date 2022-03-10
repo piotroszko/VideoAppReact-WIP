@@ -16,6 +16,8 @@ const MainProfile = () => {
   const [sendEmailNewVideo, setSendEmailNewVideo] = useState(false);
 
   const [previewAvatar, setPreviewAvatar] = useState();
+  const [avatarData, setAvatarData] = useState();
+  const [notifAvatar, setNotifAvatar] = useState("");
 
   const [passwords, setPasswords] = useState({
     oldPassword: "",
@@ -92,7 +94,27 @@ const MainProfile = () => {
     }
   };
   const handleFileUpload = (e) => {
+    setAvatarData(e.target.files[0]);
     setPreviewAvatar(URL.createObjectURL(e.target.files[0]));
+  };
+  const handleSaveAvatar = () => {
+    var formdata = new FormData();
+    if (previewAvatar) {
+      if (localStorage.getItem("token") !== null) {
+        axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+        formdata.append("file", avatarData);
+        axiosInstance
+          .post(urls.uploadAvatar, formdata)
+          .then((res) => {
+            setNotifAvatar("changed");
+          })
+          .catch((err) => {
+            setNotifAvatar("error");
+          });
+      }
+    } else {
+      setNotifAvatar("nofile");
+    }
   };
   return (
     <div className="flex flex-col pt-16 w-full md:flex-row">
@@ -205,7 +227,25 @@ const MainProfile = () => {
           className="block mt-2 mx-auto w-1/4 rounded-2xl"
           src={previewAvatar && previewAvatar}
         />
-        <button className="hover:border-6 mt-6 mx-auto w-2/3 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4">
+        {notifAvatar !== "" ? (
+          <div
+            className={`${
+              notifAvatar === "changed" ? "text-green-600" : "text-red-600"
+            } text-lg font-bold`}
+          >
+            {notifAvatar === "changed" ? t("avatarChanged") : ""}
+            {notifAvatar === "error" ? t("avatarError") : ""}
+            {notifAvatar === "nofile" ? t("avatarNoFile") : ""}
+          </div>
+        ) : (
+          ""
+        )}
+        <button
+          onClick={() => {
+            handleSaveAvatar();
+          }}
+          className="hover:border-6 mt-6 mx-auto w-2/3 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
+        >
           {t("profileAvatarSave")}
         </button>
       </div>
