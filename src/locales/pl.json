@@ -67,6 +67,7 @@
   "profileVideos": "Wideo",
   "profileMyComments": "Moje komentarze",
   "profileStatistics": "Statystyki",
+  "profileCreate": "Dodaj wideo",
 
   "profilePassChange": "Zmiana hasła",
   "profileOldPassword": "Podaj stare hasło",
@@ -88,10 +89,10 @@
   "goToVideo": "Przejdź do filmu",
   "written": "Napisany",
 
-  "passEmpty": "You cant leave inputs empty!",
-  "passMatch": "New passwords dont match!",
-  "passWrong": "Wrong old password!",
-  "passSuccess": "You successfully changed your password!",
+  "passEmpty": "Nie możesz zostawić pustych pól!",
+  "passMatch": "Nowe hasła nie pasują do siebię!",
+  "passWrong": "Złe stare hasło!",
+  "passSuccess": "Pomyślnie zmieniłeś hasło!",
 
   "subsSubscribed": "Subskrypcje",
   "subsAmount": "Ilość:",
@@ -102,5 +103,14 @@
   "avatarNoFile": "Musisz wybrać plik",
 
   "pageNotFound": "Nie odnaleziono tej strony",
-  "pageAccesError": "Musisz sie zalogować, aby wejść na tą stronę"
+  "pageAccesError": "Musisz sie zalogować, aby wejść na tą stronę",
+
+  "videoTemplateCreation": "Tworzenie szkicu wideo",
+  "videoName": "Tytuł filmu",
+  "videoDescription": "Opis wideo",
+  "tags": "Tagi",
+  "enterTags": "Podaj jakieś tagi",
+  "addVideo": "Dodaj szkic wideo",
+  "addTag": "Dodaj tag ",
+  "videoTemplateCreated": "Szkic wideo został utworzony pomyślnie. \n Przkierowujemy na strone dalszej edycji"
 }

@@ -22,7 +22,7 @@
   "cancel": "Cancel",
   "comAdd": "Add comment",
   "comReport": "REPORT",
-  "comDelete": "USUŃ",
+  "comDelete": "Delete",
   "videosHistory": "HISTORY",
   "watchlist": "WATCHLIST",
   "back": "Back",
@@ -67,6 +67,7 @@
   "profileVideos": "Videos",
   "profileMyComments": "My comments",
   "profileStatistics": "Statistics",
+  "profileCreate": "Add video",
 
   "profilePassChange": "Password change",
   "profileOldPassword": "Old password",
@@ -88,10 +89,10 @@
   "goToVideo": "Open video",
   "written": "Written",
 
-  "passEmpty": "Nie możesz zostawić pustych pól!",
-  "passMatch": "Nowe hasła nie pasują do siebię!",
-  "passWrong": "Złe stare hasło!",
-  "passSuccess": "Pomyślnie zmieniłeś hasło!",
+  "passEmpty": "You cant leave inputs empty!",
+  "passMatch": "New passwords dont match!",
+  "passWrong": "Wrong old password!",
+  "passSuccess": "You successfully changed your password!",
 
   "subsSubscribed": "Subscribes",
   "subsAmount": "Amount:",
@@ -102,5 +103,14 @@
   "avatarNoFile": "You need to select a file to upload",
 
   "pageNotFound": "Page not found",
-  "pageAccesError": "You need to login to access this page"
+  "pageAccesError": "You need to login to access this page",
+
+  "videoTemplateCreation": "Video template creation",
+  "videoName": "Video title",
+  "videoDescription": "Description",
+  "tags": "Tags",
+  "enterTags": "Enter some tags",
+  "addVideo": "Add video template",
+  "addTag": "Add tag ",
+  "videoTemplateCreated": "Video template created successfully. \n Redirecting to video edit page"
 }

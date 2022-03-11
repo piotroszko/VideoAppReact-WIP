@@ -25,9 +25,14 @@ const ProfilePage = () => {
         <Link to={"/channel/" + user?.id} component={<ChannelPage />}>
           <p className="mt-2 hover:underline">{user?.name}</p>
         </Link>
-
+        <Link to="/profile/create" component={<Comments />}>
+          <p className="btn-profile-nav dark:hover:bg-red-500 mt-2 bg-red-300 hover:bg-red-800 dark:bg-red-800 border-t-2">
+            {" "}
+            {t("profileCreate")}{" "}
+          </p>
+        </Link>
         <Link to="/profile/" component={<ProfilePage />}>
-          <p className="btn-profile-nav mt-2 border-t-2"> {t("profileAccount")} </p>
+          <p className="btn-profile-nav"> {t("profileAccount")} </p>
         </Link>
         <Link to="/profile/videos" component={<Videos />}>
           <p className="btn-profile-nav">{t("profileVideos")} </p>
@@ -38,6 +43,7 @@ const ProfilePage = () => {
         <Link to="/profile/statistics" component={<Comments />}>
           <p className="btn-profile-nav"> {t("profileStatistics")} </p>
         </Link>
+
         <div className="flex flex-col justify-end pb-16 w-auto h-full"></div>
       </div>
       <div className="ml-auto w-5/6 h-full dark:bg-gray-800 bg-white overflow-visible">

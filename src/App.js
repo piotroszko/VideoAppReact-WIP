@@ -22,6 +22,8 @@ import SubsPage from "./pages/subscribersPage/SubsPage";
 import ListsPage from "./pages/listsPage/ListsPage";
 import ProtectedPage from "./pages/protectedPage/ProtectedPage";
 import NonePage from "./pages/nonePage/NonePage";
+import CreateVideoTemplate from "./pages/profilePage/subPages/CreateVideoTemplate";
+import EditVideo from "./pages/profilePage/subPages/EditVideo";
 
 const App = () => {
   const auth = useProvideAuth();
@@ -93,6 +95,8 @@ const App = () => {
                 <Route path="channel" element={<ChannelPage />} />
                 <Route path="comments" element={<Comments />} />
                 <Route path="statistics" element={<Statistics />} />
+                <Route path="create" element={<CreateVideoTemplate />} />
+                <Route path="edit/:id" element={<EditVideo />} />
               </Route>
             </Route>
             <Route path="/login" element={<LoginPage />}></Route>
