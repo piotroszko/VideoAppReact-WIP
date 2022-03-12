@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import useSWR, { useSWRConfig } from "swr";
+import { useSWRConfig } from "swr";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
@@ -40,6 +40,8 @@ const Comment = (props) => {
           mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
         });
       }
+    } else {
+      toast.info(t("notificationErrorLogin"));
     }
   };
   const onDislikeClick = () => {
@@ -57,6 +59,8 @@ const Comment = (props) => {
           mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
         });
       }
+    } else {
+      toast.info(t("notificationErrorLogin"));
     }
   };
   const changeLikeStatus = (data) => {
@@ -78,6 +82,8 @@ const Comment = (props) => {
         toast.info(t("notificationDeletedCom"));
         mutate(urls.allComVideo + props.data.videoID + urls.aplicationTag);
       });
+    } else {
+      toast.info(t("notificationErrorLogin"));
     }
   };
   useEffect(() => {
@@ -88,7 +94,7 @@ const Comment = (props) => {
       setDisliked(true);
       setLiked(false);
     }
-  }, []);
+  }, [props.data.likeStatus]);
   useEffect(() => {
     if (liked) {
       setIsLikeActive(true);

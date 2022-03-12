@@ -2,7 +2,7 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import useSWR, { useSWRConfig } from "swr";
+import { useSWRConfig } from "swr";
 import { toast } from "react-toastify";
 
 import "./Comment.css";
@@ -34,7 +34,9 @@ const CommentForm = (props) => {
         toast.info(t("notificationAddedCom"));
         setIsFormVis(false);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        toast.error(t("notificationErrorSend"));
+      });
   };
   const { data } = useAvatar(user?.id);
   return (

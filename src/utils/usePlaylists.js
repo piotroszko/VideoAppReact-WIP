@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import axios from "axios";
 
@@ -7,7 +6,7 @@ import urls from "./../api/auth-ep";
 export default function usePlaylists() {
   const { mutate } = useSWRConfig();
   const axiosInstance = axios.create();
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     localStorage.getItem("token") !== null ? urls.allPlaylists : "",
     (url) => {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;

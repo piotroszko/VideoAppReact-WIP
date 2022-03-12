@@ -6,7 +6,6 @@ import VideoGrid from "../../components/VideoGrid/VideoGrid";
 import ChannelLabel from "./components/ChannelLabel";
 import "./SubsPage.css";
 import urls from "../../api/auth-ep";
-import { set } from "js-cookie";
 
 const SubsPage = () => {
   document.title = t("subsTitle");

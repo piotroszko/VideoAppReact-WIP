@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
-import axios from "axios";
-import useSWR from "swr";
 import { toast } from "react-toastify";
 
 import LoginPage from "../../../loginPage/LoginPage";
 import { useAuth, useUser, useAvatar } from "../../../../utils";
 import { t } from "i18next";
 import ProfilePage from "../../../profilePage/ProfilePage";
-import urls from "./../../../../api/auth-ep";
 
 const LoginButton = () => {
   const ref = useDetectClickOutside({

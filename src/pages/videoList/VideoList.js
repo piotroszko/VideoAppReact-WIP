@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import useSWR from "swr";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../../utils";
 
@@ -19,12 +20,10 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
 
   const auth = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleRegister = () => {
     if (password === rePassword) {
       setDifPass(false);
-      setError(null);
       setIsLoading(true);
       axios
         .post(ep.register, {
@@ -38,7 +37,7 @@ const RegistrationForm = ({ isVisable, visabilityCallback }) => {
           setTimeout(() => navigate("/", { replace: true }), 500);
         })
         .catch((error) => {
-          setError(error.message);
+          toast.error(t("regError"));
           setIsLoading(false);
         });
     } else {

@@ -14,7 +14,7 @@ const ChannelPage = () => {
 
   useEffect(() => {
     updateVideos();
-  }, []);
+  });
 
   const { data } = useAvatar(id);
   const updateVideos = async () => {

@@ -26,9 +26,6 @@ const TopNavbar = () => {
       setResult2(false);
     }
   };
-  const handleSearch = (text) => {
-    const value = text;
-  };
 
   return (
     <div className="fixed z-50 w-full dark:bg-gray-500 bg-white">
@@ -55,7 +52,7 @@ const TopNavbar = () => {
                 />
               </svg>
             </Link>
-            <SearchBar darkmode={darkmode} onSearch={(text) => handleSearch(text)}></SearchBar>
+            <SearchBar darkmode={darkmode}></SearchBar>
             {/* pop up on input */}
           </div>
           <DesktopCategories />

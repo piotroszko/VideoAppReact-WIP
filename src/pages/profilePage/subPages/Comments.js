@@ -8,7 +8,7 @@ import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
 import urls from "./../../../api/auth-ep";
 const Comments = () => {
   const axiosInstance = axios.create();
-  const { data, error } = useSWR(urls.myComments, (url) => {
+  const { data } = useSWR(urls.myComments, (url) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       return axiosInstance.get(url).then((res) => {

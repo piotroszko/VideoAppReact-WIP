@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
-import axios from "axios";
-import useSWR from "swr";
 import { t } from "i18next";
 
 import Comments from "./subPages/Comments";
 import Videos from "./subPages/Videos";
 import "./ProfilePage.css";
 import { useUser, useAvatar } from "../../utils";
-import urls from "./../../api/auth-ep";
 import ChannelPage from "./../channelPage/ChannelPage";
 
 const ProfilePage = () => {

@@ -77,6 +77,8 @@ const VideoPageInfo = (props) => {
           mutate(urls.videoInfo + props.data.id);
         });
       }
+    } else {
+      toast.info(t("notificationErrorLogin"));
     }
   };
   const onDislikeClick = () => {
@@ -94,6 +96,8 @@ const VideoPageInfo = (props) => {
           mutate(urls.videoInfo + props.data.id);
         });
       }
+    } else {
+      toast.info(t("notificationErrorLogin"));
     }
   };
 

@@ -38,6 +38,7 @@
   "passwordForgot": "Forgot your password?",
   "wrongCredentials": "Wrong credentials",
   "resetPassword": "Forgot password?",
+  "regError": "Error occurred while trying to register your account",
   "forgotPasswordDesc": "Please enter your email adress below and we will send you a link to reset your password.",
   "send": "Send",
   "comLogin": "You must be logged in to post a comment.",
@@ -50,6 +51,8 @@
   "notificationAddedCom": "You successfully added the comment",
   "notificationLikedVideo": "You liked the video",
   "notificationDislikedVideo": "You disliked the video",
+  "notificationErrorSend": "Error occurred while posting the comment.",
+  "notificationErrorLogin": "You need to log in to do this action.",
 
   "mostPopular": "Most popular",
   "newest": "Newest",
@@ -61,6 +64,7 @@
   "watchedTimeAgo": "ago watched",
   "added": "Added",
   "ago": "ago",
+  "addedToToWatch": "Video added to 'to watch'",
 
   "profileYourAcc": "Your account",
   "profileAccount": "Account",
@@ -112,5 +116,6 @@
   "enterTags": "Enter some tags",
   "addVideo": "Add video template",
   "addTag": "Add tag ",
+  "videoErrorLength": "Too short name for the video!",
   "videoTemplateCreated": "Video template created successfully. \n Redirecting to video edit page"
 }

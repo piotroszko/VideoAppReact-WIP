@@ -8,7 +8,7 @@ import LoadingDots from "./../../../../components/LoadingDots/LoadingDots";
 import urls from "./../../../../api/auth-ep";
 
 const CommentsSection = (props) => {
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     props.videoID ? urls.allComVideo + props.videoID + urls.aplicationTag : "",
     (url) => {
       if (localStorage.getItem("token") === null)

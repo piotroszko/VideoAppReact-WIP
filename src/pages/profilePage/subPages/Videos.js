@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import useSWR from "swr";
 import axios from "axios";
 import { t } from "i18next";
@@ -9,7 +9,7 @@ import SmallSearchBar from "../../../components/SmallSearchBar/SmallSearchBar";
 import urls from "./../../../api/auth-ep";
 const Videos = () => {
   const axiosInstance = axios.create();
-  const { data, error } = useSWR(urls.myVideos, (url) => {
+  const { data } = useSWR(urls.myVideos, (url) => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       return axiosInstance.get(url).then((res) => {

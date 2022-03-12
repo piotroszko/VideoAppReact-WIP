@@ -68,7 +68,7 @@ const SmallSearchBar = ({ inputPlaceholder, onFilterChange, onInputChange }) => 
         <div className="relative mt-3" ref={ref}>
           <input type="checkbox" className="absolute hidden" />
           <label
-            for="sortbox"
+            htmlFor="sortbox"
             className="flex items-center focus:bg-gray-500 cursor-pointer select-none space-x-1"
           >
             <svg

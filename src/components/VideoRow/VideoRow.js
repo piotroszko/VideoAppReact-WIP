@@ -25,17 +25,26 @@ const VideoRow = (props) => {
     if (props.toWatch) {
       axiosInstance
         .delete(urls.removeFromToWatch + props.video._id + "/" + urls.aplicationTag)
-        .then((res) => setRefresh(!refresh));
+        .then((res) => {
+          toast.info(t("removedFromPlaylist"));
+          setRefresh(!refresh);
+        });
     } else if (props.history) {
       axiosInstance
         .delete(urls.removeFromHistory + props.video._id + urls.aplicationTag)
-        .then((res) => setRefresh(!refresh));
+        .then((res) => {
+          toast.info(t("removedFromPlaylist"));
+          setRefresh(!refresh);
+        });
     } else {
       axiosInstance
         .delete(
           urls.removeFromPlaylist + props.playlist + "/" + video.id + "/" + urls.aplicationTag
         )
-        .then((res) => setRefresh(!refresh));
+        .then((res) => {
+          toast.info(t("removedFromPlaylist"));
+          setRefresh(!refresh);
+        });
     }
   };
 

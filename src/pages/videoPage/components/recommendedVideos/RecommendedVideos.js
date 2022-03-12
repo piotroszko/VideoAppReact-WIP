@@ -12,7 +12,7 @@ import urls from "./../../../../api/auth-ep";
 const RecommendedVideos = ({ videoID }) => {
   const refBar = useRef(null);
   const [slideAnim, SetSlideAnim] = useState("");
-  const { data, error } = useSWR(videoID ? urls.recommendedVideos : "", (url) =>
+  const { data } = useSWR(videoID ? urls.recommendedVideos : "", (url) =>
     axios.get(url + videoID + "/").then((res) => {
       return res.data;
     })

@@ -38,6 +38,8 @@
   "passwordForgot": "Zapomniałeś hasła?",
   "wrongCredentials": "Złe dane do logowania",
   "resetPassword": "Zapomniałeś hasła?",
+  "regError": "Wystąpił błąd podczas rejestracji. Sprawdź podane dane",
+
   "forgotPasswordDesc": "Podaj email do konta a my wyślemy Ci link do zresetowania hasła.",
   "send": "Wyślij",
   "comLogin": "By napisać komentarz musisz być {{tag1}}zalogowany{{tag2}}.",
@@ -50,6 +52,8 @@
   "notificationAddedCom": "Komentarz został dodany",
   "notificationLikedVideo": "Wideo zostało polubione",
   "notificationDislikedVideo": "Wideo zostało nie polubione",
+  "notificationErrorSend": "Wystapił błąd podczas wysyłania komentarza.",
+  "notificationErrorLogin": "You need to log in to do this action.",
 
   "mostPopular": "Najpopularniejsze",
   "newest": "Najnowsze",
@@ -61,6 +65,7 @@
   "watchedTimeAgo": "obejrzano",
   "added": "Dodano",
   "ago": "temu",
+  "addedToToWatch": "Wideo dodane do 'do obejrzenia'",
 
   "profileYourAcc": "Twoje konto",
   "profileAccount": "Konto",
@@ -112,5 +117,6 @@
   "enterTags": "Podaj jakieś tagi",
   "addVideo": "Dodaj szkic wideo",
   "addTag": "Dodaj tag ",
+  "videoErrorLength": "Za krótki tytuł dla wideo!",
   "videoTemplateCreated": "Szkic wideo został utworzony pomyślnie. \n Przkierowujemy na strone dalszej edycji"
 }

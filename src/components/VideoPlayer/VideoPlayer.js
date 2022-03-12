@@ -2,8 +2,8 @@ import { useRef, useState, useEffect } from "react";
 
 import "./VideoPlayer.css";
 import urls from "./../../api/auth-ep";
-import BackwardSvg from "./controls/backward-5.svg";
-import ForwardSvg from "./controls/forward-5.svg";
+// import BackwardSvg from "./controls/backward-5.svg";
+// import ForwardSvg from "./controls/forward-5.svg";
 import PauseSvg from "./controls/pause.svg";
 import PlaySvg from "./controls/play.svg";
 
@@ -27,7 +27,7 @@ const VideoPlayer = (props) => {
   const [volume, setVolume] = useState(10);
   useEffect(() => {
     changeVolume(volume);
-  }, []);
+  });
 
   const videoHandler = (control) => {
     if (control === "play") {
@@ -41,13 +41,13 @@ const VideoPlayer = (props) => {
     }
   };
 
-  const fastForward = () => {
-    videoRef.current.currentTime += 5;
-  };
+  // const fastForward = () => {
+  //   videoRef.current.currentTime += 5;
+  // };
 
-  const revert = () => {
-    videoRef.current.currentTime -= 5;
-  };
+  // const revert = () => {
+  //   videoRef.current.currentTime -= 5;
+  // };
   const onClickProgress = (e) => {
     var valueOfPointClicked =
       (e.clientX - progressBar.current.offsetLeft) / progressBar.current.clientWidth;

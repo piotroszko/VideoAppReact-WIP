@@ -56,10 +56,22 @@ const CreateVideoTemplate = () => {
             id="name"
             type="text"
             value={data.name}
-            onChange={(e) => setData((old) => ({ ...old, name: e.target.value }))}
+            onChange={(e) =>
+              setData((old) => {
+                if (errorLength) setErrorLength(false);
+                return { ...old, name: e.target.value };
+              })
+            }
             className="mx-auto px-2 py-1 w-3/4 font-semibold rounded-md"
             placeholder=""
           ></input>
+          <p
+            className={`${
+              errorLength ? "opacity-100" : "opacity-0"
+            } bg-red-700 text-gray-100 font-bold text-base mt-1 w-max mx-auto p-1 rounded-md`}
+          >
+            {t("videoErrorLength")}
+          </p>
           <label htmlFor="desc" className="mt-6 text-gray-200 text-lg font-semibold">
             {t("videoDescription")}
           </label>
@@ -96,10 +108,10 @@ const CreateVideoTemplate = () => {
               >
                 <div className="absolute z-40 left-0 mt-2 w-full">
                   <div className="py-1 text-sm bg-white border border-gray-300 rounded shadow-lg">
-                    <a className="block px-5 py-1 hover:text-white hover:bg-indigo-600 cursor-pointer">
+                    <button className="block px-5 py-1 hover:text-white hover:bg-indigo-600 cursor-pointer">
                       {t("addTag")}
                       <span className="font-bold">{inputTag}</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
