@@ -17,7 +17,6 @@ import ProfilePage from "./pages/profilePage/ProfilePage";
 import MainProfile from "./pages/profilePage/subPages/MainProfile";
 import Videos from "./pages/profilePage/subPages/Videos";
 import Comments from "./pages/profilePage/subPages/Comments";
-import Statistics from "./pages/profilePage/subPages/Statistics";
 import SubsPage from "./pages/subscribersPage/SubsPage";
 import ListsPage from "./pages/listsPage/ListsPage";
 import ProtectedPage from "./pages/protectedPage/ProtectedPage";
@@ -94,7 +93,6 @@ const App = () => {
                 <Route path="videos" element={<Videos />} />
                 <Route path="channel" element={<ChannelPage />} />
                 <Route path="comments" element={<Comments />} />
-                <Route path="statistics" element={<Statistics />} />
                 <Route path="create" element={<CreateVideoTemplate />} />
                 <Route path="edit/:id" element={<EditVideo />} />
               </Route>

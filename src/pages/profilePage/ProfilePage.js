@@ -37,9 +37,6 @@ const ProfilePage = () => {
         <Link to="/profile/comments" component={<Comments />}>
           <p className="btn-profile-nav"> {t("profileMyComments")}</p>
         </Link>
-        <Link to="/profile/statistics" component={<Comments />}>
-          <p className="btn-profile-nav"> {t("profileStatistics")} </p>
-        </Link>
 
         <div className="flex flex-col justify-end pb-16 w-auto h-full"></div>
       </div>
