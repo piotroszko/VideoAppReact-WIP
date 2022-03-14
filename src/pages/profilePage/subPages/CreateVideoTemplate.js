@@ -45,11 +45,18 @@ const CreateVideoTemplate = () => {
   };
   return (
     <div className="flex flex-col pl-4 pr-4 pt-20 w-full md:pl-20">
-      <div className="mt-14 w-full bg-gray-500 rounded-lg md:w-full lg:w-1/2">
+      <div className="mt-14 w-full bg-gray-200 dark:bg-gray-700 rounded-lg md:w-full lg:w-1/2">
         <div className="flex flex-col gap-0 pb-4">
-          <p className="mt-4 text-gray-200 text-xl font-bold"> {t("videoTemplateCreation")}</p>
+          <p className="mt-4 dark:text-gray-200 text-gray-800 text-xl font-bold">
+            {" "}
+            {t("videoTemplateCreation")}
+          </p>
 
-          <label htmlFor="name" className="mt-6 text-gray-200 text-lg font-semibold" required>
+          <label
+            htmlFor="name"
+            className="mt-6 dark:text-gray-200 text-gray-800 text-lg font-semibold"
+            required
+          >
             {t("videoName")}
           </label>
           <input
@@ -68,11 +75,14 @@ const CreateVideoTemplate = () => {
           <p
             className={`${
               errorLength ? "opacity-100" : "opacity-0"
-            } bg-red-700 text-gray-100 font-bold text-base mt-1 w-max mx-auto p-1 rounded-md`}
+            } bg-red-700 dark:text-gray-200 text-gray-800 font-bold text-base mt-1 w-max mx-auto p-1 rounded-md`}
           >
             {t("videoErrorLength")}
           </p>
-          <label htmlFor="desc" className="mt-6 text-gray-200 text-lg font-semibold">
+          <label
+            htmlFor="desc"
+            className="mt-6 dark:text-gray-200 text-gray-800 text-lg font-semibold"
+          >
             {t("videoDescription")}
           </label>
           <textarea
@@ -82,7 +92,10 @@ const CreateVideoTemplate = () => {
             className="mx-auto px-2 py-1 w-3/4 font-semibold rounded-md"
             placeholder=""
           ></textarea>
-          <label htmlFor="tags" className="mt-6 text-gray-200 text-lg font-semibold">
+          <label
+            htmlFor="tags"
+            className="mt-6 dark:text-gray-200 text-gray-800 text-lg font-semibold"
+          >
             {t("tags")}
           </label>
           <div className="mt-1 mx-auto" id="tags">
@@ -148,7 +161,7 @@ const CreateVideoTemplate = () => {
           </div>
           <button
             onClick={() => AddVideo()}
-            className="mt-14 mx-auto px-4 py-2 w-max text-gray-800 text-lg font-semibold bg-gray-300 rounded-md"
+            className="mt-14 mx-auto px-4 py-2 w-max text-gray-600 text-lg font-semibold hover:bg-gray-300 bg-gray-400 rounded-md"
           >
             {t("addVideo")}
           </button>

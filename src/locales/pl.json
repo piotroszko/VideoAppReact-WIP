@@ -98,6 +98,10 @@
   "passMatch": "Nowe hasła nie pasują do siebię!",
   "passWrong": "Złe stare hasło!",
   "passSuccess": "Pomyślnie zmieniłeś hasło!",
+  "emailSend": "Jeśli email jest poprawny, email z linkiem do zmiany hasła został wysłany.",
+  "passwordChanged": "Hasło zostało pomyślnie zmienione! Spróbuj sie zalogować używając nowego hasła",
+  "passwordChange": "Zmiana hasła",
+  "changePassword": "Zmień hasło",
 
   "subsSubscribed": "Subskrypcje",
   "subsAmount": "Ilość:",

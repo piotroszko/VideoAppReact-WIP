@@ -55,4 +55,6 @@ module.exports = Object.freeze({
   getSubs: url + "users/subscribes/",
 
   createTemplateVideo: url + "video/createVideo?application=api-jwt",
+  forgotEmail: url + "authentication/sendForgot?email=",
+  changeForgot: url + "authentication/changeForgot/",
 });

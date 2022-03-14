@@ -97,6 +97,10 @@
   "passMatch": "New passwords dont match!",
   "passWrong": "Wrong old password!",
   "passSuccess": "You successfully changed your password!",
+  "emailSend": "If the email is correct, link with password change form was sent to given email.",
+  "passwordChanged": "Password was successfully changed! Try to login with new password",
+  "passwordChange": " Password change ",
+  "changePassword": " Change password",
 
   "subsSubscribed": "Subscribes",
   "subsAmount": "Amount:",

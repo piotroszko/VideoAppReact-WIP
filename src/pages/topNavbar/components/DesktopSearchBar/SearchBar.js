@@ -58,7 +58,7 @@ const SearchBar = ({ onSearch, darkmode, result }) => {
           onFocus={() => {
             setSuggestionVisible(true);
           }}
-          className="placeholder-gray-600 dark:placeholder-gray-100 pl-10 py-3 w-full dark:text-gray-200 text-gray-600 text-sm leading-none bg-gray-100 dark:bg-gray-400 rounded focus:outline-none"
+          className="placeholder-gray-600 dark:placeholder-gray-100 pl-10 py-3 w-full dark:text-gray-200 text-gray-600 text-sm leading-none bg-gray-200 dark:bg-gray-500 rounded focus:outline-none"
           type="text"
           placeholder={t("search")}
           ref={searchInput}

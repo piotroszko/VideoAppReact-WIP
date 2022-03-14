@@ -124,7 +124,7 @@ const MainProfile = () => {
           <div className="flex flex-row justify-center mt-20 mx-auto w-full">
             <input
               type="checkbox"
-              value={sendEmailNewVideo}
+              checked={sendEmailNewVideo}
               onChange={() => changeNotif("newVideo")}
               className="my-auto w-5 h-5"
             />
@@ -136,7 +136,7 @@ const MainProfile = () => {
           <div className="flex flex-row justify-center mt-4 mx-auto w-full">
             <input
               type="checkbox"
-              value={sendEmailLike}
+              checked={sendEmailLike}
               onChange={() => changeNotif("comLike")}
               className="my-auto w-5 h-5"
             />

@@ -49,7 +49,7 @@ const VideoRow = (props) => {
   };
 
   return (
-    <div className="flex flex-row w-full">
+    <div className="flex flex-row w-full dark:text-gray-200">
       <div
         className="relative w-1/3"
         onMouseOut={() => {
@@ -103,7 +103,7 @@ const VideoRow = (props) => {
         <div className="ml-auto">
           <button
             onClick={() => handleDelete()}
-            className="p-2 w-min text-right text-gray-200 whitespace-nowrap text-sm hover:bg-gray-600 bg-gray-700 rounded-lg"
+            className="dark:hover:bg-gray-800 p-2 w-min text-right text-gray-200 whitespace-nowrap text-sm hover:bg-gray-600 bg-gray-700 rounded-lg"
           >
             {t("delete")}
           </button>

@@ -23,6 +23,7 @@ import ProtectedPage from "./pages/protectedPage/ProtectedPage";
 import NonePage from "./pages/nonePage/NonePage";
 import CreateVideoTemplate from "./pages/profilePage/subPages/CreateVideoTemplate";
 import EditVideo from "./pages/profilePage/subPages/EditVideo";
+import PasswordForgotPage from "./pages/passwordForgot/PasswordForgotPage";
 
 const App = () => {
   const auth = useProvideAuth();
@@ -98,6 +99,7 @@ const App = () => {
               </Route>
             </Route>
             <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="forgot/:id" element={<PasswordForgotPage />} />
           </Routes>
         </div>
         <ToastContainer
