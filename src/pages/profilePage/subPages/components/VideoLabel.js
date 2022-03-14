@@ -12,12 +12,12 @@ const VideoLabel = ({ data }) => {
     <div className="h-max flex flex-row gap-6 justify-between mx-auto w-11/12 bg-gray-300 dark:bg-gray-700 rounded-md">
       {data?.publicity !== "hidden" ? (
         <img
-          className={`block ml-4 mt-2 my-auto h-20 w-20 rounded-2xl`}
+          className={`block ml-4 my-2 h-20 w-20 rounded-2xl`}
           src={urls.thumbnails + data.id + ".png"}
           alt=""
         />
       ) : (
-        <div className="flex flex-col justify-center ml-4 mt-2 my-auto w-20 h-20 text-6xl bg-gray-400 rounded-2xl">
+        <div className="flex flex-col justify-center ml-4 mt-2 my-2 w-20 h-20 text-6xl bg-gray-400 rounded-2xl">
           <div className="text-gray-300"> X </div>
         </div>
       )}
