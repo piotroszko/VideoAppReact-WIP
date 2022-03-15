@@ -10,7 +10,7 @@ import EditVideo from "./../EditVideo";
 const VideoLabel = ({ data }) => {
   return (
     <div className="h-max flex flex-row gap-6 justify-between mx-auto w-11/12 bg-gray-300 dark:bg-gray-700 rounded-md">
-      {data?.publicity !== "hidden" ? (
+      {data?.mediaAvaiable ? (
         <img
           className={`block ml-4 my-2 h-20 w-20 rounded-2xl`}
           src={urls.thumbnails + data.id + ".png"}

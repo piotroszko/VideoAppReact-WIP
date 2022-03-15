@@ -15,7 +15,6 @@ const Videos = () => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       return axiosInstance.get(url).then((res) => {
-        console.log(res.data);
         return res.data;
       });
     }

@@ -121,5 +121,7 @@
   "addVideo": "Add video template",
   "addTag": "Add tag ",
   "videoErrorLength": "Too short name for the video!",
-  "videoTemplateCreated": "Video template created successfully. \n Redirecting to video edit page"
+  "videoTemplateCreated": "Video template created successfully. \n Redirecting to video edit page",
+  "videoFile": "Video file",
+  "editForm": "Video edit form"
 }

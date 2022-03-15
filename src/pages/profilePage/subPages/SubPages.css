@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .pulseSmallBar {
+    @apply mx-auto w-20 h-8 bg-gray-400 animate-pulse;
+  }
+  .separatorBar {
+    @apply block mx-auto w-3/4 border-b-2 border-gray-300 sm:hidden sm:w-0;
+  }
+}

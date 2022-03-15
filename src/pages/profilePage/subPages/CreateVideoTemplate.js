@@ -5,32 +5,15 @@ import { t } from "i18next";
 import { toast } from "react-toastify";
 
 import urls from "../../../api/auth-ep";
+import TagInput from "../../../components/TagInput/TagInput";
 
 const CreateVideoTemplate = () => {
   let navigate = useNavigate();
-  const aviableCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  const [inputTag, setInputTag] = useState("");
   const [tags, setTags] = useState([]);
 
   const [data, setData] = useState({ name: "", description: "", application: "api-jwt" });
   const [errorLength, setErrorLength] = useState(false);
-  const AddTag = () => {
-    if (!tags.includes(inputTag)) {
-      setTags((old) => [...old, inputTag]);
-      setInputTag("");
-    }
-  };
-  const deleteTag = (value) => {
-    setTags(tags.filter((t) => t !== value));
-  };
-  const handleTagChange = (e) => {
-    if (e.target.value.slice(-1) === "," || e.target.value.slice(-1) === "+") {
-      AddTag();
-    } else if (aviableCharacters.includes(e.target.value.slice(-1))) {
-      setInputTag(e.target.value);
-    }
-  };
+
   const AddVideo = () => {
     if (data.name.length > 3) {
       const axiosInstance = axios.create();
@@ -92,73 +75,11 @@ const CreateVideoTemplate = () => {
             className="mx-auto px-2 py-1 w-3/4 font-semibold rounded-md"
             placeholder=""
           ></textarea>
-          <label
-            htmlFor="tags"
-            className="mt-6 dark:text-gray-200 text-gray-800 text-lg font-semibold"
-          >
-            {t("tags")}
-          </label>
-          <div className="mt-1 mx-auto" id="tags">
-            <div className="relative">
-              <input
-                value={inputTag}
-                onChange={(e) => {
-                  handleTagChange(e);
-                }}
-                className="block px-4 py-2 w-full text-gray-700 leading-tight bg-white border focus:border-blue-500 border-gray-200 rounded focus:outline-none appearance-none focus:ring-1 focus:ring-blue-500"
-                placeholder={t("enterTags")}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    AddTag();
-                  }
-                }}
-              />
-              <div
-                className={`${inputTag !== "" && inputTag.length > 2 ? "" : "hidden"}`}
-                onClick={() => {
-                  AddTag();
-                }}
-              >
-                <div className="absolute z-40 left-0 mt-2 w-full">
-                  <div className="py-1 text-sm bg-white border border-gray-300 rounded shadow-lg">
-                    <button className="block px-5 py-1 hover:text-white hover:bg-indigo-600 cursor-pointer">
-                      {t("addTag")}
-                      <span className="font-bold">{inputTag}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mx-auto w-3/4">
-            {tags.length > 0
-              ? tags.map((t) => (
-                  <div
-                    key={t}
-                    className="inline-flex items-center mr-1 mt-2 w-max text-sm bg-blue-100 rounded overflow-hidden"
-                  >
-                    <span className="ml-2 mr-1 px-1 max-w-xs leading-relaxed truncate" x-text="tag">
-                      {t}
-                    </span>
-                    <button
-                      className="inline-block align-middle w-6 h-8 text-gray-500 bg-blue-200 focus:outline-none"
-                      onClick={() => deleteTag(t)}
-                    >
-                      <svg
-                        className="mx-auto w-6 h-6 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M15.78 14.36a1 1 0 0 1-1.42 1.42l-2.82-2.83-2.83 2.83a1 1 0 1 1-1.42-1.42l2.83-2.82L7.3 8.7a1 1 0 0 1 1.42-1.42l2.83 2.83 2.82-2.83a1 1 0 0 1 1.42 1.42l-2.83 2.83 2.83 2.82z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                ))
-              : ""}
-          </div>
+          <TagInput
+            outputTags={(o) => {
+              setTags(o);
+            }}
+          ></TagInput>
           <button
             onClick={() => AddVideo()}
             className="mt-14 mx-auto px-4 py-2 w-max text-gray-600 text-lg font-semibold hover:bg-gray-300 bg-gray-400 rounded-md"

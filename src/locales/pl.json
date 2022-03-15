@@ -122,5 +122,7 @@
   "addVideo": "Dodaj szkic wideo",
   "addTag": "Dodaj tag ",
   "videoErrorLength": "Za krótki tytuł dla wideo!",
-  "videoTemplateCreated": "Szkic wideo został utworzony pomyślnie. \n Przkierowujemy na strone dalszej edycji"
+  "videoTemplateCreated": "Szkic wideo został utworzony pomyślnie. \n Przkierowujemy na strone dalszej edycji",
+  "videoFile": "Plik wideo",
+  "editForm": "Formularz edycji wideo"
 }
