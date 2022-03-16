@@ -65,6 +65,11 @@
   "added": "Added",
   "ago": "ago",
   "addedToToWatch": "Video added to 'to watch'",
+  "addNewPlaylist": "Add playlist",
+  "nameOfPlaylist": "Playlist name",
+  "add": "Add",
+  "tooShortName": "Too short name for playlist",
+  "playlistAdded": "Playlist added",
 
   "profileYourAcc": "Your account",
   "profileAccount": "Account",

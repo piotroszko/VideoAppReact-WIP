@@ -3,15 +3,18 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { t } from "i18next";
 import { useLocation } from "react-router-dom";
+import { useSWRConfig } from "swr";
 
 import "./ListsPage.css";
 import { usePlaylists } from "./../../utils";
 import VideoList from "./../../components/VideoList/VideoList";
 import urls from "./../../api/auth-ep";
+import AddPlaylist from "./AddPlaylist";
 
 export let refreshDataContext = createContext();
 
 const ListsPage = () => {
+  const { mutate } = useSWRConfig();
   const location = useLocation();
   const axiosInstance = axios.create();
   const flexBox = useRef(null);
@@ -91,7 +94,17 @@ const ListsPage = () => {
       setScrollbarVisible(false);
     }
   };
-
+  const deletePlaylist = () => {
+    axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+    axiosInstance
+      .delete(urls.removePlaylist + currentPlaylist + "/" + urls.aplicationTag)
+      .then((res) => {
+        if (res) {
+          mutate(urls.allPlaylists);
+        }
+      })
+      .catch((err) => {});
+  };
   return (
     <div className="flex flex-col mt-12 pt-8 w-full dark:bg-gray-800 sm:mt-10 md:mt-16 md:pt-2 lg:mt-0 lg:pt-20">
       <div className="flex flex-row mx-auto px-2 py-1 w-full whitespace-nowrap bg-gray-200 dark:bg-gray-700 rounded-lg overflow-x-hidden md:w-3/4">
@@ -135,25 +148,42 @@ const ListsPage = () => {
             </button>
           </div>
           <div className="border-r-2 border-gray-500"></div>
+          <AddPlaylist></AddPlaylist>
           {data
             ? data.playlists.map((p) => (
                 <div className="py-1 border-b-2 hover:border-gray-600 border-transparent">
-                  <button
-                    onClick={() => {
-                      if (currentSection !== "playlist" || currentPlaylist !== p._id.toString()) {
-                        setVideos([]);
-                        setCurrentSection("playlist");
-                        setCurrentPlaylist(p._id);
-                      }
-                    }}
+                  <div
                     className={`${
                       currentSection === "playlists" || currentPlaylist === p._id.toString()
-                        ? "border-l-4 border-r-4 border-gray-600"
+                        ? "border-l-4 border-r-4 border-gray-600 "
                         : ""
-                    } mx-2 p-2 font-bold bg-gray-400 rounded-lg`}
+                    } flex flex-row mx-2 p-2 font-bold bg-gray-400 rounded-lg `}
                   >
-                    {p.name}
-                  </button>
+                    <button
+                      onClick={() => {
+                        if (currentSection !== "playlist" || currentPlaylist !== p._id.toString()) {
+                          setVideos([]);
+                          setCurrentSection("playlist");
+                          setCurrentPlaylist(p._id);
+                        }
+                      }}
+                      className={` bg-gray-300 rounded-md px-2`}
+                    >
+                      {p.name}
+                    </button>
+                    <div
+                      onClick={() => {
+                        deletePlaylist();
+                      }}
+                      className={`${
+                        currentSection !== "playlist" || currentPlaylist !== p._id.toString()
+                          ? "hidden"
+                          : ""
+                      } bg-gray-800 text-white py-1 px-2 text-xs rounded-md ml-1 cursor-pointer`}
+                    >
+                      X
+                    </div>
+                  </div>
                 </div>
               ))
             : ""}

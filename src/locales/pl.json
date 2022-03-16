@@ -66,6 +66,11 @@
   "added": "Dodano",
   "ago": "temu",
   "addedToToWatch": "Wideo dodane do 'do obejrzenia'",
+  "addNewPlaylist": "Dodaj playliste",
+  "nameOfPlaylist": "Nazwa playlisty",
+  "add": "Dodaj",
+  "tooShortName": "Za krótka nazwa playlisty",
+  "playlistAdded": "Dodano playliste",
 
   "profileYourAcc": "Twoje konto",
   "profileAccount": "Konto",
