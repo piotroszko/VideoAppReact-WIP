@@ -7,7 +7,7 @@ import { useAuth } from "../../../../utils";
 import VideoList from "../../../videoList/VideoList";
 import SubsPage from "../../../subscribersPage/SubsPage";
 
-const MobileCategories = ({ showNav }) => {
+const MobileCategories = ({ showNav, closeNav }) => {
   const auth = useAuth();
   return (
     <div
@@ -20,6 +20,7 @@ const MobileCategories = ({ showNav }) => {
       <div className="flex flex-col items-start justify-between ml-auto mr-auto pb-4 px-2 h-full dark:bg-gray-500 bg-white rounded-b-lg sm:w-full md:px-4">
         <div className="jusitfy-start flex flex-col items-start ml-auto mr-auto w-full">
           <Link
+            onClick={() => closeNav()}
             to="/top"
             component={<VideoList />}
             className="btn-navbar-full border-t-2 dark:border-gray-200"
@@ -27,6 +28,7 @@ const MobileCategories = ({ showNav }) => {
             <p className="text-btn-navbar2">{t("topVideos")}</p>
           </Link>
           <Link
+            onClick={() => closeNav()}
             to="/new"
             component={<VideoList />}
             className="btn-navbar-full dark:border-gray-200"
@@ -34,6 +36,7 @@ const MobileCategories = ({ showNav }) => {
             <p className="text-btn-navbar2">{t("newVideos")}</p>
           </Link>
           <Link
+            onClick={() => closeNav()}
             to="/discover"
             component={<VideoList />}
             className="btn-navbar-full dark:border-gray-200"
@@ -41,6 +44,7 @@ const MobileCategories = ({ showNav }) => {
             <p className="text-btn-navbar2">{t("discoverVideos")}</p>
           </Link>
           <Link
+            onClick={() => closeNav()}
             to="/subs"
             component={<SubsPage />}
             className={`${auth.isLogin ? "" : "hidden"} btn-navbar-full dark:border-gray-200`}
@@ -48,7 +52,7 @@ const MobileCategories = ({ showNav }) => {
             <p className="text-btn-navbar2">{t("subscribedChannels")}</p>
           </Link>
         </div>
-        <LoginButtonMobile />
+        <LoginButtonMobile closeNav={() => closeNav()} />
       </div>
     </div>
   );

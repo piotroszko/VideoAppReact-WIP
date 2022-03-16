@@ -141,11 +141,13 @@ const VideoPageInfo = (props) => {
         </div>
         <div className="relative justify-self-start mt-7 w-1/3 h-full sm:w-1/3">
           <div className="flex flex-col h-full">
-            <Link to={"/channel/" + props?.data?.userID} component={<ChannelPage />}>
-              <p className="text-medium h-1/2 hover:underline font-bold">
-                {props?.data?.channelName}
-              </p>
-            </Link>
+            {props.data.userId && (
+              <Link to={"/channel/" + props.data.userId} component={<ChannelPage />}>
+                <p className="text-medium h-1/2 hover:underline font-bold">
+                  {props.data.channelName}
+                </p>
+              </Link>
+            )}
             <div className="h-1/4 text-xs">
               <p className="cursor-pointer" onClick={() => setIsInfo(!isInfo)}>
                 {isInfo ? t("hideDesc") : t("showDesc")}

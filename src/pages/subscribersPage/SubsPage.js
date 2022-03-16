@@ -25,7 +25,6 @@ const SubsPage = () => {
         );
         if (subsData.length > 0) setCurrent(subsData[0].id);
         setSubs(subsData);
-        console.log(subsData);
       });
     }
   }, []);

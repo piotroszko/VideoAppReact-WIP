@@ -169,12 +169,12 @@ const EditVideo = () => {
             <p>{progress + "%"}</p>
           </div>
           <div
-            class={`${
+            className={`${
               progress !== 0 ? "opacity-100" : "opacity-0"
             } mx-auto w-3/4 h-2.5 dark:bg-gray-100 bg-gray-100 rounded-full`}
           >
             <div
-              class="h-2.5 bg-gray-600 rounded-full"
+              className="h-2.5 bg-gray-600 rounded-full"
               style={{ width: progress.toString() + "%" }}
             ></div>
           </div>

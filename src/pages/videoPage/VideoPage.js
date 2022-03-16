@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import useSWR from "swr";
@@ -15,6 +15,7 @@ import urls from "./../../api/auth-ep";
 const VideoPage = () => {
   let navigate = useNavigate();
   let { id } = useParams();
+  let [lastID, setLastID] = useState("");
   const { data } = useSWR(urls.videoInfo + id, (url) =>
     axios.get(url).then((res) => {
       document.title = res.data.name;
@@ -27,8 +28,14 @@ const VideoPage = () => {
     })
   );
   useEffect(() => {
-    axios.post(urls.viewedVideo + id);
-  }, []);
+    if (lastID !== id) axios.post(urls.viewedVideo + id);
+    if (localStorage.getItem("token") !== null && lastID !== id) {
+      setLastID(id);
+      const axiosInstance = axios.create();
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      axiosInstance.post(urls.addToHistory + id + "/" + urls.aplicationTag);
+    }
+  });
   return (
     <div className="pt-16">
       <div className="bg-black">

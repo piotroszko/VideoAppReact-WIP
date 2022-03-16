@@ -1,7 +1,6 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { t } from "i18next";
 import axios from "axios";
-import { useDetectClickOutside } from "react-detect-click-outside";
 import { useNavigate } from "react-router-dom";
 import urls from "./../../../../api/auth-ep";
 import { DarkmodeContext } from "../../../../utils/DarkmodeProvider";
@@ -9,13 +8,9 @@ import "./MobileSearchBar.css";
 
 const MobileSearchBar = ({ search, closeSearch }) => {
   const darkmode = useContext(DarkmodeContext);
-  const [result, setResult] = useState(false);
   let navigate = useNavigate();
-  const searchInput = useRef(null);
-  const suggestsRef = useRef([]);
   const [inputText, setInputText] = useState("");
   const [suggestedValues, setSuggestedValues] = useState([]);
-  const [suggestionVisible, setSuggestionVisible] = useState(false);
   const handleInput = (text) => {
     setInputText(text);
     if (text.length > 0 && text.replace(/\s/g, "").length) {
@@ -24,10 +19,6 @@ const MobileSearchBar = ({ search, closeSearch }) => {
       });
     }
   };
-
-  const ref = useDetectClickOutside({
-    onTriggered: () => setSuggestionVisible(false),
-  });
   return (
     <div
       id="searchItemsSecond"

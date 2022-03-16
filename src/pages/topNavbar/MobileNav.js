@@ -1,10 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { t } from "i18next";
 
-import DesktopCategories from "./components/DesktopCategories/DesktopCategories";
-import LoginButton from "./components/LoginButton/LoginButton";
-import LoginButtonMobile from "./components/LoginButtonMobile/LoginButtonMobile";
 import MainLayout from "./../mainLayout/MainLayout";
 import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
@@ -25,7 +21,7 @@ const MobileNav = () => {
           id="searchItems"
           className={`${search ? "hidden" : ""} w-full flex justify-between items-center `}
         >
-          <Link to="/" component={<MainLayout />}>
+          <Link to="/" component={<MainLayout />} onClick={() => setShowNav(false)}>
             <button>
               <svg
                 width={50}
@@ -146,7 +142,7 @@ const MobileNav = () => {
         <MobileSearchBar search={search} closeSearch={() => setSearch(false)}></MobileSearchBar>
       </div>
 
-      <MobileCategories showNav={showNav}></MobileCategories>
+      <MobileCategories showNav={showNav} closeNav={() => setShowNav(false)}></MobileCategories>
     </div>
   );
 };

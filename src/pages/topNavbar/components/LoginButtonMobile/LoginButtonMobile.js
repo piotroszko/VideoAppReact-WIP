@@ -8,7 +8,7 @@ import { useAuth, useUser, useAvatar } from "../../../../utils";
 import { t } from "i18next";
 import ProfilePage from "../../../profilePage/ProfilePage";
 
-const LoginButtonMobile = () => {
+const LoginButtonMobile = ({ closeNav }) => {
   const ref = useDetectClickOutside({
     onTriggered: () => setIsDropdownOpen(false),
   });
@@ -20,7 +20,7 @@ const LoginButtonMobile = () => {
   return (
     <div className="relative flex items-center justify-end py-3 w-auto space-x-6">
       <div className={`${auth.isLogin ? "hidden" : ""} `}>
-        <Link to="/login" component={<LoginPage />}>
+        <Link onClick={() => closeNav()} to="/login" component={<LoginPage />}>
           <button className="p-3 dark:text-gray-200 text-gray-600 hover:text-gray-700 focus:text-white text-xs font-medium leading-3 hover:bg-blue-50 focus:bg-gray-700 border-2 dark:border-gray-300 rounded focus:outline-none">
             {t("logIn")}
           </button>
@@ -48,7 +48,10 @@ const LoginButtonMobile = () => {
           <Link
             to={"/profile"}
             component={<ProfilePage />}
-            onClick={() => setIsDropdownOpen(false)}
+            onClick={() => {
+              closeNav();
+              setIsDropdownOpen(false);
+            }}
           >
             <p className="mx-2 dark:text-gray-800 hover:text-white bg-gray-200 hover:bg-gray-400 border-2 border-gray-100 rounded-md cursor-pointer">
               {t("account")}
@@ -56,6 +59,7 @@ const LoginButtonMobile = () => {
           </Link>
           <p
             onClick={() => {
+              closeNav();
               auth.logout();
               toast.info(t("notificationLoggedout"));
             }}

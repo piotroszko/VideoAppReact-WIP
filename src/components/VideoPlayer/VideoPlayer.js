@@ -2,8 +2,6 @@ import { useRef, useState, useEffect } from "react";
 
 import "./VideoPlayer.css";
 import urls from "./../../api/auth-ep";
-// import BackwardSvg from "./controls/backward-5.svg";
-// import ForwardSvg from "./controls/forward-5.svg";
 import PauseSvg from "./controls/pause.svg";
 import PlaySvg from "./controls/play.svg";
 
@@ -41,13 +39,6 @@ const VideoPlayer = (props) => {
     }
   };
 
-  // const fastForward = () => {
-  //   videoRef.current.currentTime += 5;
-  // };
-
-  // const revert = () => {
-  //   videoRef.current.currentTime -= 5;
-  // };
   const onClickProgress = (e) => {
     var valueOfPointClicked =
       (e.clientX - progressBar.current.offsetLeft) / progressBar.current.clientWidth;
@@ -75,9 +66,11 @@ const VideoPlayer = (props) => {
   };
 
   window.setInterval(function () {
-    setCurrentTime(videoRef.current?.currentTime);
-    if (videoRef.current?.currentTime / videoTime === 1 && playing) setPlaying(false);
-    setProgress((videoRef.current?.currentTime / videoTime) * 100);
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current?.currentTime);
+      if (videoRef.current?.currentTime / videoTime === 1 && playing) setPlaying(false);
+      setProgress((videoRef.current?.currentTime / videoTime) * 100);
+    }
   }, 1000);
 
   return (
@@ -111,10 +104,6 @@ const VideoPlayer = (props) => {
                 className="control-icon btnHover"
                 alt=""
               ></img>
-            </button>
-            <button className="controls-buttons">
-              {" "}
-              <img src={NextSvg} className="control-icon btnHover" alt=""></img>{" "}
             </button>
             <button
               className="controls-buttons muteButton flex"

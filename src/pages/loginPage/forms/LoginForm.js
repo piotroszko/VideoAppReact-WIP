@@ -85,7 +85,7 @@ const LoginForm = ({ isVisable, visabilityCallback, forgotCallback }) => {
         className="hover:border-6 mt-3 mx-auto w-1/2 h-9 dark:text-gray-200 hover:text-white text-lg font-bold bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 border-4 hover:border-gray-400 rounded-md sm:w-1/4"
       >
         <div className="flex flex-row w-full h-full">
-          <div class={`flex items-center justify-center w-1/6`}>
+          <div className={`flex items-center justify-center w-1/6`}>
             <div
               className={`${
                 isLoading ? "" : "hidden"

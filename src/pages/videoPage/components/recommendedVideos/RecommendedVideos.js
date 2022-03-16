@@ -104,8 +104,8 @@ const RecommendedVideos = ({ videoID }) => {
           >
             {data
               ? data.map((v) => (
-                  <div className="w-72 h-60">
-                    <VideoCard data={v} key={v.id}></VideoCard>{" "}
+                  <div className="w-72 h-60" key={v.id}>
+                    <VideoCard data={v}></VideoCard>{" "}
                   </div>
                 ))
               : ""}

@@ -13,15 +13,7 @@ const VideoGrid = (props) => {
     <div className="flex flex-col">
       {props.sortBar ? (
         <SmallSearchBar
-          key={
-            props.history
-              ? "history"
-              : props.toWatch
-              ? "toWatch"
-              : props.playlist
-              ? props.playlist._id
-              : Math.random()
-          }
+          key={Math.random()}
           inputPlaceholder={"Wyszukaj"}
           onFilterChange={(f) => setFilterString(f)}
           onInputChange={(text) => setTextSearch(text)}

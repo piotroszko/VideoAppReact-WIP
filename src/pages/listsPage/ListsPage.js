@@ -88,10 +88,12 @@ const ListsPage = () => {
   }, []);
 
   const updateSize = () => {
-    if (flexBox?.current?.scrollWidth > flexBox?.current?.clientWidth) {
-      setScrollbarVisible(true);
-    } else {
-      setScrollbarVisible(false);
+    if (flexBox.current) {
+      if (flexBox.current.scrollWidth > flexBox.current.clientWidth) {
+        setScrollbarVisible(true);
+      } else {
+        setScrollbarVisible(false);
+      }
     }
   };
   const deletePlaylist = () => {

@@ -91,7 +91,11 @@ const BottomNavbar = () => {
           </Link>
           {data?.playlists
             ? data?.playlists.map((p) => (
-                <Link to={"lists/playlist/" + p._id.toString()} component={<ListsPage />}>
+                <Link
+                  to={"lists/playlist/" + p._id.toString()}
+                  key={p._id}
+                  component={<ListsPage />}
+                >
                   <PlaylistButton data={p} key={p._id}></PlaylistButton>
                 </Link>
               ))

@@ -16,14 +16,13 @@ const Comments = () => {
     if (localStorage.getItem("token") !== null) {
       axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
       return axiosInstance.get(url).then((res) => {
-        console.log(res.data);
         return res.data;
       });
     }
   });
   return (
     <div className="pt-16 w-full">
-      <div className="flex flex-col ml-8 w-3/4">
+      <div className="flex flex-col ml-8 w-full min-w-max sm:w-1/2 sm:min-w-min">
         <div className="flex flex-row justify-start mt-10 pr-16 w-full">
           <SmallSearchBar
             inputPlaceholder={"Wyszukaj"}
