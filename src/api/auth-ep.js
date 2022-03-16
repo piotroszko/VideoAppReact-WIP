@@ -8,6 +8,7 @@ module.exports = Object.freeze({
   avatar: url + "users/avatar/",
   uploadAvatar: url + "users/uploadPicture?application=api-jwt",
   uploadVideo: url + "video/uploadVideoFile?application=api-jwt",
+  updateVideoInfo: url + "video/updateVideoInfo/",
   login: url + "authentication/login",
   register: url + "authentication/register",
   passwordChange: url + "authentication/changePassword?application=api-jwt",

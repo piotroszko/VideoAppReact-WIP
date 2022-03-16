@@ -124,5 +124,10 @@
   "videoErrorLength": "Za krótki tytuł dla wideo!",
   "videoTemplateCreated": "Szkic wideo został utworzony pomyślnie. \n Przkierowujemy na strone dalszej edycji",
   "videoFile": "Plik wideo",
-  "editForm": "Formularz edycji wideo"
+  "editForm": "Formularz edycji wideo",
+  "succesfulyUploadVideo": "Plik wideo został przesłany pomyślnie",
+  "fileNotSelected": "Nie został wybrany żaden plik",
+  "succesfulyEditVideoInfo": "Pomyślnie zedytowałeś informacje o wideo",
+  "tooShortTitle": "Tytuł filmu jest za krótki",
+  "saveVideo": "Zapisz"
 }

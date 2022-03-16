@@ -62,10 +62,31 @@ const EditVideo = () => {
           },
         })
         .then((res) => {
+          setLoading(true);
+          toast.success(t("succesfulyUploadVideo"));
           mutate(urls.videoInfo + id);
         });
     } else {
       toast.error(t("fileNotSelected"));
+    }
+  };
+  const updateVideoInfo = async () => {
+    if (title.length > 3) {
+      const axiosInstance = axios.create();
+      axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+      await axiosInstance
+        .post(urls.updateVideoInfo + id + urls.aplicationTag, {
+          name: title,
+          description: description,
+          tags: tags,
+        })
+        .then((res) => {
+          setLoading(true);
+          toast.success(t("succesfulyEditVideoInfo"));
+          mutate(urls.videoInfo + id);
+        });
+    } else {
+      toast.error(t("tooShortTitle"));
     }
   };
   return (
@@ -192,7 +213,10 @@ const EditVideo = () => {
             }}
             initialTags={tags}
           ></TagInput>
-          <button className="mb-8 mx-auto px-4 py-2 w-max text-gray-900 font-bold bg-gray-400 rounded-md">
+          <button
+            onClick={() => updateVideoInfo()}
+            className="mb-8 mx-auto px-4 py-2 w-max text-gray-900 font-bold bg-gray-400 rounded-md"
+          >
             {" "}
             {t("saveVideo")}
           </button>
