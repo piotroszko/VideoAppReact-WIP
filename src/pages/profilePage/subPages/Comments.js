@@ -22,8 +22,8 @@ const Comments = () => {
   });
   return (
     <div className="pt-16 w-full">
-      <div className="flex flex-col ml-8 w-full min-w-max sm:w-1/2 sm:min-w-min">
-        <div className="flex flex-row justify-start mt-10 pr-16 w-full">
+      <div className="flex flex-col ml-8 pr-4 w-full sm:pr-2 lg:w-1/2">
+        <div className="flex flex-row justify-start mt-10 w-full">
           <SmallSearchBar
             inputPlaceholder={"Wyszukaj"}
             onFilterChange={(f) => setFilterString(f)}

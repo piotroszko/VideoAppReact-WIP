@@ -28,7 +28,7 @@ const SmallSearchBar = ({ inputPlaceholder, onFilterChange, onInputChange }) => 
   };
 
   return (
-    <div className="flex flex-row justify-end pl-8 pr-16 w-max">
+    <div className="flex flex-col justify-end pl-8 pr-16 w-max sm:flex-row">
       <div className="flex flex-row items-center justify-center h-10">
         <svg
           className="mr-1 mt-2"
@@ -64,7 +64,7 @@ const SmallSearchBar = ({ inputPlaceholder, onFilterChange, onInputChange }) => 
           ></input>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center ml-6 h-full">
+      <div className="flex flex-col items-center justify-center h-full sm:ml-6">
         <div className="relative mt-3" ref={ref}>
           <input type="checkbox" className="absolute hidden" />
           <label

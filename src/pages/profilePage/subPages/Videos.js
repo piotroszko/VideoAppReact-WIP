@@ -29,7 +29,7 @@ const Videos = () => {
             onInputChange={(text) => setTextSearch(text)}
           ></SmallSearchBar>
         </div>
-        <div className="flex flex-col gap-2 mt-2 pt-2 w-full">
+        <div className="flex flex-col gap-2 mt-2 pl-2 pt-2 w-full sm:pl-0">
           {typeof data === "undefined" ? <LoadingDots></LoadingDots> : ""}
           {data
             ? data
