@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import MainLayout from "./../mainLayout/MainLayout";
-import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 import MobileCategories from "./components/MobileCategories/MobileCategories";
 import MobileSearchBar from "./components/MobileSearchBar/MobileSearchBar";
+import DarkmodeLangButton from "./components/DarkmodeLangButton/DarkmodeLangButton";
 
 const MobileNav = () => {
   const darkmode = useContext(DarkmodeContext);
@@ -78,7 +78,7 @@ const MobileNav = () => {
                 </svg>
               </button>
             </div>
-            <DarkmodeButton />
+            <DarkmodeLangButton />
             <button
               onClick={() => setShowNav(!showNav)}
               className="focus:outline-none"

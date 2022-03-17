@@ -43,7 +43,7 @@ const SubsPage = () => {
     <div className="flex flex-row">
       <div className="fixed top-16 flex flex-auto flex-col w-1/6 min-w-min h-full dark:text-gray-200 bg-gray-300 dark:bg-gray-800">
         <div className="flex flex-col gap-1 mt-1 w-full h-auto">
-          <p className="hidden mt-2 text-lg font-bold md:block">{t("subsSubscribed")}</p>
+          <p className="hidden mt-2 text-lg font-bold sm:block">{t("subsSubscribed")}</p>
         </div>
         <div className="scrollbarSubs scroll-smooth flex flex-col mt-6 border-t-2 border-gray-200 overflow-x-hidden overflow-y-auto">
           {subs &&

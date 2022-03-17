@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import DesktopCategories from "./components/DesktopCategories/DesktopCategories";
 import LoginButton from "./components/LoginButton/LoginButton";
 import MainLayout from "./../mainLayout/MainLayout";
-import DarkmodeButton from "./components/DarkmodeButton/DarkmodeButton";
 import { DarkmodeContext } from "../../utils/DarkmodeProvider";
 
 import SearchBar from "./components/DesktopSearchBar/SearchBar";
+import DarkmodeLangButton from "./components/DarkmodeLangButton/DarkmodeLangButton";
 
 const DesktopNav = () => {
   const darkmode = useContext(DarkmodeContext);
@@ -39,7 +39,7 @@ const DesktopNav = () => {
         </div>
         <DesktopCategories />
         <div className="flex flex-row w-full">
-          <DarkmodeButton />
+          <DarkmodeLangButton />
           <LoginButton />
         </div>
       </div>
