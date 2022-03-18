@@ -25,7 +25,37 @@
 ## Preview
 
 - Light/dark mode toggle
+
 ![](preview/Darkmode.gif)
+
+- Multiple language
+
+![](preview/Language.gif)
+
+- Responsive designe
+
+![](preview/Responsive.gif)
+
+- Auth
+
+![](preview/Auth.gif)
+
+- Video player
+
+![](preview/videoPlayer.png)
+
+- Video preview
+
+![](preview/Preview.png)
+
+- Playlists
+
+![](preview/Playlists.gif)
+
+- Comments
+
+![](preview/Comments.gif)
+
 
 
 ## Authors
