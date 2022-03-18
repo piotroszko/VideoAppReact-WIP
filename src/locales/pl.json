@@ -134,5 +134,11 @@
   "fileNotSelected": "Nie został wybrany żaden plik",
   "succesfulyEditVideoInfo": "Pomyślnie zedytowałeś informacje o wideo",
   "tooShortTitle": "Tytuł filmu jest za krótki",
-  "saveVideo": "Zapisz"
+  "saveVideo": "Zapisz",
+  "hidden": "Ukryte wideo",
+  "public": "Publiczne wideo",
+  "link": "Wideo dostepne przy pomocy linku",
+  "publicityChange": "Zmiana dostepności wideo",
+  "videoPublicityChange": "Dostepność wideo została zmieniona na: ",
+  "errorMediaNotAviable": "Nie możesz zmienić dostepności wideo jeśli nie ma dostepnego pliku wideo."
 }

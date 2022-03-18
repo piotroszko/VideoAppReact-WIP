@@ -133,5 +133,11 @@
   "fileNotSelected": "No file has been selected",
   "succesfulyEditVideoInfo": "You have successfully edited the video information",
   "tooShortTitle": "Video title is too short",
-  "saveVideo": "Save"
+  "saveVideo": "Save",
+  "hidden": "Hidden video",
+  "public": "Public video",
+  "link": "Video aviable through link",
+  "publicityChange": "Change publicity of a video",
+  "videoPublicityChange": "Publicity of a video was changed to: ",
+  "errorMediaNotAviable": "You cant change publicity of a video if there is no video file uploaded."
 }

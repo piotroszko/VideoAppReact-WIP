@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import urls from "./../../../api/auth-ep";
 import "./SubPages.css";
 import TagInput from "./../../../components/TagInput/TagInput";
+import DropdownInput from "../../../components/DropdownInput/DropdownInput";
 
 const EditVideo = () => {
   let { id } = useParams();
@@ -70,6 +71,17 @@ const EditVideo = () => {
       toast.error(t("fileNotSelected"));
     }
   };
+  const publicityChange = async (opt) => {
+    const axiosInstance = axios.create();
+    axiosInstance.defaults.headers["Authorization"] = `${localStorage.getItem("token")}`;
+    await axiosInstance
+      .post(urls.videoPublicity + id + urls.aplicationTag, { publicity: opt })
+      .then((res) => {
+        setLoading(true);
+        toast.success(t("videoPublicityChange") + t(res.data.publicity));
+        mutate(urls.videoInfo + id);
+      });
+  };
   const updateVideoInfo = async () => {
     if (title.length > 3) {
       const axiosInstance = axios.create();
@@ -97,6 +109,19 @@ const EditVideo = () => {
             <>
               <div className="h-max flex flex-col justify-center order-3 mx-auto w-full text-lg font-bold cursor-pointer sm:order-1 sm:mx-0 sm:w-1/3">
                 {" "}
+                <p
+                  className={`${data?.publicity === "hidden" && "text-red-500"}
+                ${data?.publicity === "public" && "text-green-500"}
+                ${data?.publicity === "link" && "text-blue-500"}
+                `}
+                >
+                  {" "}
+                  {"- "}
+                  {data?.publicity === "hidden" && t("hidden")}
+                  {data?.publicity === "public" && t("public")}
+                  {data?.publicity === "link" && t("link")}
+                  {" -"}
+                </p>
                 <p className="">{data?.name}</p>
                 <p className="mt-2 text-base italic font-normal">{data?.description}</p>{" "}
               </div>
@@ -161,6 +186,7 @@ const EditVideo = () => {
             onChange={(e) => handleFileUpload(e)}
             className="mx-auto px-2 py-1 w-3/4 font-semibold bg-gray-400 dark:bg-gray-600 rounded-md"
           ></input>
+
           <div
             className={`${
               progress !== 0 ? "opacity-100" : "opacity-0"
@@ -186,8 +212,21 @@ const EditVideo = () => {
           >
             {t("send")}
           </button>
-
-          <p forHtml="name">{t("videoName")}</p>
+          <p className="mt-2">{t("publicityChange")}</p>
+          {data?.mediaAvaiable && (
+            <DropdownInput
+              options={["hidden", "public"]}
+              default={data.publicity}
+              translate
+              publicityChange={(opt) => publicityChange(opt)}
+            ></DropdownInput>
+          )}
+          {!data?.mediaAvaiable && (
+            <p className="text-red-600 text-base font-semibold"> {t("errorMediaNotAviable")}</p>
+          )}
+          <p forHtml="name" className="mt-4">
+            {t("videoName")}
+          </p>
           <input
             id="name"
             type="text"
