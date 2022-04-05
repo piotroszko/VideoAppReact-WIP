@@ -1,4 +1,6 @@
 # VideoApp - portfolio project in React with Tailwind
+
+Video presentation of a app:
 [![youtube](https://img.youtube.com/vi/zwd8QHJCIhE/0.jpg)](https://www.youtube.com/watch?v=zwd8QHJCIhE)
 
 ## Features
