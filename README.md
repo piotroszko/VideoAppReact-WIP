@@ -1,4 +1,6 @@
 # VideoApp - portfolio project in React with Tailwind
+[![youtube](https://img.youtube.com/vi/zwd8QHJCIhE/0.jpg)](https://www.youtube.com/watch?v=zwd8QHJCIhE)
+
 ## Features
 
 - Light/dark mode toggle
